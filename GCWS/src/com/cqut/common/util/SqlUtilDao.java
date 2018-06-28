@@ -1,10 +1,7 @@
 package com.cqut.common.util;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public interface SqlUtilDao {
     public Boolean add(Object object) throws IllegalAccessException, SQLException;
