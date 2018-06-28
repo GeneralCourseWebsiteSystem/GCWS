@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class SqlUtilDaoImpl implements SqlUtilDao {
     @Override
     public Boolean add(Object object) throws IllegalAccessException, SQLException {
-        Class clazz = object.getClass();
+        Class<? extends Object> clazz = object.getClass();
         //获取实体属性
         Field[] fields = clazz.getDeclaredFields();
         //申明StringBuffer的Sql
@@ -76,7 +76,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
 
     @Override
     public Boolean update(Object object) throws SQLException, IllegalAccessException {
-        Class clazz = object.getClass();
+        Class<? extends Object> clazz = object.getClass();
         //获取实体属性
         Field[] fields = clazz.getDeclaredFields();
         //申明StringBuffer的Sql
@@ -131,7 +131,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
 
     @Override
     public Boolean delete(int id, Object object) throws SQLException {
-        Class clazz = object.getClass();
+        Class<? extends Object> clazz = object.getClass();
         StringBuffer sql = new StringBuffer();
 
         //拼接Sql
@@ -162,7 +162,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
 
     @Override
     public ArrayList<Object> query(Object object) throws SQLException {
-        Class clazz = object.getClass();
+        Class<? extends Object> clazz = object.getClass();
         //获取实体属性
         Field[] fields = clazz.getDeclaredFields();
         //申明StringBuffer的Sql
@@ -192,7 +192,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
             System.out.println(sql);
             //执行Sql语句
             ResultSet resulSet = statement.executeQuery(resuleSql);
-            ArrayList<Object> list=new ArrayList();
+            ArrayList<Object> list=new ArrayList<Object>();
             while(resulSet.next()) {
                 Object obj = attribute.newInstance();
                 for (int i = 0; i < fields.length; i++) {
@@ -228,7 +228,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
 
     @Override
     public ArrayList<Object> queryByCondition(Object object, String name, Integer condition) throws SQLException {
-        Class clazz = object.getClass();
+        Class<? extends Object> clazz = object.getClass();
         //获取实体属性
         Field[] fields = clazz.getDeclaredFields();
         //申明StringBuffer的Sql
@@ -259,7 +259,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
             System.out.println(sql);
             //执行Sql语句
             ResultSet resulSet = statement.executeQuery(resuleSql);
-            ArrayList<Object> list=new ArrayList();
+            ArrayList<Object> list=new ArrayList<Object>();
             while(resulSet.next()) {
                 Object obj = attribute.newInstance();
                 for (int i = 0; i < fields.length; i++) {
@@ -295,7 +295,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
 
     @Override
     public Integer getLargestId(Object obj) throws SQLException {
-        Class clazz = obj.getClass();
+        Class<? extends Object> clazz = obj.getClass();
         //申明StringBuffer的Sql
         StringBuffer sql = new StringBuffer();
         //拼接Sql
@@ -314,7 +314,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
 
     @Override
     public Boolean countAdd(Object object, String name, Integer id) throws SQLException {
-        Class clazz = object.getClass();
+        Class<? extends Object> clazz = object.getClass();
         //申明StringBuffer的Sql
         StringBuffer sql = new StringBuffer();
         //拼接Sql
