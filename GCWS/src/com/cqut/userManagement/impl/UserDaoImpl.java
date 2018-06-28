@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserManagementDao {
 	public ArrayList<User> getAll() {
 		String sql = "SELECT * from user WHERE user.is_delete = 0;";
 		ArrayList<User> userList = new ArrayList<User>();
-		Connection connection = DBUtil.getConnection();
+		Connection connection = DBUtil.open();
 		try{
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
