@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Adidasi">
+    <wb-module deploy-name="GCWS">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Adidasi"/>
-        <property name="java-output-path" value="/Adidasi/build/classes"/>
+        <property name="java-output-path" value="/GCWS/build/classes"/>
+        <property name="context-root" value="GCWS"/>
     </wb-module>
 </project-modules>
