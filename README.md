@@ -4,31 +4,31 @@ GCWS通用课程网站系统
 ===============
 ...
 ```shell
->>├──src<br>
->>>>├──公用模块（如放DBUtil等)<br>
->>>>├──模块名1<br>
->>>>>>├──dao<br>
->>>>>>├──daoImpl<br>
->>>>>>├──servlet<br>
->>>>>>├──enitty<br>
->>>>├──模块名2<br>
->>>>>>├──dao<br>
->>>>>>├──daoImpl<br>
->>>>>>├──servlet<br>
->>>>>>├──entity<br>
+├──src<br>
+  ├──公用模块（如放DBUtil等)<br>
+  ├──模块名1<br>
+     ├──dao<br>
+     ├──daoImpl<br>
+     ├──servlet<br>
+     ├──enitty<br>
+  ├──模块名2<br>
+     ├──dao<br>
+     ├──daoImpl<br>
+     ├──servlet<br>
+     ├──entity<br>
 ...
->>├──webcontent<br>
->>>>├──公用模块（公用的js，css等）<br>
->>>>├──模块名1<br>
->>>>>>├──html<br><br>
->>>>>>──javascript<br>
->>>>>>├──jsp<br><br>
->>>>>>├──css<br>
->>>>├──模块名2<br>
->>>>>>├──html<br>
->>>>>>├──javascript<br>
->>>>>>├──jsp<br><br>
->>>>>>├──css<br>
+├──webcontent<br>
+  ├──公用模块（公用的js，css等）<br>
+     ├──模块名1<br>
+     ├──html<br><br>
+     ├──javascript<br>
+     ├──jsp<br><br>
+     ├──css<br>
+  ├──模块名2<br>
+     ├──html<br>
+     ├──javascript<br>
+     ├──jsp<br><br>
+     ├──css<br>
 ...
 ```
 #
