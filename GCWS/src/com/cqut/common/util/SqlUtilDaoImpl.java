@@ -1,6 +1,6 @@
 package com.cqut.common.util;
 
-import com.cqut.common.util.Column;
+import com.cqut.common.util.SqlUtilDao;
 import com.cqut.common.util.DBUtil;
 
 import java.lang.reflect.Field;
@@ -86,8 +86,8 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
         Integer id = 0;
 
         //拼接Sql
-        sql.append("update ");
-        sql.append(clazz.getSimpleName().toLowerCase());
+        sql.append("update `");
+        sql.append(clazz.getSimpleName().toLowerCase() + "`");
         sql.append(" set ");
         for(Field field:fields)
         {
@@ -96,7 +96,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
             {
                 continue;
             }
-            String fieldName = field.getName();
+            String fieldName = "`" + field.getName() + "`";
 
             field.setAccessible(true);
             Object value = field.get(object);
@@ -130,13 +130,13 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
     }
 
     @Override
-    public Boolean delete(int id, Object object) throws IllegalAccessException, SQLException {
+    public Boolean delete(int id, Object object) throws SQLException {
         Class clazz = object.getClass();
         StringBuffer sql = new StringBuffer();
 
         //拼接Sql
-        sql.append("delete from ");
-        sql.append(clazz.getSimpleName().toLowerCase());
+        sql.append("delete from `");
+        sql.append(clazz.getSimpleName().toLowerCase() + "`");
         sql.append(" where id = " + id);
 
         String resuleSql = sql.toString();
@@ -161,7 +161,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
     }
 
     @Override
-    public ArrayList<Object> query(Object object) throws IllegalAccessException, SQLException {
+    public ArrayList<Object> query(Object object) throws SQLException {
         Class clazz = object.getClass();
         //获取实体属性
         Field[] fields = clazz.getDeclaredFields();
@@ -176,12 +176,12 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
         for(Field field:fields)
         {
             field.setAccessible(true);
-            String fieldName = field.getName();
+            String fieldName = "`" + field.getName() + "`";
             sql.append(fieldName).append(",");
         }
         sql.deleteCharAt(sql.length()-1);
 
-        sql.append(" from " + clazz.getSimpleName());
+        sql.append(" from `" + clazz.getSimpleName() + "`");
 
         //将Sql解析为String类型
         String resuleSql = sql.toString();
@@ -207,6 +207,8 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
                         fields[i].set(obj, resulSet.getDate(tName));
                     }else if("int".equals(type)){
                         fields[i].set(obj, resulSet.getInt(tName));
+                    }else if("Integer".equals(type)) {
+                        fields[i].set(obj, resulSet.getInt(tName));
                     }else if("double".equals(type)){
                         fields[i].set(obj, resulSet.getDouble(tName));
                     }else if("float".equals(type)){
@@ -215,7 +217,6 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
                 }
                 list.add(obj);
             }
-
             return list;
         } catch (Exception e) {
             e.printStackTrace();
@@ -224,4 +225,113 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
             DBUtil.close(connection);
         }
     }
+
+    @Override
+    public ArrayList<Object> queryByCondition(Object object, String name, Integer condition) throws SQLException {
+        Class clazz = object.getClass();
+        //获取实体属性
+        Field[] fields = clazz.getDeclaredFields();
+        //申明StringBuffer的Sql
+        StringBuffer sql = new StringBuffer();
+
+        //获取对象属性
+        Class<?> attribute = object.getClass();
+
+        //拼接Sql
+        sql.append("select ");
+        for(Field field:fields)
+        {
+            field.setAccessible(true);
+            String fieldName = "`" + field.getName() + "`";
+            sql.append(fieldName).append(",");
+        }
+        sql.deleteCharAt(sql.length()-1);
+
+        sql.append(" from `" + clazz.getSimpleName() + "`");
+        sql.append(" where " + name + " = " + condition);
+
+        //将Sql解析为String类型
+        String resuleSql = sql.toString();
+        new DBUtil();
+        Connection connection = DBUtil.open();
+        Statement statement =  connection.createStatement();
+        try {
+            System.out.println(sql);
+            //执行Sql语句
+            ResultSet resulSet = statement.executeQuery(resuleSql);
+            ArrayList<Object> list=new ArrayList();
+            while(resulSet.next()) {
+                Object obj = attribute.newInstance();
+                for (int i = 0; i < fields.length; i++) {
+                    //获取属性类型
+                    String type = fields[i].getType().getSimpleName();
+                    //获取属性名
+                    String tName = fields[i].getName();
+                    //给该属性赋值
+                    if("String".equals(type)){
+                        fields[i].set(obj, resulSet.getString(tName));
+                    }else if("Date".equals(type)){
+                        fields[i].set(obj, resulSet.getDate(tName));
+                    }else if("int".equals(type)){
+                        fields[i].set(obj, resulSet.getInt(tName));
+                    }else if("Integer".equals(type)){
+                        fields[i].set(obj, resulSet.getInt(tName));
+                    }else if("double".equals(type)){
+                        fields[i].set(obj, resulSet.getDouble(tName));
+                    }else if("float".equals(type)){
+                        fields[i].set(obj, resulSet.getFloat(tName));
+                    }
+                }
+                list.add(obj);
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            DBUtil.close(connection);
+        }
+    }
+
+    @Override
+    public Integer getLargestId(Object obj) throws SQLException {
+        Class clazz = obj.getClass();
+        //申明StringBuffer的Sql
+        StringBuffer sql = new StringBuffer();
+        //拼接Sql
+        sql.append("select max(id) ");
+        sql.append("from `" + clazz.getSimpleName() + "`");
+        //将Sql解析为String类型
+        String resuleSql = sql.toString();
+        new DBUtil();
+        Connection connection = DBUtil.open();
+        Statement statement =  connection.createStatement();
+        //执行Sql语句
+        ResultSet resulSet = statement.executeQuery(resuleSql);
+        resulSet.next();
+        return resulSet.getInt(1);
+    }
+
+    @Override
+    public Boolean countAdd(Object object, String name, Integer id) throws SQLException {
+        Class clazz = object.getClass();
+        //申明StringBuffer的Sql
+        StringBuffer sql = new StringBuffer();
+        //拼接Sql
+        sql.append("update `");
+        sql.append(clazz.getSimpleName().toLowerCase() + "`");
+        sql.append(" set " + "`" + name + "`" + " = `" + name + "` + 1");
+
+        //将Sql解析为String类型
+        String resuleSql = sql.toString();
+        new DBUtil();
+        Connection connection = DBUtil.open();
+        Statement statement =  connection.createStatement();
+        System.out.println(sql);
+        //执行Sql语句
+        statement.execute(resuleSql);
+        return true;
+    }
+
+
 }
