@@ -5,30 +5,30 @@ GCWS通用课程网站系统
 ```shell
 ...
 ├──src
-  ├──公用模块（如放DBUtil等)
-  ├──模块名1
-     ├──dao
-     ├──daoImpl
-     ├──servlet
-     ├──enitty
-  ├──模块名2
-     ├──dao
-     ├──daoImpl
-     ├──servlet
-     ├──entity
+|  ├──公用模块（如放DBUtil等)
+|  ├──模块名1
+|     ├──dao
+|     ├──daoImpl
+|     ├──servlet
+|     ├──enitty
+|  ├──模块名2
+|     ├──dao
+|     ├──daoImpl
+|     ├──servlet
+|     ├──entity
 ...
 ├──webcontent
-  ├──公用模块（公用的js，css等）
-  ├──模块名1
-     ├──javascript
-     ├──jsp
-     ├──css
-     ├──img
-  ├──模块名2
-     ├──javascript
-     ├──jsp
-     ├──css
-     ├──img
+|  ├──公用模块（公用的js，css等）
+|  ├──模块名1
+|     ├──javascript
+|     ├──jsp
+|     ├──css
+|     ├──img
+|  ├──模块名2
+|     ├──javascript
+|     ├──jsp
+|     ├──css
+|     ├──img
 ...
 ```
 #
