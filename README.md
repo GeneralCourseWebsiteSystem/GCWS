@@ -3,19 +3,19 @@ GCWS通用课程网站系统
 开发规范目录结构
 ===============
 ...
-├──src<br>
-   ├──公用模块（如放DBUtil等)<br>
-   ├──模块名1<br>
-      ├──dao<br>
-#      ├──daoImpl
-#      ├──servlet
-#	  ├──enitty
-#├──模块名2
-#  ├──dao
-# ├──daoImpl
-#  ├──servlet
-#  ├──entity
-#…
+>>├──src<br>
+>>>>├──公用模块（如放DBUtil等)<br>
+>>>>├──模块名1<br>
+>>>>>>>>├──dao<br>
+>>>>>>>>├──daoImpl
+>>>>>>>>├──servlet
+>>>>>>>>├──enitty
+>>>>├──模块名2
+>>>>>>>>├──dao
+>>>>>>>>├──daoImpl
+>>>>>>>>├──servlet
+>>>>>>>>├──entity
+...
 #
 #├──webcontent
 #  ├──公用模块（公用的js，css等）
