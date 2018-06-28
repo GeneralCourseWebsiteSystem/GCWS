@@ -11,7 +11,7 @@ GCWS通用课程网站系统
 >>>>>>├──servlet<br>
 >>>>>>├──enitty<br>
 #
->>├──模块名2<br>
+>>>>├──模块名2<br>
 >>>>>>├──dao<br>
 >>>>>>├──daoImpl<br>
 >>>>>>├──servlet<br>
