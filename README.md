@@ -20,8 +20,8 @@ GCWS通用课程网站系统
 ├──webcontent
 |  ├──公用模块（公用的js，css等）
 |     ├──img
-      ├──css
-      ├──js
+|     ├──css
+|     ├──js
 |  ├──模块名1
 |     ├──js
 |     ├──jsp
