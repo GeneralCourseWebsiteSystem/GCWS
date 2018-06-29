@@ -1,0 +1,136 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	paddind: 0;
+}
+
+.header{
+	height: 300px;
+    width: 70%;
+    padding: 0 15%;
+    background: #a5b0cc;
+}
+
+.header_top{
+	width: 100%;
+    height: 175px;
+    padding-top: 30px;
+}
+
+.header_left{
+	float: left;
+    width: 60%;
+}
+
+.header_logo{
+    overflow: hidden;
+    height: 70px;
+    margin-bottom: 15px;
+}
+
+.header_logo img{
+	width: 12%;
+}
+
+.header_logo label{
+	font-size: 35px;
+    line-height: 30px;
+    color: white;
+    position: relative;
+    bottom: 20px;
+    left: 10px;
+    letter-spacing: 5px;
+    font-family: cursive;
+}
+
+.header_title{
+    width: 420px;
+    line-height: 75px;
+    padding-left: 40px;
+    font-size: 30px;
+    color: white;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background: linear-gradient(to right,rgb(255,255,255,0.5),rgb(255,255,255,0.1));
+}
+
+.header_right{
+	float: right;
+    width: 40%;
+}
+
+.header_img{
+	height: 160px;
+    border-top-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+    overflow: hidden;
+    box-shadow: 7px 2px 20px azure;
+}
+
+.header_img img{
+	width: 100%;
+    height: 100%;
+}
+
+.course_search{
+	line-height: 60px;
+    text-align: right;
+    padding-right: 80px;
+}
+
+.course_search span{
+	font-size: 18px;
+}
+
+.search_text{
+	height: 25px;
+    border: 1px solid white;
+    padding: 1px 3px;
+}
+
+.search_btn{
+	height: 29px;
+    width: 50px;
+    border: 1px solid white;
+    padding: 1px 3px;
+    background-color: dodgerblue;
+    cursor: pointer;
+    color: white;
+}
+
+.course_nav{
+	line-height: 35px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 1px solid gray;
+    color: white;
+    font-size: 18px;
+    background-color: SlateGrey;
+}
+
+.course_nav ul{
+	padding-left: 2%;
+    height: 100%;
+}
+
+.course_nav ul li{
+	list-style: none;
+    display: inline-block;
+    width: 13%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.footer{
+	width: 100%;
+	height: 100px;
+	background: #a5b0cc;
+}
+
+.footer_content{
+	width: 100%;
+    text-align: center;
+    line-height: 25px;
+    padding-top: 25px;
+}
