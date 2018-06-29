@@ -156,7 +156,7 @@ public class SqlUtilDaoImpl implements SqlUtilDao {
     }
 
     @Override
-    public Object getStudentById(int id) {
+    public Object getObjectById(int id) {
         return null;
     }
 
