@@ -1,18 +1,19 @@
-.input_text{
-	width:80%;
-	height:500px;
-	background-color:	#FFFF77;
+.publish_box{
+	width:200px;
+	height:300px;
+	background-color:#DDDDDD;
 }
-.btn {
-BORDER-RIGHT: #7b9ebd 1px solid;
- PADDING-RIGHT: 2px; 
- BORDER-TOP: #7b9ebd 1px solid; 
- PADDING-LEFT: 2px; 
- FONT-SIZE: 12px; 
- FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); 
- BORDER-LEFT: #7b9ebd 1px solid; 
- CURSOR: hand;
- COLOR: black; 
- PADDING-TOP: 2px; 
- BORDER-BOTTOM: #7b9ebd 1px solid;
+.input_box{
+	resize:none;
+	width:500px;
+	height:70px;
+	background:url(http://www.lanrentuku.com/down/js/images/12450456760.gif) no-repeat right top; 
+	
+}
+.title{
+	width:150px;
+	height:80px;
+}
+.top_content{
+	overflow-x: auto; overflow-y: auto; height: 100px; width:800px;
 }

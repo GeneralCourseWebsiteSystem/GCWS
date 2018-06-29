@@ -10,24 +10,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
-	href="../css/questionsAndAnswers.css" />
+	href="<%=path %>/QuestionAndAnswers/css/questionsAndAnswers.css" />
 <title>通用课程网站系统</title>
 </head>
+
 <body>
-    <form action="<%=request.getContextPath()%>/messageManagement"method="post">
-        <textarea rows="20" cols="100"  >
-显示所有的聊天信息
-sdsdsds
-sdsdsd
-sdsdsd
-        </textarea>
-        <br/>
+  <div class="top_content">
+       	<table border='0' cellspacing='5' width="800">
+		<tr>
+			<td class="title">用户</td>
+			<td class="title">发表内容</td>
+			<td class="title">发表时间</td>
+	
+		</tr>
+	    
 
-    <p class="title">问题与答疑</p>
+		<tr>
+			
+			<td>小明</td>
+			<td>陈国祥长得帅陈国祥长得帅陈国祥长得帅陈国祥长长得帅陈国祥长得帅陈国祥长得帅</td>
+			<td>2018/6/29</td>
 
-		<textarea rows="20" cols="100"></textarea>
-		<br/>
-		<input class="btn" type="submit" name="yes" value="发表" />
+		</tr>
+	</table>
+	</div>
+	
+	<hr style=" height:2px;border:none;border-top:2px dotted #185598;width:800px;margin-left:0px;" />
+	<br/>
+	 <form action="<%=request.getContextPath()%>/messageManagement"method="post">
+		    <textarea name="input_content" class="input_box">你想说......</textarea>
+			<input type="submit" name="publish" value="发表" />
 	</form>
 
 
