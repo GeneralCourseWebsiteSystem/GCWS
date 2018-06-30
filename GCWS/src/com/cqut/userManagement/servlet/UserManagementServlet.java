@@ -1,12 +1,19 @@
 package com.cqut.userManagement.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.cqut.userManagement.entity.User;
+import com.cqut.userManagement.impl.UserDaoImpl;
 
 /**
  * Servlet implementation class UserManagementServlet
@@ -42,7 +49,37 @@ public class UserManagementServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//System.out.print("sss");
+		  HttpSession session = request.getSession();
+		  PrintWriter out = response.getWriter();  
+		  String username = request.getParameter("user");
+		  String pwd = request.getParameter("password");
+		  UserDaoImpl userDao=new UserDaoImpl();
+		  boolean result=true;
+		  System.out.print(username);
+		  ArrayList<User> userList =userDao.getAll();
+		  User user=userDao.getId(username);
+		  System.out.print(user.getPassword());
+		  
+		  for(int i=0;i<userList.size();i++){
+			  if(userList.get(i).getAccount().equals(username)){
+				  if(pwd.equals(user.getPassword())){
+					  
+					  response.sendRedirect("BackStageLogin.jsp");
+				  }
+				  else{
+					  out.print("<script>alert('密码错误');window.location='ReturnLogin?do=login';</script>");  
+					  return;
+				  }
+			  }else{
+				  result=false;
+			  }
+		  }
+		  if(result==false){
+				  out.print("<script>alert('没有此账号');window.location='ReturnLogin?do=login';</script>"); 
+				  return;
+		  }
+		  
 	}
 
 	/**
