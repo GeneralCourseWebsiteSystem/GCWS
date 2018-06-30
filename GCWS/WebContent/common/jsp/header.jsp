@@ -13,8 +13,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/common/css/stageMultiplexing.css">
 </head>
 <body>
-	<%-- 使用公用页面方法：<%@ include file="路径.jsp" %> 
-	css在自己写的页面导入--%>
+	<%-- 使用公用页面方法：<%@ include file="路径.jsp" %>--%>
 	<div class="header">
 		<div class="header_top">
 			<div class="header_left">
