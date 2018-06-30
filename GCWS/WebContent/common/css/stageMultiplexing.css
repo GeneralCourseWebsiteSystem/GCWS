@@ -6,7 +6,7 @@
 
 .header{
 	height: 300px;
-    width: 70%;
+    width: 956px;
     padding: 0 15%;
     background: #a5b0cc;
 }
@@ -19,7 +19,7 @@
 
 .header_left{
 	float: left;
-    width: 60%;
+    width: 565px;
 }
 
 .header_logo{
@@ -33,14 +33,14 @@
 }
 
 .header_logo label{
-	font-size: 35px;
+	font-size: 45px;
     line-height: 30px;
     color: white;
     position: relative;
     bottom: 20px;
     left: 10px;
     letter-spacing: 5px;
-    font-family: cursive;
+    font-family: 华文行楷;
 }
 
 .header_title{
@@ -57,7 +57,7 @@
 
 .header_right{
 	float: right;
-    width: 40%;
+    width: 375px;
 }
 
 .header_img{
@@ -76,7 +76,7 @@
 .course_search{
 	line-height: 60px;
     text-align: right;
-    padding-right: 80px;
+    width: 880px;
 }
 
 .course_search span{

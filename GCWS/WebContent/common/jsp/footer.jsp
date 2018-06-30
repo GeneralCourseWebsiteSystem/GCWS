@@ -5,9 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/stageMultiplexing.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/common/css/stageMultiplexing.css">
 </head>
 <body>
+<%-- 使用公用页面方法：<%@ include file="路径.jsp" %> 
+	css在自己写的页面导入--%> 
 	<div class="footer">
 		<div class="footer_content">
 			重庆理工大学版权所有<br/>

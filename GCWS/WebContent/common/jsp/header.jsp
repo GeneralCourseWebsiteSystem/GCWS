@@ -10,20 +10,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/stageMultiplexing.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/common/css/stageMultiplexing.css">
 </head>
 <body>
+	<%-- 使用公用页面方法：<%@ include file="路径.jsp" %> 
+	css在自己写的页面导入--%>
 	<div class="header">
 		<div class="header_top">
 			<div class="header_left">
 			<div class="header_logo">
-				<img alt="." src="../image/logo.png"> <label>重庆理工大学</label>
+				<img alt="." src="<%=request.getContextPath() %>/common/image/logo.png"> <label>重庆理工大学</label>
 			</div>
-			<div class="header_title">数据结构精品课程</div>
+			<%-- 这里写的时候自己改，把下面注释掉 --%>
+			<div class="header_title"><%-- <%=courseForStage.getCourse_name() %> --%>精品课程</div>
 		</div>
 		<div class="header_right">
 			<div class="header_img">
-				<img alt="." src="../image/show_img.jpg">
+				<img alt="." src="<%=request.getContextPath() %>/common/image/show_img.jpg">
 			</div>
 		</div>
 		</div>
@@ -36,13 +39,14 @@
 		</div>
 		<div class="course_nav">
 			<ul>
-				<li>首页</li>
-				<li>课程介绍</li>
-				<li>教学团队</li>
-				<li>课程建设</li>
-				<li>课程资源</li>
-				<li>留言</li>
-				<li>课程研究</li>
+				<!-- 跳转页面的传的参数自己加 -->
+				<li onclick="to_courseHomepage()">首页</li>
+				<li onclick="to_courseIntroduce()">课程介绍</li>
+				<li onclick="to_teacherTeam()">教学团队</li>
+				<li onclick="to_courseConstruction()">课程建设</li>
+				<li onclick="to_courseResource()">课程资源</li>
+				<li onclick="to_courseMessage()">留言</li>
+				<li onclick="to_courseResearch()">课程研究</li>
 			</ul>
 		</div>
 	</div>
