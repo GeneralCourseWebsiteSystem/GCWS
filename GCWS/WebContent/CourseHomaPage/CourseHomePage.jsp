@@ -8,11 +8,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./common/font-awesome-4.7.0/css/font-awesome.min.css">
 <title>通用课程网站系统</title>
 </head>
 <body>
-hello,world!<span class='fa fa-wpexplorer'></span>
-git修改示例
+	<div class="content">
+	    
+	</div>
 </body>
 </html>

@@ -8,11 +8,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./common/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=path%>/CourseHomePage/css/courseHomePage.css" />
 <title>通用课程网站系统</title>
 </head>
 <body>
-hello,world!<span class='fa fa-wpexplorer'></span>
-git修改示例
+	<div class="style1"><h5>课程简介</h5></div>
+	<div class="style2"><h5>课程负责人</h5></div>
+	<div class="style3"><h5>课程动态</h5></div>
+	<div class="style4"><h5>教学资源</h5></div>
+	<div class="style4"><h5>课程组成员</h5></div>
+	
 </body>
 </html>
