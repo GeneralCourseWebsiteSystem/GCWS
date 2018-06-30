@@ -1,4 +1,4 @@
-package com.cqut.messageManagement.servlet;
+package com.cqut.questionsAndAnswers.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,12 +20,12 @@ import com.cqut.messageManagement.impl.MessageDaoImpl;
 /**
  * Servlet implementation class messageManagement
  */
-@WebServlet("/messageManagement")
-public class messageManagement extends HttpServlet {
+@WebServlet("/questionsAndAnswers")
+public class questionsAndAnswers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public messageManagement() {
+    public questionsAndAnswers() {
         super();
         // TODO Auto-generated constructor stub
     }

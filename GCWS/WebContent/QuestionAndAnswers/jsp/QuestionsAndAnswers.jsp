@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.* "%>
+	  <%@page import="com.cqut.messageManagement.entity.Message" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	List<Message> list1 = (List<Message>)request.getAttribute("MessageList");	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,14 +26,15 @@
 	
 		</tr>
 	    
-
+<%for(int i=0 ;i<list1.size();i++) {%>
 		<tr>
 			
-			<td>小明</td>
-			<td>陈国祥长得帅陈国祥长得帅陈国祥长得帅陈国祥长长得帅陈国祥长得帅陈国祥长得帅</td>
-			<td>2018/6/29</td>
-
+			<td><%=list1.get(i).getId() %></td>
+			<td><%=list1.get(i).getMessage_content() %></td>
+			<td><%=list1.get(i).getCreate_time() %></td>
+			
 		</tr>
+		<%} %>
 	</table>
 	</div>
 	

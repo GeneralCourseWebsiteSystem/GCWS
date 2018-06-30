@@ -1,4 +1,4 @@
-package com.cqut.messageManagement.impl;
+package com.cqut.questionsAndAnswers.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ import com.cqut.messageManagement.entity.Message;
  * @date 2018.6.29
  *
  */
-public class MessageDaoImpl implements MessageManagementDao {
+public class questionsAndAnswers implements MessageManagementDao {
 
 	/**
 	 * @author cgx
