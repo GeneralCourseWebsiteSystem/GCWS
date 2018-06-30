@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
-import com.cqut.userManagement.DBUtil.DBUtil;
+import com.cqut.common.util.DBUtil;
 import com.cqut.userManagement.dao.UserManagementDao;
 import com.cqut.userManagement.entity.User;
 import com.cqut.userManagement.entity.UserRole;
@@ -73,7 +71,7 @@ public class UserDaoImpl implements UserManagementDao {
 		
 		try {
 			System.out.println(sql);
-			connection =DBUtil.getConnection();
+			connection = DBUtil.open();
 			Statement  statement =  connection.createStatement();
 			ResultSet rs=statement.executeQuery(sql);
 			 while (rs.next()) {  
