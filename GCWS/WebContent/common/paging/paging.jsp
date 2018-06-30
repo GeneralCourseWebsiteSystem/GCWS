@@ -13,12 +13,11 @@
 	}else{
 		pageIndex = Integer.parseInt(request.getAttribute("pageIndex")+"");
 	}
+	  
 	
+//将下面的这段代码copy在post方法中（下面的整段代码）
 	
-	//将下面的这段代码copy在post方法中
-	
-//		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+//		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 //		List<Teacher> teachers = new TeacherDao().ListTeacher();
 //		int pageMegNum = 1;		
 //		if(request.getParameter("pageMegNum")!=null) {
