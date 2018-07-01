@@ -43,11 +43,9 @@ public class messageManagementBack extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//判断参数是否是删除指令
-//		String receive = request.getParameter("code");
-//		int authorId = Integer.parseInt(request.getParameter("name"));
-		
 
+		
+//判断是否进行切换
 
 if(request.getParameter("code")!=null){
 	int authorId = Integer.parseInt(request.getParameter("name"));
