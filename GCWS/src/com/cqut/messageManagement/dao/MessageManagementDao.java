@@ -26,9 +26,4 @@ public interface MessageManagementDao {
 	 * 增加一条留言
 	 */
 	public boolean add_message(Message msg);
-	
-	
-
-
-	
 }

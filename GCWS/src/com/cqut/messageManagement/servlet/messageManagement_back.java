@@ -20,7 +20,7 @@ import com.cqut.messageManagement.impl.MessageDaoImpl;
 /**
  * Servlet implementation class messageManagement
  */
-@WebServlet("/messageManagement")
+@WebServlet("/messageManagementBack")
 public class messageManagement_back extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
