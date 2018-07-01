@@ -12,7 +12,7 @@ import com.cqut.messageManagement.entity.Message;
 public interface MessageManagementDao {
 	
 	/**
-	 * 获取所有留言
+	 * 获取所有留言前台
 	 */
 	public ArrayList<Message> getAll();
 	
@@ -20,10 +20,15 @@ public interface MessageManagementDao {
 	 * 是否删除留言
 	 * @return
 	 */
-	public Boolean is_delete(int id);
+	public Boolean is_delete(int id,int IF);
 	
 	/**
 	 * 增加一条留言
 	 */
 	public boolean add_message(Message msg);
+	
+	/**
+	 * 获取所有信息后台
+	 */
+	public ArrayList<Message> getAllBack();
 }
