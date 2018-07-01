@@ -3,6 +3,7 @@ package com.cqut.roleAllocation.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 import com.cqut.common.util.DBUtil;
 
@@ -22,8 +23,8 @@ public class RoleAllcocationDaoImpl {
 	   Connection connection = DBUtil.open();
 		try
 		{
-			PreparedStatement pstm = connection.prepareStatement(sql);
-			ResultSet rs = pstm.executeQuery();
+			Statement statement =  connection.createStatement();
+			statement.execute(sql);
 			
 		} catch(Exception e) {
 			e.printStackTrace();

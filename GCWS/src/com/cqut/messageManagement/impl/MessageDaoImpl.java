@@ -3,6 +3,8 @@ package com.cqut.messageManagement.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -33,6 +35,7 @@ public class MessageDaoImpl implements MessageManagementDao {
 		try{
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
+			
 			while(rs.next()){
 				Integer id = rs.getInt(1);
 				String message_content = rs.getString(2);
@@ -55,14 +58,18 @@ public class MessageDaoImpl implements MessageManagementDao {
 	}
 
 	@Override
-	public Boolean is_delete(int id) {
+	public Boolean is_delete(int id,int IF) {
 		
-		String sql = "UPDATE Message SET is_delete = 1 WHERE id = " +id+ " ";
+		
+		String sql = "UPDATE Message SET is_delete = 1 WHERE author_id = " +id+ " ";
+		if(IF==1) {
+			sql ="UPDATE Message SET is_delete = 0 WHERE author_id = " +id+ " ";
+		}
 		Connection connection = DBUtil.open();
 		try
 		{
-			PreparedStatement pstm = connection.prepareStatement(sql);
-			ResultSet rs = pstm.executeQuery();
+			Statement statement =  connection.createStatement();
+			statement.execute(sql);
 		} catch(Exception e) {
 			e.printStackTrace();
 			
@@ -78,8 +85,8 @@ public class MessageDaoImpl implements MessageManagementDao {
 		Connection connection = DBUtil.open();
 		try
 		{
-			PreparedStatement pstm = connection.prepareStatement(sql);
-			ResultSet rs = pstm.executeQuery();
+			Statement statement =  connection.createStatement();
+			statement.execute(sql);
 		} catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -87,6 +94,36 @@ public class MessageDaoImpl implements MessageManagementDao {
 			DBUtil.close(connection);
 		}
 		return true;
+	}
+
+	@Override
+	public ArrayList<Message> getAllBack() {
+		String sql = "SELECT * from Message ;";
+		ArrayList<Message> MessageList = new ArrayList<Message>();
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			
+			while(rs.next()){
+				Integer id = rs.getInt(1);
+				String message_content = rs.getString(2);
+				Integer course_id = rs.getInt(3);
+				Integer author = rs.getInt(4);
+				Date create_time = rs.getDate(5);
+				Byte is_delete = rs.getByte(6);
+				String remark = rs.getString(7);
+				
+				Message message = new Message(id, message_content, course_id, author, create_time, is_delete,remark);
+				MessageList.add(message);
+			}
+			return MessageList;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return MessageList;
+		} finally {
+			DBUtil.close(connection);
+		}
 	}
 
 

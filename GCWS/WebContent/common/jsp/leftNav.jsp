@@ -19,7 +19,7 @@
 					<li>
 						<a href="javascript:void(0);" onclick="doMenu(this)">网站内容管理</a>
 						<ul>
-							<li><a href="javascript:void(0);">留言管理</a></li>
+							<li><a href="<%=basePath %>messageManagementBack" target="innerFrame">留言管理</a></li>
 							<li><a href="<%=basePath %>ArticleManagement/jsp/articleManagement.jsp" target="innerFrame">文章管理</a></li>
 							<li><a href="javascript:void(0);">审核文章</a></li>
 							<li><a href="javascript:void(0);">栏目管理</a></li>
@@ -30,9 +30,9 @@
 						<ul>
 							<li><a href="javascript:void(0);">权限管理</a></li>
 							<li><a href="javascript:void(0);">模块管理</a></li>
-							<li><a href="javascript:void(0);">角色分配</a></li>
+							<li><a href="<%=basePath %>roleAllocationBack" target="innerFrame">角色分配</a></li>
 							<li><a href="javascript:void(0);">人员管理</a></li>
-							<li><a href="javascript:void(0);">角色管理</a></li>
+							<li><a href="<%=basePath %>roleAllocationBackManage" target="innerFrame">角色管理</a></li>
 							<li><a href="javascript:void(0);">默认功能设置</a></li>
 							<li><a href="javascript:void(0);">首页信息设置</a></li>
 							<li><a href="javascript:void(0);">码表管理</a></li>
