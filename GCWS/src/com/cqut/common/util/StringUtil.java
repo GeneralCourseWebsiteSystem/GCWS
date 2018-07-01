@@ -69,4 +69,13 @@ public class StringUtil {
 	    return String.valueOf(System.nanoTime())
 	    		.concat(String.valueOf(random.nextInt(DEFAULT_MAX_NUM)));
 	}
+	
+	public static String emptyOrNull(String str) {
+		if (str == null) {
+			return "";
+		} else {
+			return str;
+			
+		}
+	}
 }
