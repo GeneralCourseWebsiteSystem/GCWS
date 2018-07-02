@@ -1,6 +1,7 @@
 package com.cqut.messageManagement.servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -42,8 +43,25 @@ public class messageManagement extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		if(request.getParameter("publish")!=null) {
-			String input_content= request.getParameter("input_content");
+			System.out.println("123456");
+		String input_content= request.getParameter("input_content");
+		Integer id=13;
+	    String message_content = input_content;
+	    Integer course_id = 2;
+	    Integer author = 2;
+	   
+	    Date create_time = new java.sql.Date(new Date().getTime()); 
+	   
+	    Byte is_delete = 0;
+	    String remark= "新增";
+	    
+			Message msg = new Message(id, message_content, course_id, author, create_time, is_delete, remark);
+			
+			Boolean IF = new MessageDaoImpl().add_message(msg);
+			
+			
 			
 			
 		}
