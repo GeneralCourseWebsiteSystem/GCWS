@@ -73,8 +73,8 @@ public class ArticleCourseImpl implements ArticleCourseDao {
 				Integer userId = rs.getInt(7);
 				String userName = rs.getString(8);
 				Byte checkState = rs.getByte(9);
-				Date createTime = rs.getDate(10);
-				Date finishTime = rs.getDate(11);
+				Date createTime = rs.getTimestamp(10);
+				Date finishTime = rs.getTimestamp(11);
 				Byte isDelete = rs.getByte(12);
 				String remark = rs.getString(13);
 				ArticleCourse ac = new ArticleCourse(id, articleName, articleType, articleContent, courseId, courseName, userId, userName, checkState, createTime, finishTime , isDelete, remark);
@@ -110,8 +110,8 @@ public class ArticleCourseImpl implements ArticleCourseDao {
 				Integer userId = rs.getInt(7);
 				String userName = rs.getString(8);
 				Byte checkState = rs.getByte(9);
-				Date createTime = rs.getDate(10);
-				Date finishTime = rs.getDate(11);
+				Date createTime = rs.getTimestamp(10);
+				Date finishTime = rs.getTimestamp(11);
 				Byte isDelete = rs.getByte(12);
 				String remark = rs.getString(13);
 				ArticleCourse ac = new ArticleCourse(id, articleName, articleType, articleContent, courseId, courseName, userId, userName, checkState, createTime, finishTime , isDelete, remark);

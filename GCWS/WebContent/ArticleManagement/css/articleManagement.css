@@ -83,8 +83,17 @@ body {
 	border: 1px solid #999;
 	height: 35px;
 }
-
+.hrefA{
+	color: #666666;
+	text-decoration: none;
+}
+.hrefA:hover{
+	color: #3CB371;
+}
 /* articleDetail的css */
+.articleForm{
+	padding-top: 1px;
+}
 .articleTitle{
 	margin: 0 auto;
 	font-size: 20px;
@@ -92,7 +101,34 @@ body {
 	text-align: center;
 	width: 98%;
 }
-.articleContent{
+.articleInfo{
 	width: 98%;
-	height: 300px;
+	margin: 0 auto;
+	font-size: 14px;
+	color: #999999;
+	text-align: center;
+}
+.articleContent{
+	margin-left: 1%;
+	width: 98%;
+	height: 400px;
+	border: 1px solid #999;
+	margin-bottom: 10px;
+}
+.BT{
+	border: 1px solid #999;
+	border-radius: 5px;
+    width: 5%;
+    text-align: center;
+    height: 30px;
+    margin: 0 auto;
+	background-color: #91C0E3;
+}
+.BT p{
+	margin-top: 6px;
+}
+.BT a{
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
 }
