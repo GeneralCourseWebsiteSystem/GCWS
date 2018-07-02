@@ -42,6 +42,13 @@ public class messageManagement extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getParameter("publish")!=null) {
+			String input_content= request.getParameter("input_content");
+			
+			
+		}
+		
+		
 		//获取所有的message
 		ArrayList<Message> MessageList = new MessageDaoImpl().getAll();
 		request.setAttribute("MessageList", MessageList);
