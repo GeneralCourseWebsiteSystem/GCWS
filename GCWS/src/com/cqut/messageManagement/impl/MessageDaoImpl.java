@@ -11,6 +11,7 @@ import java.util.Date;
 import com.cqut.common.util.DBUtil;
 import com.cqut.messageManagement.dao.MessageManagementDao;
 import com.cqut.messageManagement.entity.Message;
+import com.cqut.messageManagement.entity.messageUser;
 
 
 
@@ -121,6 +122,38 @@ public class MessageDaoImpl implements MessageManagementDao {
 		} catch(Exception e) {
 			e.printStackTrace();
 			return MessageList;
+		} finally {
+			DBUtil.close(connection);
+		}
+	}
+
+	@Override
+	public ArrayList<messageUser> getUserMessage() {
+		String sql = "select  message.author_id,user_name,message_content,course_name,message.create_time,message.is_delete FROM `user` JOIN message ON  `user`.id=message.id JOIN course ON  course.id=message.course_id where message.is_delete=0";
+		
+		ArrayList<messageUser> MessageUserList = new ArrayList<messageUser>();
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			
+			while(rs.next()){
+				Integer    authorId =rs.getInt(1);
+				String userName = rs.getString(2);
+				String messageContent = rs.getString(3);
+				String courseName = rs.getString(4);
+				
+				Date createTime = rs.getDate(5);
+				Byte isDelete = rs.getByte(6);
+				
+				
+				messageUser messageUser1 = new messageUser(authorId,userName, messageContent, courseName, createTime, isDelete);
+				MessageUserList.add(messageUser1);
+			}
+			return MessageUserList;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return MessageUserList;
 		} finally {
 			DBUtil.close(connection);
 		}

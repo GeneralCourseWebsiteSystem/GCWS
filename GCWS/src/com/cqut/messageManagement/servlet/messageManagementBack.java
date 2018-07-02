@@ -2,8 +2,7 @@ package com.cqut.messageManagement.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 import com.cqut.messageManagement.entity.Message;
+import com.cqut.messageManagement.entity.messageUser;
 import com.cqut.messageManagement.impl.MessageDaoImpl;
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
@@ -57,20 +57,17 @@ if(request.getParameter("code")!=null){
 
 	
 }
- 
-	
-		
-		
+ 	
 		//获取所有的message
-		ArrayList<Message> MessageList = new MessageDaoImpl().getAllBack();
+		ArrayList<messageUser> MessageList = new MessageDaoImpl().getUserMessage();
 		
-		
+	
 		//实现分页
 		int pageMegNum = 1;		
 		if(request.getParameter("pageMegNum")!=null) {
 			pageMegNum = Integer.parseInt(request.getParameter("pageMegNum"));
 		}else {
-			pageMegNum = 4;//设置每页的显示条数
+			pageMegNum = 8;//设置每页的显示条数
 		}
 		
 		
