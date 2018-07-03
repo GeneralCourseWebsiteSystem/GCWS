@@ -1,0 +1,55 @@
+@charset "UTF-8";
+.struct {
+  height:300px;
+  width:300px;
+  border:black solid 1px;
+  text-align:center;
+  margin-left:40%;
+  margin-top:10%;
+  
+}
+
+.newAdd{
+
+
+	
+	width: 50px;
+	height: 24.5px;
+	background-color: #91c0E3;
+	color: white;
+	border-radius: 5px;
+	border: 1px solid #999;
+	font-weight: bold;
+}
+.newAdd:hover{
+	background-color: whitesmoke;
+	color: #3CB371;
+}
+.btn{
+	margin-top:4%;
+	
+}
+a{
+	text-decoration:none;
+}
+.content{
+	margin-top:45px;
+}
+.note{
+	margin-top:45px;
+}
+p{
+	background-color:	#EEFFBB;
+	font-size:30px;
+	padding-top:0px;
+	margin-top:0px;
+}
+.content input{
+	width:150px;
+	height:30px;
+}
+.note input{
+	width:150px;
+	height:30px;
+	
+}

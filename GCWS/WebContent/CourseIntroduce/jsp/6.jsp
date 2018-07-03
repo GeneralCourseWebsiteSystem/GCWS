@@ -9,5 +9,8 @@
 <body>
 课程理念与目标
 <hr style="height:3px;border:none;border-top:3px double red;" />
+<div>
+理念与目标内容
+</div>
 </body>
 </html>

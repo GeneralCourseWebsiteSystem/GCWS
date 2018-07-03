@@ -9,5 +9,6 @@
 <body>
 教学方法
 <hr style="height:3px;border:none;border-top:3px double red;" />
+<div>教学方法的内容</div>
 </body>
 </html>

@@ -261,7 +261,80 @@ String sql = "SELECT r.id, u.id, r.role_name, u.user_name, u.account "
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	//角色管理查询分页查询所有的角色
+	public ArrayList<RoleAll> getRoleAllManage(Integer index, Integer limit, String str) {
+		
+		String sql = "SELECT r.id,r.role_name,r.create_time,r.is_delete,r.remark " + 
+				"from role r " + 
+				"where is_delete = 0				 " + 
+				"AND r.role_name " + 
+				"LIKE '%"+StringUtil.emptyOrNull(str)+"%'" +
+				"LIMIT 0, 10;";
+			
+			ArrayList<RoleAll> roleList = new ArrayList<RoleAll>();
+			Connection connection = DBUtil.open();
+			try{
+				
+				PreparedStatement pstm = connection.prepareStatement(sql);
+				ResultSet rs = pstm.executeQuery();
+				while(rs.next()){
+					int id = rs.getInt(1);
+					
+					String roleName = rs.getString(2);
+					
+					Date   createTime = rs.getDate(3);
+					
+					Byte isDelete = rs.getByte(4);
+				
+					String remark = rs.getString(5);
+					RoleAll role1 = new RoleAll(id, roleName, createTime, isDelete,remark);
+					roleList.add(role1);
+				}
+				return roleList;
+			} catch(Exception e) {
+				e.printStackTrace();
+				return roleList;
+				
+			} finally {
+				DBUtil.close(connection);
+			}
+		}
 
+    //分页模糊搜索数量
+public Integer getRoleAllManage(String str) {
+		
+		String sql = "SELECT * from role where is_delete = 0"+
+		"AND role.role_name LIKE '%"+StringUtil.emptyOrNull(str)+"%' ";
+			
+			ArrayList<RoleAll> roleList = new ArrayList<RoleAll>();
+			Connection connection = DBUtil.open();
+			try{
+				
+				PreparedStatement pstm = connection.prepareStatement(sql);
+				ResultSet rs = pstm.executeQuery();
+				while(rs.next()){
+					int id = rs.getInt(1);
+					
+					String roleName = rs.getString(2);
+					
+					Date   createTime = rs.getDate(3);
+					
+					Byte isDelete = rs.getByte(4);
+				
+					String remark = rs.getString(5);
+					RoleAll role1 = new RoleAll(id, roleName, createTime, isDelete,remark);
+					roleList.add(role1);
+				}
+				return roleList.size();
+			} catch(Exception e) {
+				e.printStackTrace();
+				return roleList.size();
+				
+			} finally {
+				DBUtil.close(connection);
+			}
+		}
 
 	
 	
