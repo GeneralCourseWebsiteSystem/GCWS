@@ -9,7 +9,37 @@
 body {
 	font-family: "Microsoft YaHei";
 }
-
+.articleHead{
+	height: 40px;
+	padding-top: 1px;
+	background-color: #91C0E3;
+}
+.articleManage{
+	width: 10%;
+}
+.articleDetail{
+	width: 16%;
+}
+.curLocation{
+	margin-top: 10px;
+	margin-left: 1%;
+	height: 30px;
+	border-radius: 10px 10px 0px 0px;
+	background-color: white;
+	float: left;
+}
+.curLocation p{
+	margin-left: 10%;
+	margin-top: 5px;
+}
+.curLocation a{
+	color: #01538C;
+	font-weight: bold;
+	text-decoration: none;
+}
+.curLocation a:hover{
+	color: #1D9D73;
+}
 .searchForm{
 	margin-top: 5px;
 	margin-left: 2%;

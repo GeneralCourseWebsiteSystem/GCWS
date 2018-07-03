@@ -25,6 +25,11 @@
 <title>留言管理</title>
 </head>
 <body>
+	<div class="articleHead">
+		<div class="curLocation articleManage">
+			<p><a href="MessageManagementBack">留言管理</a></p>
+		</div>
+	</div>
 	<form class="searchForm" action="" method="get">
 		<p>
 			留言內容:<input class="searchInput" placeholder="请输入內容" type="text"
