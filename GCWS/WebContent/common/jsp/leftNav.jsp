@@ -31,7 +31,7 @@
 							<li><a href="javascript:void(0);">权限管理</a></li>
 							<li><a href="<%=basePath %>ModuleManagementServlet" target="innerFrame">模块管理</a></li>
 							<li><a href="<%=basePath %>RoleAllocationBack" target="innerFrame">角色分配</a></li>
-							<li><a href="javascript:void(0);">人员管理</a></li>
+							<li><a href="<%=basePath %>UserManage" target="innerFrame"">人员管理</a></li>
 							<li><a href="<%=basePath %>RoleAllocationBackManage" target="innerFrame">角色管理</a></li>
 							<li><a href="javascript:void(0);">默认功能设置</a></li>
 							<li><a href="javascript:void(0);">首页信息设置</a></li>
