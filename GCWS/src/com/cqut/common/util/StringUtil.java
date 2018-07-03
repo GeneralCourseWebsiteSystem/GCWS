@@ -70,12 +70,42 @@ public class StringUtil {
 	    		.concat(String.valueOf(random.nextInt(DEFAULT_MAX_NUM)));
 	}
 	
+	/**
+	 * 判断是否为null 是则返回空字符串
+	 * @param str
+	 * @return
+	 */
 	public static String emptyOrNull(String str) {
 		if (str == null) {
 			return "";
 		} else {
 			return str;
-			
 		}
+	}
+	
+	/**
+	 * 判断是否为null 是则返回/
+	 * @param str
+	 * @return
+	 */
+	public static String emptyGetItalic(String str) {
+		if (str == null) {
+			return "/";
+		} else {
+			return str;
+		}
+	}
+	
+	/**
+	 * 获取code增加一的字符串
+	 * @param code
+	 * @return
+	 */
+	public static String addANumberByString(String code) {
+		 String result = "";
+	     // 保留code的位数
+	     result = String.format("%0" + code.length() + "d", Integer.parseInt(code) + 1);
+
+	     return result;
 	}
 }

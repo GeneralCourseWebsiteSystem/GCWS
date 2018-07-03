@@ -29,7 +29,7 @@
 						<a href="javascript:void(0);" onclick="doMenu(this)">系统设置</a>
 						<ul>
 							<li><a href="javascript:void(0);">权限管理</a></li>
-							<li><a href="javascript:void(0);">模块管理</a></li>
+							<li><a href="<%=basePath %>ModuleManagementServlet" target="innerFrame">模块管理</a></li>
 							<li><a href="<%=basePath %>roleAllocationBack" target="innerFrame">角色分配</a></li>
 							<li><a href="javascript:void(0);">人员管理</a></li>
 							<li><a href="<%=basePath %>roleAllocationBackManage" target="innerFrame">角色管理</a></li>

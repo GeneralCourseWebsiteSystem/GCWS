@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Microsoft YaHei";
+}
+
+.articleHead{
+	font-size: 16px;
+	height: 40px;
+	padding-top: 1px;
+	background-color: #91C0E3;
+}
+.articleManage{
+	width: 10%;
+}
+.articleDetail{
+	width: 16%;
+}
+.curLocation{
+	margin-top: 10px;
+	margin-left: 1%;
+	height: 30px;
+	border-radius: 10px 10px 0px 0px;
+	background-color: white;
+	float: left;
+}
+.curLocation p{
+	margin-left: 10%;
+	margin-top: 5px;
+}
+.curLocation a{
+	color: #01538C;
+	font-weight: bold;
+	text-decoration: none;
+}
+.curLocation a:hover{
+	color: #1D9D73;
+}
+.addNewModule{
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 2%;
+	font-size: 16px;
+	border: 1px solid #999;
+	background-color: #91C0E3;
+	width: 4%;
+	text-align: center;
+	border-radius: 5px;
+	height: 20px;
+}
+.addNewModule:hover{
+	background-color: whitesmoke;
+}
+.addNewModule a{
+	text-decoration: none;
+	color: white;
+}
+.addNewModule a:hover{
+	color: #1D9D73;
+}
+.tableArea{
+	margin: 0 auto;
+	width: 98%;
+	margin-top: 20px;
+}
+.hrefA{
+	color: #666666;
+	text-decoration: none;
+}
+.hrefA:hover{
+	color: #3CB371;
+}
+.moduleTable tr{
+	height: 30px;
+	color: #555;
+}
+.thTr{
+	background-color: whitesmoke;
+}
+.moduleDetailTable{
+	margin-top: 20px;
+	width: 98%;
+	margin-left: 1%;
+}
+.moduleDetailTable tr{
+	height: 45px;
+	color: #555555;
+}
+.topTd{
+	text-align: center;
+	font-size: 20px;
+}
+.leftTd{
+	width: 10%;
+	padding-right: 1%;
+	text-align: right;
+}
+.BT{
+	border: 1px solid #999;
+	border-radius: 5px;
+    width: 5%;
+    text-align: center;
+    height: 30px;
+    margin: 0 auto;
+	background-color: #91C0E3;
+}
+.BT p{
+	margin-top: 6px;
+}
+.BT a{
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+}
+.inputText{
+	border: 1px solid #999;
+	height: 25px;
+	width: 30%;
+}
+.ta{
+	height: 50px;
+}
+.formBT{
+	border: 1px solid #999;
+	border-radius: 5px;
+    width: 5%;
+    text-align: center;
+    height: 30px;
+    margin: 0 auto;
+	color: #999999;
+	cursor: pointer;
+	font-weight: bold;
+	margin-top: 20px;
+}
+.returnBT{
+	margin-left: 26%;
+	background-color: white;
+}
+.returnBT:hover{
+	background-color: whitesmoke;
+	color: white;
+}
+.submitBT{
+	margin-left: 2%;
+	background-color: #91C0E3;
+}
+.submitBT:hover{
+	background-color: whitesmoke;
+	color: #91C0E3;
+}
