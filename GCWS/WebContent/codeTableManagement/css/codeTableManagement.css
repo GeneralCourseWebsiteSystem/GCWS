@@ -85,7 +85,6 @@ body {
 	background-color: whitesmoke;
 }
 
-
 .moduleDetailTable{
 	margin-top: 20px;
 	width: 98%;
@@ -103,7 +102,7 @@ body {
 	font-size: 20px;
 }
 .leftTd{
-	width: 10%;
+	width: 20%;
 	padding-right: 1%;
 	text-align: right;
 }

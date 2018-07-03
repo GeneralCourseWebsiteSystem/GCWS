@@ -25,6 +25,24 @@ public class StringUtil {
 	}
 	
 	/**
+	 * 将java.util.Date转换为java.sql.Timestamp
+	 * @param utilDate
+	 * @return
+	 */
+	public static java.sql.Timestamp changeToTimestampDate(java.util.Date utilDate){
+		SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");  
+		java.util.Date date;
+		try {
+			date = sdf.parse(StringUtil.dateFormat(utilDate));
+			java.sql.Timestamp ts= new java.sql.Timestamp(date.getTime());
+			return ts;
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} 
+		return null;
+	}
+	
+	/**
 	 * 将java.sql.Date转换为java.util.Date
 	 * @param sqlDate
 	 * @return
@@ -41,7 +59,7 @@ public class StringUtil {
 	 * @return
 	 */
 	public static Date stringToDate(String str){
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		Date date = new Date();
 		try {
 			date = sdf.parse(str);
@@ -57,7 +75,7 @@ public class StringUtil {
 	 * @return
 	 */
 	public static String dateFormat(Date date){
-		SimpleDateFormat format0 = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat format0 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String time = format0.format(date.getTime());
         return time;
 	}
