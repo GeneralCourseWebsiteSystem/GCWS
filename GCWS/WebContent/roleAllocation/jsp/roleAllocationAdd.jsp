@@ -11,6 +11,7 @@
 		<div><input type="text" placeholder="新增角色" name="newRole"></div>
 		<div><input type="text" placeholder="备注" name="newRemark"></div>
 		<div><input type="submit" name="submit" value="增加"></div>
+		<div><a href ="<%=request.getContextPath()%>/RoleAllocationBackManage">取消</a></div>
 	</form>
 </body>
 </html>
