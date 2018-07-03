@@ -51,15 +51,10 @@ public class MessageManagement extends HttpServlet {
 			
 			@SuppressWarnings("unused")
 			Boolean IF = new MessageDaoImpl().add_message(msg);
-			
-			
-			
-			
 		}
-		
-		
+
 		//获取所有的message
-		ArrayList<MessageUser> MessageList = new MessageDaoImpl().getUserMessage();
+		ArrayList<MessageUser> MessageList = new MessageDaoImpl().getAllList();
 		request.setAttribute("MessageList", MessageList);
 		request.getRequestDispatcher("QuestionAndAnswers/jsp/QuestionsAndAnswers.jsp").forward(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
