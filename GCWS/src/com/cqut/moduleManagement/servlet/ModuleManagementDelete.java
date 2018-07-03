@@ -1,10 +1,6 @@
-package com.cqut.messageManagement.servlet;
+package com.cqut.moduleManagement.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,48 +8,53 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
-
-import com.cqut.messageManagement.entity.Message;
-import com.cqut.messageManagement.impl.MessageDaoImpl;
+import com.cqut.moduleManagement.impl.ModuleImpl;
 
 /**
- * Servlet implementation class messageManagement
+ * Servlet implementation class ModuleManagementDelete
  */
-@WebServlet("/messageManagement")
-public class messageManagement extends HttpServlet {
+@WebServlet("/ModuleManagementDelete")
+public class ModuleManagementDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public messageManagement() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ModuleManagementDelete() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 	}
 
-	
+	/**
+	 * @see Servlet#destroy()
+	 */
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}
 
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//获取所有的message
-		ArrayList<Message> MessageList = new MessageDaoImpl().getAll();
-		request.setAttribute("MessageList", MessageList);
-		request.getRequestDispatcher("QuestionAndAnswers/jsp/QuestionsAndAnswers.jsp").forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		String moduleId = request.getParameter("moduleId");
+		ModuleImpl moduleImpl = new ModuleImpl();
+		moduleImpl.deleteById(moduleId);
+		request.getRequestDispatcher("ModuleManagementServlet").forward(request, response);
 	}
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
-
 	}
 
 }

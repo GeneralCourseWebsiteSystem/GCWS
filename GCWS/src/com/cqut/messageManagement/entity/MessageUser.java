@@ -2,7 +2,8 @@ package com.cqut.messageManagement.entity;
 
 import java.util.Date;
 
-public class messageUser {
+public class MessageUser {
+  private   Integer msgId;
 	
   private   Integer authorId;	
 	
@@ -16,8 +17,9 @@ public class messageUser {
   
   private   Byte   isDelete;
 
-public messageUser(Integer authorId, String userName, String messageContent, String courseName, Date createTime, Byte isDelete) {
+public MessageUser(Integer msgId,Integer authorId, String userName, String messageContent, String courseName, Date createTime, Byte isDelete) {
 	super();
+	this.msgId = msgId;
 	this.authorId = authorId;
 	this.userName = userName;
 	this.messageContent = messageContent;
@@ -72,6 +74,14 @@ public Integer getAuthorId() {
 
 public void setAuthorId(Integer authorId) {
 	this.authorId = authorId;
+}
+
+public Integer getMsgId() {
+	return msgId;
+}
+
+public void setMsgId(Integer msgId) {
+	this.msgId = msgId;
 }
 
 }

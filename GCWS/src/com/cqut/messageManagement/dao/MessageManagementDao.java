@@ -3,7 +3,7 @@ package com.cqut.messageManagement.dao;
 import java.util.ArrayList;
 
 import com.cqut.messageManagement.entity.Message;
-import com.cqut.messageManagement.entity.messageUser;
+import com.cqut.messageManagement.entity.MessageUser;
 /**
  * 
  * @author cgx
@@ -31,10 +31,19 @@ public interface MessageManagementDao {
 	/**
 	 * 获取所有信息后台
 	 */
-	public ArrayList<Message> getAllBack();
+	public ArrayList<MessageUser> getAllList();
+	
+	
 	
 	/**
 	 * 获取留言用户信息
 	 */
-	public ArrayList<messageUser> getUserMessage();
+	public ArrayList<MessageUser> getUserMessage(Integer index, Integer limit, String str);
+	
+	/**
+	 * 获取所有留言条数
+	 * @param str
+	 * @return
+	 */
+	public Integer getUserMessageSize(String str);
 }

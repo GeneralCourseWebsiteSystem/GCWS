@@ -1,7 +1,5 @@
 package com.cqut.common.util;
 
-import java.text.SimpleDateFormat;
-
 public class SysUtil {
 	/**
 	 * 功能：拼接分页时候的html代码 
