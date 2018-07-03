@@ -90,8 +90,13 @@ body {
 	color: #3CB371;
 }
 .update{
+<<<<<<< HEAD
 	margin-top:0px;
 	float:right;
+=======
+	margin-top: 0px;
+	float: right;
+>>>>>>> branch 'master' of https://github.com/GeneralCourseWebsiteSystem/GCWS.git
 	margin-right: 2%;
 	width: 5%;
 	height: 24.5px;

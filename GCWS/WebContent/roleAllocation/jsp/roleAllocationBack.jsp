@@ -34,7 +34,7 @@
 	<div class="articleHead">
 		<div class="curLocation articleManage">
 			<p>
-				<a href="RoleAllocationBack">角色管理</a>
+				<a href="RoleAllocationBack">角色分配</a>
 			</p>
 		</div>
 	</div>
