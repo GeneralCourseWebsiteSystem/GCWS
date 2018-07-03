@@ -3,7 +3,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <% 
-	CourseForStage courseForStage = (CourseForStage)request.getAttribute("course");
+	CourseForStage course = (CourseForStage)request.getAttribute("course");
+	String userId = (String)request.getAttribute("userId");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,7 +22,7 @@
 				<img alt="." src="<%=request.getContextPath() %>/common/image/logo.png"> <label>重庆理工大学</label>
 			</div>
 			<%-- 这里写的时候自己改，把下面注释掉 --%>
-			<div class="header_title"><%-- <%=courseForStage.getCourse_name() %> --%>精品课程</div>
+			<div class="header_title"> <%=course.getCourse_name() %>精品课程</div>
 		</div>
 		<div class="header_right">
 			<div class="header_img">
@@ -48,7 +49,7 @@
 			</ul>
 		</div>
 	</div>
-	<div>
+	<div class="frame">
 		<iframe src="<%=request.getContextPath() %>/common/jsp/welcome.jsp" class="innerFrame" name="innerFrame" frameborder="0" scrolling="auto"></iframe>
 	</div>
 	<%@ include file="footer.jsp" %>

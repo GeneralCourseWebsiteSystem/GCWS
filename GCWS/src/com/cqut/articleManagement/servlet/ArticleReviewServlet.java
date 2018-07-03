@@ -16,16 +16,16 @@ import com.cqut.common.util.StringUtil;
 import com.cqut.common.util.SysUtil;
 
 /**
- * Servlet implementation class ArticleCourseServlet
+ * Servlet implementation class ArticleReviewServlet
  */
-@WebServlet("/ArticleCourseServlet")
-public class ArticleCourseServlet extends HttpServlet {
+@WebServlet("/ArticleReviewServlet")
+public class ArticleReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ArticleCourseServlet() {
+    public ArticleReviewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -53,19 +53,19 @@ public class ArticleCourseServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String scurPage = request.getParameter("curPage");
 		ArticleCourseImpl articleCourseImpl = new ArticleCourseImpl();
-		Integer totalNum = articleCourseImpl.getAllSize(name);
+		Integer totalNum = articleCourseImpl.getUnreviewedSize(name);
 		if(scurPage == null){
             curPage = 1;//从第一页开始访问
         }else{
             curPage = Integer.parseInt(scurPage);
         }
 		Integer index = (curPage-1) * pageNum;
-		ArrayList<ArticleCourse> acList = articleCourseImpl.getList(index, pageNum, StringUtil.emptyOrNull(name));
+		ArrayList<ArticleCourse> acList = articleCourseImpl.getUnreviewedArticle(index, pageNum, StringUtil.emptyOrNull(name));
 		request.setAttribute("acList", acList);
-		String html = SysUtil.createPage(totalNum, curPage, pageNum, request.getContextPath() + "/ArticleCourseServlet");
+		String html = SysUtil.createPage(totalNum, curPage, pageNum, request.getContextPath() + "/ArticleReviewServlet");
 		request.setAttribute("html", html);
 		request.setAttribute("name", name);
-		request.getRequestDispatcher("/ArticleManagement/jsp/articleManagement.jsp").forward(request, response);
+		request.getRequestDispatcher("/ArticleManagement/jsp/articleReview.jsp").forward(request, response);
 	}
 
 	/**

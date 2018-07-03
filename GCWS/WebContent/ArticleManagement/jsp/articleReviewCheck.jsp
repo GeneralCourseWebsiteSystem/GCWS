@@ -11,19 +11,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="<%=basePath %>ArticleManagement/css/articleManagement.css" rel="stylesheet" type="text/css" />
-<title>文章详情</title>
+<title>文章审核</title>
 </head>
 <body>
 	<div class="articleHead">
 		<div class="curLocation articleDetail">
-			<p><a href="ArticleCourseServlet">文章管理</a> >> <a>详情</a></p>
+			<p><a href="ArticleReviewServlet">文章审核</a> >> <a>详情</a></p>
 		</div>
 	</div>
 	<form class="articleForm" action="">
 		<div class="articleTitle"><%=ac.getArticleName() %></div>
 		<div class="articleInfo"><p>作者:<%=ac.getAuthorName() %> 所属课程:<%=ac.getCourseName() %> 发表时间:<%=ac.getCreateTime() %></p></div>
 		<textarea class="articleContent" rows="" cols=""><%=ac.getArticleContent() %></textarea>
-		<div class="BT reBT"><p><a href="ArticleCourseServlet">返回</a></p></div>
+		<div class="opDiv">
+			<div class="BT returnBT"><p><a href="ArticleReviewServlet">返回</a></p></div>
+			<div class="BT passBT"><p><a href="ArticleReviewChange?articleId=<%=ac.getId() %>&checkState=0">通过</a></p></div>
+			<div class="BT rejectBT"><p><a href="ArticleReviewChange?articleId=<%=ac.getId() %>&checkState=2">拒绝</a></p></div>
+		</div>
 	</form>
 </body>
 </html>

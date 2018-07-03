@@ -18,13 +18,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="<%=basePath %>ArticleManagement/css/articleManagement.css" rel="stylesheet" type="text/css" />
 <link href="<%=basePath %>common/css/page.css" rel="stylesheet" type="text/css" />
-<title>文章管理</title>
+<title>文章审核</title>
 </head>
 <body>
-<div>
-	<div class="articleHead">
+<div class="articleHead">
 		<div class="curLocation articleManage">
-			<p><a href="ArticleCourseServlet">文章管理</a></p>
+			<p><a href="ArticleCourseServlet">文章审核</a></p>
 		</div>
 	</div>
 	<form class="searchForm" action="" method="get">
@@ -35,13 +34,12 @@
 	</form>
 	<table class="articleTable">
 		<tr class="thTr">
-			<th style="width:25%;">文章标题</th>
-			<th style="width:10%;">文章类型</th>
-			<th style="width:10%;">作者</th>
+			<th style="width:30%;">文章标题</th>
+			<th style="width:8%;">文章类型</th>
+			<th style="width:8%;">作者</th>
 			<th style="width:15%;">所属课程</th>
-			<th style="width:8%;">是否审核</th>
 			<th style="width:15%;">发表时间</th>
-			<th style="width:20%;">操作</th>
+			<th style="width:8%;">操作</th>
 		</tr>
 		<%
 			for(int i = 0; i < acList.size(); i++){ 
@@ -54,23 +52,15 @@
 				} else {
 					articleType = "未分类";
 				}
-				switch(acList.get(i).getCheckState()){
-					case 0: checkState = "通过";break;
-					case 1: checkState = "待审核";break;
-					case 2: checkState = "拒绝";break;
-				}
 		%>
 		<tr>
 			<td><%=acList.get(i).getArticleName() %></td>
 			<td><%=articleType %></td>
 			<td><%=acList.get(i).getAuthorName() %></td>
 			<td><%=acList.get(i).getCourseName() %></td>
-			<td><%=checkState %></td>
 			<td><%=acList.get(i).getCreateTime() %></td>
 			<td>
-				<a class="hrefA" href="ArticleCourseDetail?articleId=<%=acList.get(i).getId()%>">详细</a> | 
-				<%-- <a href="admin/OperatorInitEdit?articleId=<%=acList.get(i).getId()%>">编辑</a> | --%> 
-				<a class="hrefA" href="ArticleCourseDelete?articleId=<%=acList.get(i).getId()%>">删除</a>
+				<a class="hrefA" href="ArticleReviewCheck?articleId=<%=acList.get(i).getId()%>">审核</a>
 			</td>
 		</tr>
 		<%
@@ -82,6 +72,5 @@
 			<div class="page">${html}</div>
 		</c:if>
 	</div>
-</div>
 </body>
 </html>
