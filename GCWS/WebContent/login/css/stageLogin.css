@@ -24,7 +24,7 @@ img{max-width:100%;}
 body{
   font-family: 'Montserrat', sans-serif;
    font-size: 100%;
-   background:url('../../common/images/2.jpg') no-repeat;
+   background:url('../../common/image/2.jpg') no-repeat;
    background-size: cover;
 }
 .login-form{
@@ -54,7 +54,7 @@ body{
     padding: 8px;	
 }
 .login-ic i {
-	background: url('../../common/images/3.png')no-repeat 6px 6px;
+	background: url('../../common/image/3.png')no-repeat 6px 6px;
     width: 38px;
     height: 38px;
     float: left;
@@ -62,7 +62,7 @@ body{
 }
 
 .login-ic i.icon {
-    background: url('../../common/images/1.png')no-repeat 6px 6px;  
+    background: url('../../common/image/1.png')no-repeat 6px 6px;  
 }
 
 .login-ic input[type="text"],.login-ic  input[type="password"] {

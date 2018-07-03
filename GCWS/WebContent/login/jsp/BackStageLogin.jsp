@@ -16,7 +16,7 @@
 
 
      <div class="content">
-     <form action="UserManagementServlet">
+     <form action="<%=request.getContextPath()%>/BackStageManagementServlet">
 	     <center>
 		 <div class="con">
 		 <div class="con_title">

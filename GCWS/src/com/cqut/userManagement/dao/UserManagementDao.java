@@ -54,6 +54,18 @@ public interface UserManagementDao {
 	 * 进行角色分配(传用户id和分配的角色id)
 	 */
 	public boolean role_allocaion(int userId,int roleId);
+		
+	/**
+	 * 获得用户信息
+	 * @param myaccount
+	 * @return
+	 */
+	public User getId(String myaccount);
 	
-	
+	/**
+	 * 获得用户身份
+	 * @param id
+	 * @return
+	 */
+	public RoleAll getRoleId(int id);
 }
