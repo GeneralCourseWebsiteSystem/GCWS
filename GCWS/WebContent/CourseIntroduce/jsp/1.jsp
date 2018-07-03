@@ -9,5 +9,9 @@
 <body>
 课程介绍
 <hr style="height:3px;border:none;border-top:3px double red;" />
+<div>
+课程介绍的内容
+</div>
+
 </body>
 </html>

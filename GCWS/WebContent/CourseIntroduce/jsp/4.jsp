@@ -9,5 +9,6 @@
 <body>
 课程安排
 <hr style="height:3px;border:none;border-top:3px double red;" />
+<div>课程安排的图片</div>
 </body>
 </html>
