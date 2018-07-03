@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.cqut.userManagement.entity.RoleAll;
 import com.cqut.userManagement.entity.User;
 import com.cqut.userManagement.entity.UserRole;
-import com.cqut.userManagement.entity.role;
+import com.cqut.userManagement.entity.RoleUserLink;
 
 /**
  * 
@@ -29,7 +29,7 @@ public interface UserManagementDao {
 	/**
 	 * 获取所有的用户角色
 	 */
-	public ArrayList<role> getAllRole();
+	public ArrayList<RoleUserLink> getAllRole();
 	
 	/**
 	 * 获取所有用户及其角色

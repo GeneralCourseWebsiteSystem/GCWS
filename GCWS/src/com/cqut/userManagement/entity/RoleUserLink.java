@@ -1,6 +1,6 @@
 package com.cqut.userManagement.entity;
 
-public class role {
+public class RoleUserLink {
 	
 	private Integer id;
 	
@@ -12,7 +12,7 @@ public class role {
 	
 	private String account;
 
-	public role(Integer id, Integer uId,String roleName, String userName, String account) {
+	public RoleUserLink(Integer id, Integer uId,String roleName, String userName, String account) {
 		super();
 		this.id = id;
 		this.uId= uId;

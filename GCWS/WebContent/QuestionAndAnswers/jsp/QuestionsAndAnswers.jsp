@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.* "%>
-	  <%@page import="com.cqut.messageManagement.entity.Message" %>
+	  <%@page import="com.cqut.messageManagement.entity.MessageUser" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-	List<Message> list1 = (List<Message>)request.getAttribute("MessageList");	
+	List<MessageUser> list1 = (List<MessageUser>)request.getAttribute("MessageList");	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,9 +29,9 @@
 <%for(int i=0 ;i<list1.size();i++) {%>
 		<tr>
 			
-			<td><%=list1.get(i).getId() %></td>
-			<td><%=list1.get(i).getMessage_content() %></td>
-			<td><%=list1.get(i).getCreate_time() %></td>
+			<td><%=list1.get(i).getUserName() %></td>
+			<td><%=list1.get(i).getMessageContent() %></td>
+			<td><%=list1.get(i).getCreateTime() %></td>
 			
 		</tr>
 		<%} %>
@@ -40,7 +40,7 @@
 	
 	<hr style=" height:2px;border:none;border-top:2px dotted #185598;width:800px;margin-left:0px;" />
 	<br/>
-	 <form action="<%=request.getContextPath()%>/messageManagement"method="post">
+	 <form action="<%=request.getContextPath()%>/MessageManagement"method="post">
 		    <textarea name="input_content" class="input_box">你想说......</textarea>
 			<input type="submit" name="publish" value="发表" />
 	</form>

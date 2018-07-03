@@ -1,7 +1,6 @@
 package com.cqut.roleAllocation.serlvet;
 
 import java.io.IOException;
-
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,23 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cqut.userManagement.entity.RoleAll;
-import com.cqut.userManagement.entity.role;
+import com.cqut.userManagement.entity.RoleUserLink;
 import com.cqut.userManagement.impl.UserDaoImpl;
 
 /**
- * Servlet implementation class roleAllocationBack
+ * Servlet implementation class RoleAllocationBack
  */
-@WebServlet("/roleAllocationBack")
-public class roleAllocationBack extends HttpServlet {
+@WebServlet("/RoleAllocationBack")
+public class RoleAllocationBack extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
-    public roleAllocationBack() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RoleAllocationBack() {
         super();
-       
+        // TODO Auto-generated constructor stub
     }
 
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
@@ -36,7 +39,7 @@ public class roleAllocationBack extends HttpServlet {
 		
 		//获取参数
 		if(request.getParameter("update")!=null) {
-			List<role> role1 = new UserDaoImpl().getAllRole();
+			List<RoleUserLink> role1 = new UserDaoImpl().getAllRole();
 			String[] arr = request.getParameterValues("all");
 			
 			request.setCharacterEncoding("utf-8");
@@ -50,20 +53,19 @@ public class roleAllocationBack extends HttpServlet {
 			
 			
 			//改变用户的角色
+			@SuppressWarnings("unused")
 			Boolean tt = new UserDaoImpl().role_allocaion(roleX,i+1);
 			}
 			
 		}
 		
 		       //首先获取所有的角色
-				List<role> role1 = new UserDaoImpl().getAllRole();
+				List<RoleUserLink> role1 = new UserDaoImpl().getAllRole();
 				
 				//获取角色表
 				List<RoleAll> roleAlls = new UserDaoImpl().getRoleAll();
 				
-				//将角色传入到前台
-				request.setAttribute("role1", role1);
-				request.setAttribute("roleAlls", roleAlls);
+				
 				
 				//实现分页
 				int pageMegNum = 1;		
@@ -108,7 +110,11 @@ public class roleAllocationBack extends HttpServlet {
 				}	
 				request.setAttribute("pageMegNum", pageMegNum);
 				request.setAttribute("totalPage", totalPage);
-				 request.setAttribute("MessageList", role1);
+				
+				//将角色传入到前台
+				request.setAttribute("role1", role1);
+				request.setAttribute("roleAlls", roleAlls);
+				
 	
 		request.getRequestDispatcher("roleAllocation/jsp/roleAllocationBack.jsp").forward(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());

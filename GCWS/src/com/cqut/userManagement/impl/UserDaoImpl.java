@@ -12,7 +12,7 @@ import javax.management.relation.Role;
 
 import com.cqut.common.util.DBUtil;
 import com.cqut.userManagement.dao.UserManagementDao;
-import com.cqut.userManagement.entity.role;
+import com.cqut.userManagement.entity.RoleUserLink;
 import com.cqut.userManagement.entity.RoleAll;
 import com.cqut.userManagement.entity.User;
 import com.cqut.userManagement.entity.UserRole;
@@ -103,11 +103,11 @@ public class UserDaoImpl implements UserManagementDao {
 	}
 
 	@Override
-	public ArrayList<role> getAllRole() {
+	public ArrayList<RoleUserLink> getAllRole() {
 		
-		String sql = "SELECT role.id,user.id ,role_name,user_name,account FROM `user` JOIN role ON `user`.role_id = role.id";
+		String sql = "SELECT role.id,user.id ,role_name,user_name,account FROM `user` JOIN role ON `user`.role_id = role.id ";
 		
-		ArrayList<role> roleList = new ArrayList<role>();
+		ArrayList<RoleUserLink> roleList = new ArrayList<RoleUserLink>();
 		Connection connection = DBUtil.open();
 		try{
 			PreparedStatement pstm = connection.prepareStatement(sql);
@@ -123,7 +123,7 @@ public class UserDaoImpl implements UserManagementDao {
 			
 				String account = rs.getString(5);
 				
-				role role1 = new role(id, uId,roleName, userName, account);
+				RoleUserLink role1 = new RoleUserLink(id, uId,roleName, userName, account);
 				roleList.add(role1);
 			}
 			return roleList;
@@ -139,7 +139,7 @@ public class UserDaoImpl implements UserManagementDao {
 	@Override
 	public ArrayList<RoleAll> getRoleAll() {
 	
-	String sql = "SELECT * from role ";
+	String sql = "SELECT * from role where is_delete = 0";
 		
 		ArrayList<RoleAll> roleList = new ArrayList<RoleAll>();
 		Connection connection = DBUtil.open();

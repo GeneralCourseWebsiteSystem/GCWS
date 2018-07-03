@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*"  import ="java.text.SimpleDateFormat"%>
     
-       <%@page import="com.cqut.messageManagement.entity.messageUser" %>
+       <%@page import="com.cqut.messageManagement.entity.MessageUser" %>
 <%
-	List<messageUser> list = (List<messageUser>)request.getAttribute("MessageList");	
+	List<MessageUser> list = (List<MessageUser>)request.getAttribute("MessageList");	
 	int pageIndex = 1;
 	Integer totalPage = Integer.parseInt(request.getAttribute("totalPage")+"");
 	Integer pageMegNum = Integer.parseInt(request.getAttribute("pageMegNum")+"");
@@ -51,7 +51,7 @@
              
             <form action="addOrderItem" method="post">
           
-           <a href="<%=request.getContextPath() %>/messageManagementBack?code=delete&name=<%=list.get(i).getAuthorId()%>&IF=<%=list.get(i).getIsDelete() %> ">删除</a>
+           <a href="<%=request.getContextPath() %>/MessageManagementBack?code=delete&name=<%=list.get(i).getMsgId()%>&IF=<%=list.get(i).getIsDelete() %> ">删除</a>
            
             </form>
             </td>
@@ -61,9 +61,9 @@
     
 </table>
 <div class="page">
-	                    <a  class="footpage" href="<%=request.getContextPath() %>/messageManagementBack?pageIndex=<%=pageIndex%>&pageTurn=up">&emsp;上一页</a>
+	                    <a  class="footpage" href="<%=request.getContextPath() %>/MessageManagementBack?pageIndex=<%=pageIndex%>&pageTurn=up">&emsp;上一页</a>
 						<span>&emsp;第<%=pageIndex%>页&emsp;</span>			
-						<a href="<%=request.getContextPath() %>/messageManagementBack?pageIndex=<%=pageIndex%>&pageTurn=down">下一页</a>
+						<a href="<%=request.getContextPath() %>/MessageManagementBack?pageIndex=<%=pageIndex%>&pageTurn=down">下一页</a>
 						<span>&emsp;共<%=totalPage%>页</span>
 					</div>
 </body>
