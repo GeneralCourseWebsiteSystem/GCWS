@@ -41,6 +41,7 @@ public class TeachTeamServlet extends HttpServlet {
 		
 		TeachTeamDaoImpl teachTeamDao=new TeachTeamDaoImpl();
 		ArrayList<Teacher> tlist=teachTeamDao.getAll(id);
+		System.out.print(tlist.get(0).getTeacherIntroduce());
 		
 		session.setAttribute("tlist", tlist); 
 		response.sendRedirect("TeachTeam/jsp/teachTeam.jsp");

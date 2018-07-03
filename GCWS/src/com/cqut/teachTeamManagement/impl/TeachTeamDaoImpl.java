@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import com.cqut.common.util.DBUtil;
 import com.cqut.teachTeamManagement.dao.TeachTeamDao;
 import com.cqut.teachTeamManagement.entity.Teacher;
-import com.cqut.teachTeamManagement.entity.TeachUser;
-import com.cqut.userManagement.dao.UserManagementDao;
 
 
 public class TeachTeamDaoImpl implements TeachTeamDao{
