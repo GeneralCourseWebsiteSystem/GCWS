@@ -20,6 +20,7 @@
 		<input type= "hidden" name="roleId" value="<%=list1.get(0).getId() %>" />
 		
 		<div><input type="submit" name="update" value="修改"></div>
+		<div><a href ="<%=request.getContextPath()%>/RoleAllocationBackManage">取消</a></div>
 	</form>
 </body>
 </html>

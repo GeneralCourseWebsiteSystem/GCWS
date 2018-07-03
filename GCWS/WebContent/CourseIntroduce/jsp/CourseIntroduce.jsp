@@ -43,7 +43,7 @@
     <li><a onclick="change(this)" href="javascript:;" rel="3">教学方法</a></li>
     <li><a onclick="change(this)" href="javascript:;" rel="4">课程安排</a></li>
     <li><a onclick="change(this)" href="javascript:;" rel="5">课程大纲</a></li>
-    <li><a onclick="change(this)" href="javascript:;" rel="6">课程理念与目标</a></li>
+    <li><a onclick="change(this)" href="javascript:;" rel="6">理念与目标</a></li>
     <li><a onclick="change(this)" href="javascript:;" rel="7">课程动态</a></li>
 </ul>
 <div id="container" class="container">
