@@ -90,8 +90,9 @@ body {
 	color: #3CB371;
 }
 .update{
-	margin-top:-263px;
-	margin-left: 93%;
+	margin-top: 0px;
+	float: right;
+	margin-right: 2%;
 	width: 5%;
 	height: 24.5px;
 	background-color: #91c0E3;
