@@ -29,7 +29,19 @@ public interface UserManagementDao {
 	/**
 	 * 获取所有的用户角色
 	 */
-	public ArrayList<RoleUserLink> getAllRole();
+	public ArrayList<RoleUserLink> getAllRoleA();
+	
+	/**
+	 * 获取所有的用户角色分页展示
+	 */
+	public ArrayList<RoleUserLink> getAllRole(Integer index, Integer limit, String str);
+	
+	/**
+	 * 获取模糊搜索的数量
+	 * @param str
+	 * @return
+	 */
+	public Integer getAllRoleNum(String str) ;
 	
 	/**
 	 * 获取所有用户及其角色
