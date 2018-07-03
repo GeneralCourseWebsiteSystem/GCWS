@@ -39,15 +39,18 @@
 		<div class="course_nav">
 			<ul>
 				<!-- 跳转页面的传的参数自己加 -->
-				<li onclick="to_courseHomepage()">首页</li>
-				<li onclick="to_courseIntroduce()">课程介绍</li>
-				<li onclick="to_teacherTeam()">教学团队</li>
-				<li onclick="to_courseConstruction()">课程建设</li>
-				<li onclick="to_courseResource()">课程资源</li>
-				<li onclick="to_courseMessage()">留言</li>
-				<li onclick="to_courseResearch()">课程研究</li>
+				<li><a href="javascript:void(0);">首页</a></li>
+				<li><a href="javascript:void(0);">课程介绍</a></li>
+				<li><a href="javascript:void(0);">教学团队</a></li>
+				<li><a href="javascript:void(0);">课程资源</a></li>
+				<li><a href="javascript:void(0);">留言</a></li>
+				<li><a href="javascript:void(0);">课程研究</a></li>
 			</ul>
 		</div>
 	</div>
+	<div>
+		<iframe src="<%=request.getContextPath() %>/common/jsp/welcome.jsp" class="innerFrame" name="innerFrame" frameborder="0" scrolling="auto"></iframe>
+	</div>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>
