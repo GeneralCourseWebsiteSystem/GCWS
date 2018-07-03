@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.homePageHeader{
+	height: 250px;
+    width: 956px;
+    padding: 0 15%;
+    background: #a5b0cc;
+}
+
+.login{
+	width: 100%;
+    height: 50px;
+}
+
+.login_btn{
+	line-height: 50px;
+    width: 50px;
+    padding-left: 905px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.login_btn a{
+	text-decoration: none;
+    color: wheat;
+}
+
+.home_logo{
+	float: left;
+    width: 565px;
+}
+
+.home_logo img{
+	width: 20%;
+}
+
+.home_logo label{
+	font-size: 65px;
+    line-height: 30px;
+    color: white;
+    position: relative;
+    bottom: 30px;
+    left: 10px;
+    letter-spacing: 5px;
+    font-family: 华文行楷;
+}
+
+.home_img{
+	float: right;
+    width: 375px;
+	height: 160px;
+    border-top-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+    overflow: hidden;
+    box-shadow: 7px 2px 20px azure;
+}
+
+.home_img img{
+	width: 100%;
+    height: 100%;
+}
+
+.course_list{
+	width: 956px;
+    margin: 20px 15%;
+    box-shadow: 0px 0px 10px grey;
+}
+
+.course_box{
+	display: inline-block;
+    width: 315px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.course_box img{
+	width: 50%;
+	display: block;
+	margin: 0 auto;
+}
+
+.course_box a{
+	text-decoration: none;
+    color: black;
+    line-height: 45px;
+    font-size: 20px;
+}
+
+.paging{
+	width: 956px !important;
+	margin: 0 auto;
+}
