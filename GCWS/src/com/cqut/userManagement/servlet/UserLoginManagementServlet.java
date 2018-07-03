@@ -86,29 +86,6 @@ public class UserLoginManagementServlet extends HttpServlet {
 				}
 			}
 		}
-		
-
-		/*
-		 * if(user.getAccount()=="" || user.getAccount() == null) {
-		 * out.print("<script>alert('账号！');</script>");
-		 * request.getRequestDispatcher("ReturnLogin").forward(request, response);
-		 * return;
-		 * 
-		 * }else { RoleAll role=userDao.getRoleId(user.getId());
-		 * 
-		 * if(role.getRoleName().equals("用户")) { for(int i=0;i<userList.size();i++){
-		 * if(userList.get(i).getAccount().equals(username)){
-		 * if(pwd.equals(user.getPassword())){ session.setAttribute("userid",
-		 * user.getId()); session.setAttribute("username",user.getUserName());
-		 * response.sendRedirect(request.getContextPath()+"/HomePage"); } else{
-		 * out.print(
-		 * "<script>alert('密码错误');window.location='ReturnLogin?do=login';</script>");
-		 * return; } }else{ result=false; } } if(result==false){ out.print(
-		 * "<script>alert('没有此账号');window.location='ReturnLogin?do=login';</script>");
-		 * return; } }else { out.print(
-		 * "<script>alert('账号身份不对');window.location='ReturnLogin?do=login';</script>");
-		 * return; } }
-		 */
 	}
 
 	/**
