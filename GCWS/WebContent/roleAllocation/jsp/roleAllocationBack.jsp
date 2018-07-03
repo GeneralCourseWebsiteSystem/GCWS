@@ -54,12 +54,17 @@
 			
 
 			<td>
-			<select name="<%=list.get(i).getuId() %>">
+			<select name="all">
 			
-            <option value="<%=list.get(i).getRoleName()%>" selected><%=list.get(i).getRoleName()%></option>   
+            <option selected="selected"  value="<%=list.get(i).getId()%>"><%=list.get(i).getRoleName()%></option>   
     
     
-			 <%for(int m=0;m<list1.size();m++){%>
+			 <%for(int m=0;m<list1.size();m++){ 
+			    if(list.get(i).getId()==list1.get(m).getId()){
+			    	continue;
+			    }
+			 
+			 %>
 			 
 			<option value="<%=list1.get(m).getId()%>"><%=list1.get(m).getRoleName()%></option>
 			 
@@ -71,8 +76,8 @@
           
 
 			<td>
-                 <input type="hidden" name="<%=list.get(i).getuId() %>"  value="<%=list.get(i).getuId() %>" />
-                  <input type="submit" name="update" value="update"/>
+                 
+                  
                
 			</td>
 
@@ -83,6 +88,7 @@
 		%>
 
 	</table>
+	<input type="submit" name="update" value="update"/>
 	</form>
 
 	

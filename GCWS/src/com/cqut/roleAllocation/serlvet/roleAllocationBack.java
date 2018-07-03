@@ -37,19 +37,20 @@ public class roleAllocationBack extends HttpServlet {
 		//获取参数
 		if(request.getParameter("update")!=null) {
 			List<role> role1 = new UserDaoImpl().getAllRole();
+			String[] arr = request.getParameterValues("all");
 			
 			request.setCharacterEncoding("utf-8");
 			for(int i=0;i<role1.size();i++) {
-			Integer uid = Integer.parseInt(request.getParameter(Integer.toString(role1.get(i).getuId())));
+			
+			int roleX= Integer.parseInt(arr[i]);
 			
 			
 			
-			Integer roleX  = Integer.parseInt(request.getParameter(Integer.toString(uid)));
 			
 			
 			
 			//改变用户的角色
-			Boolean tt = new UserDaoImpl().role_allocaion(roleX,uid);
+			Boolean tt = new UserDaoImpl().role_allocaion(roleX,i+1);
 			}
 			
 		}
