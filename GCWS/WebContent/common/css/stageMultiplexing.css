@@ -4,6 +4,11 @@
 	paddind: 0;
 }
 
+a{
+	text-decoration: none;
+    color: white;
+}
+
 .header{
 	height: 300px;
     width: 956px;
@@ -117,7 +122,7 @@
 .course_nav ul li{
 	list-style: none;
     display: inline-block;
-    width: 13%;
+    width: 15%;
     text-align: center;
     cursor: pointer;
 }
