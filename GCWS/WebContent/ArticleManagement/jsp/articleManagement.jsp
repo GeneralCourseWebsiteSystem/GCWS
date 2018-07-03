@@ -45,18 +45,32 @@
 		</tr>
 		<%
 			for(int i = 0; i < acList.size(); i++){ 
+				String articleType = "";
+				String checkState = "";
+				if(acList.get(i).getArticleType() == 0){
+					articleType = "研究类";
+				} else if(acList.get(i).getArticleType() == 1){
+					articleType = "动态类";
+				} else {
+					articleType = "未分类";
+				}
+				switch(acList.get(i).getCheckState()){
+					case 0: checkState = "通过";break;
+					case 1: checkState = "待审核";break;
+					case 2: checkState = "拒绝";break;
+				}
 		%>
 		<tr>
 			<td><%=acList.get(i).getArticleName() %></td>
-			<td><%=acList.get(i).getArticleType() %></td>
+			<td><%=articleType %></td>
 			<td><%=acList.get(i).getAuthorName() %></td>
 			<td><%=acList.get(i).getCourseName() %></td>
-			<td><%=acList.get(i).getCheckState() %></td>
+			<td><%=checkState %></td>
 			<td><%=acList.get(i).getCreateTime() %></td>
 			<td>
-				<a href="ArticleCourseDetail?articleId=<%=acList.get(i).getId()%>">详细</a> | 
-				<a href="admin/OperatorInitEdit?articleId=<%=acList.get(i).getId()%>">编辑</a> | 
-				<a href="ArticleCourseDelete?articleId=<%=acList.get(i).getId()%>">删除</a>
+				<a class="hrefA" href="ArticleCourseDetail?articleId=<%=acList.get(i).getId()%>">详细</a> | 
+				<%-- <a href="admin/OperatorInitEdit?articleId=<%=acList.get(i).getId()%>">编辑</a> | --%> 
+				<a class="hrefA" href="ArticleCourseDelete?articleId=<%=acList.get(i).getId()%>">删除</a>
 			</td>
 		</tr>
 		<%

@@ -2,8 +2,10 @@ package com.cqut.userManagement.dao;
 
 import java.util.ArrayList;
 
+import com.cqut.userManagement.entity.RoleAll;
 import com.cqut.userManagement.entity.User;
 import com.cqut.userManagement.entity.UserRole;
+import com.cqut.userManagement.entity.RoleUserLink;
 
 /**
  * 
@@ -23,4 +25,23 @@ public interface UserManagementDao {
 	 * @return
 	 */
 	public ArrayList<UserRole> getAllUserRole();
+	
+	/**
+	 * 获取所有的用户角色
+	 */
+	public ArrayList<RoleUserLink> getAllRole();
+	
+	/**
+	 * 获取所有用户及其角色
+	 * @return
+	 */
+	public ArrayList<RoleAll> getRoleAll();
+	
+	
+	/**
+	 * 进行角色分配(传用户id和分配的角色id)
+	 */
+	public boolean role_allocaion(int userId,int roleId);
+	
+	
 }

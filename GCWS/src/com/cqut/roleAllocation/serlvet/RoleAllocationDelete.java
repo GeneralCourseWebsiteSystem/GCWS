@@ -7,17 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cqut.roleAllocation.impl.RoleAllcocationDaoImpl;
+
 /**
- * Servlet implementation class roleAllocationBackManage
+ * Servlet implementation class RoleAllocationDelete
  */
-@WebServlet("/roleAllocationBackManage")
-public class roleAllocationBackManage extends HttpServlet {
+@WebServlet("/RoleAllocationDelete")
+public class RoleAllocationDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public roleAllocationBackManage() {
+    public RoleAllocationDelete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,16 +28,22 @@ public class roleAllocationBackManage extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("roleAllocation/jsp/roleAllocationBackManage.jsp").forward(request, response);
+	    //获取删除的id
+		int  role_id= Integer.parseInt(request.getParameter("name"));
+		
+		@SuppressWarnings("unused")
+		Boolean IF = new RoleAllcocationDaoImpl().role_delete(role_id);
+		
+		response.sendRedirect("RoleAllocationBackManage");
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
+
 
 }
