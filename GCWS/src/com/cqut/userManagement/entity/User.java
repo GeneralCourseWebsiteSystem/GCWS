@@ -22,6 +22,8 @@ public class User {
 	
 	private String phoneNumber;
 	
+	private String atName;
+	
 	private Byte isLock;
 	
 	private Byte isAssociates;
@@ -36,7 +38,7 @@ public class User {
 		super();
 	}
 
-	public User(Integer id, Integer roleId, String account, String userName, String password, String phoneNumber,
+	public User(Integer id, Integer roleId, String account, String userName, String password, String phoneNumber, String atName,
 			Byte isLock, Byte isAssociates, Date createTime, Byte isDelete, String remark) {
 		super();
 		this.id = id;
@@ -45,6 +47,7 @@ public class User {
 		this.userName = userName;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
+		this.atName = atName;
 		this.isLock = isLock;
 		this.isAssociates = isAssociates;
 		this.createTime = createTime;
@@ -98,6 +101,14 @@ public class User {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getAtName() {
+		return atName;
+	}
+
+	public void setAtName(String atName) {
+		this.atName = atName;
 	}
 
 	public Byte getIsLock() {
