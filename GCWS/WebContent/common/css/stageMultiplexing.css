@@ -3,6 +3,7 @@
 *{
 	margin: 0;
 	paddind: 0;
+	border: 0;
 }
 
 a{
@@ -126,6 +127,16 @@ a{
     width: 15%;
     text-align: center;
     cursor: pointer;
+}
+
+.frame{
+	height: 775px;
+}
+
+iframe{
+	width: 956px;
+	height: 100%;
+	margin-left: 202px;
 }
 
 .footer{
