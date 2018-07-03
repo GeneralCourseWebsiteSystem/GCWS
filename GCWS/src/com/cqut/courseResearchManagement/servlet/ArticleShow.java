@@ -1,33 +1,55 @@
-package com.cqut.userManagement.servlet;
+package com.cqut.courseResearchManagement.servlet;
 
 import java.io.IOException;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ReturnLogin
+ * Servlet implementation class ArticleShow
  */
-@WebServlet("/ReturnLogin")
-public class ReturnLogin extends HttpServlet {
+@WebServlet("/ArticleShow")
+public class ArticleShow extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReturnLogin() {
+    public ArticleShow() {
         super();
         // TODO Auto-generated constructor stub
     }
+
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see Servlet#destroy()
+	 */
+	public void destroy() {
+		// TODO Auto-generated method stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("login/jsp/stageLogin.jsp").forward(request, response);
+		response.setContentType("text/html;charset=gb2312");
+		 request.setCharacterEncoding("utf-8");
+		 HttpSession session = request.getSession();
+		 String content =request.getParameter("show");
+		 
+		 session.setAttribute("content", content); 
+		 response.sendRedirect("CourseResearch/jsp/articleShow.jsp");
 	}
 
 	/**
