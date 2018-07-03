@@ -34,6 +34,9 @@ public interface RoleAllocation {
 	 * 对角色的修改
 	 */
     public boolean role_update(Integer id,String  roleName,String remark);
+    /**
+     * 
+     */
 	
 	
 	
