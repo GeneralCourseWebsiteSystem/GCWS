@@ -260,6 +260,12 @@ String sql = "SELECT r.id, u.id, r.role_name, u.user_name, u.account "
 		}
 	}
 
+	@Override
+	public RoleAll getRoleId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 	
