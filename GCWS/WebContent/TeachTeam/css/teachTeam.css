@@ -1,0 +1,34 @@
+@charset "UTF-8";
+*{
+	margin: 0px;
+	border:0px;
+	padding: 0px;
+}
+.main{
+	width: 70.8%;
+	height: 600px;
+	margin-left: 15%;
+	margin-top: 2px;
+	background:#f8f8ff;
+}
+.title{
+	width: 70%;
+	height: 100px;
+	padding-left:15%;
+	padding-right:15%;
+	margin-top: 1px;
+	
+}
+.titleLeft{
+	width: 40px;
+	height: 80px;
+	float: left;
+}
+.titleLeftTop{
+	background: url('../../common/image/3.png')no-repeat 30px 30px;
+}
+.titleRight{
+	width: 40px;
+	height: 100px;
+	float: right;
+}

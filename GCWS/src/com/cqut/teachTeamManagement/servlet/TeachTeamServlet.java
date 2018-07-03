@@ -1,23 +1,29 @@
-package com.cqut.userManagement.servlet;
+package com.cqut.teachTeamManagement.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.cqut.teachTeamManagement.entity.Teacher;
+import com.cqut.teachTeamManagement.impl.TeachTeamDaoImpl;
 
 /**
- * Servlet implementation class ReturnLogin
+ * Servlet implementation class TeachTeamServlet
  */
-@WebServlet("/ReturnLogin")
-public class ReturnLogin extends HttpServlet {
+@WebServlet("/TeachTeamServlet")
+public class TeachTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReturnLogin() {
+    public TeachTeamServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +33,18 @@ public class ReturnLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("login/jsp/stageLogin.jsp").forward(request, response);
+		response.setContentType("text/html;charset=gb2312");
+		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
+		String courseid = request.getParameter("id");
+		int id=Integer.parseInt(courseid);
+		
+		TeachTeamDaoImpl teachTeamDao=new TeachTeamDaoImpl();
+		ArrayList<Teacher> tlist=teachTeamDao.getAll(id);
+		System.out.print(tlist.get(0).getTeacherIntroduce());
+		
+		session.setAttribute("tlist", tlist); 
+		response.sendRedirect("TeachTeam/jsp/teachTeam.jsp");
 	}
 
 	/**

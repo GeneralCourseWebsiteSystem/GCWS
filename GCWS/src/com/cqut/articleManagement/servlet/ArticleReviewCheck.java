@@ -1,8 +1,6 @@
 package com.cqut.articleManagement.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,20 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cqut.articleManagement.entity.ArticleCourse;
 import com.cqut.articleManagement.impl.ArticleCourseImpl;
-import com.cqut.common.util.StringUtil;
-import com.cqut.common.util.SysUtil;
 
 /**
- * Servlet implementation class ArticleCourseServlet
+ * Servlet implementation class ArticleReviewCheck
  */
-@WebServlet("/ArticleCourseServlet")
-public class ArticleCourseServlet extends HttpServlet {
+@WebServlet("/ArticleReviewCheck")
+public class ArticleReviewCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ArticleCourseServlet() {
+    public ArticleReviewCheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,24 +44,11 @@ public class ArticleCourseServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer pageNum = 10;
-		Integer curPage = 1;
-		String name = request.getParameter("name");
-		String scurPage = request.getParameter("curPage");
+		String articleId = request.getParameter("articleId");
 		ArticleCourseImpl articleCourseImpl = new ArticleCourseImpl();
-		Integer totalNum = articleCourseImpl.getAllSize(name);
-		if(scurPage == null){
-            curPage = 1;//从第一页开始访问
-        }else{
-            curPage = Integer.parseInt(scurPage);
-        }
-		Integer index = (curPage-1) * pageNum;
-		ArrayList<ArticleCourse> acList = articleCourseImpl.getList(index, pageNum, StringUtil.emptyOrNull(name));
-		request.setAttribute("acList", acList);
-		String html = SysUtil.createPage(totalNum, curPage, pageNum, request.getContextPath() + "/ArticleCourseServlet");
-		request.setAttribute("html", html);
-		request.setAttribute("name", name);
-		request.getRequestDispatcher("/ArticleManagement/jsp/articleManagement.jsp").forward(request, response);
+		ArticleCourse articleCourse = articleCourseImpl.getById(articleId);
+		request.setAttribute("articleCourse", articleCourse);
+		request.getRequestDispatcher("/ArticleManagement/jsp/articleReviewCheck.jsp").forward(request, response);
 	}
 
 	/**

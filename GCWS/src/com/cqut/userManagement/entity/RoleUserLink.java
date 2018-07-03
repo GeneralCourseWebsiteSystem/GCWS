@@ -12,6 +12,10 @@ public class RoleUserLink {
 	
 	private String account;
 
+	public RoleUserLink() {
+		super();
+	}
+
 	public RoleUserLink(Integer id, Integer uId,String roleName, String userName, String account) {
 		super();
 		this.id = id;

@@ -6,11 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
-import javax.management.relation.Role;
-
 import com.cqut.common.util.DBUtil;
+import com.cqut.common.util.StringUtil;
 import com.cqut.userManagement.dao.UserManagementDao;
 import com.cqut.userManagement.entity.RoleUserLink;
 import com.cqut.userManagement.entity.RoleAll;
@@ -106,9 +103,11 @@ public class UserDaoImpl implements UserManagementDao {
 	
 
 	@Override
-	public ArrayList<RoleUserLink> getAllRole() {
+	public ArrayList<RoleUserLink> getAllRole(Integer index, Integer limit, String str) {
 		
-		String sql = "SELECT role.id,user.id ,role_name,user_name,account FROM `user` JOIN role ON `user`.role_id = role.id ";
+		String sql = "SELECT r.id, u.id, r.role_name, u.user_name, u.account "
+				+ "FROM `user` u, role r WHERE u.role_id = r.id AND u.is_delete = 0 "
+				+ "AND r.role_name LIKE '%"+StringUtil.emptyOrNull(str)+"%' LIMIT "+index+", "+limit+";";
 		
 		ArrayList<RoleUserLink> roleList = new ArrayList<RoleUserLink>();
 		Connection connection = DBUtil.open();
@@ -133,6 +132,41 @@ public class UserDaoImpl implements UserManagementDao {
 		} catch(Exception e) {
 			e.printStackTrace();
 			return roleList;
+			
+		} finally {
+			DBUtil.close(connection);
+		}
+	}
+	
+	@Override
+	public Integer getAllRoleNum(String str) {
+String sql = "SELECT r.id, u.id, r.role_name, u.user_name, u.account "
+		+ "FROM `user` u, role r WHERE u.role_id = r.id AND u.is_delete = 0 "
+		+ "AND r.role_name LIKE '%"+StringUtil.emptyOrNull(str)+"%' ;";
+		
+		ArrayList<RoleUserLink> roleList = new ArrayList<RoleUserLink>();
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			while(rs.next()){
+				Integer id = rs.getInt(1);
+				
+				Integer uId = rs.getInt(2);
+				
+				String roleName = rs.getString(3);
+				
+				String userName = rs.getString(4);
+			
+				String account = rs.getString(5);
+				
+				RoleUserLink role1 = new RoleUserLink(id, uId,roleName, userName, account);
+				roleList.add(role1);
+			}
+			return roleList.size();
+		} catch(Exception e) {
+			e.printStackTrace();
+			return roleList.size();
 			
 		} finally {
 			DBUtil.close(connection);
@@ -175,7 +209,7 @@ public class UserDaoImpl implements UserManagementDao {
 
 	@Override
 	public boolean role_allocaion(int roleId, int userId) {
-		String sql = "update user set role_id = "+roleId+" where id = "+userId+" ";
+		String sql = "update user set role_id ="+roleId+" where id ="+userId+" ";
 		Connection connection = DBUtil.open();
 		try
 		{
@@ -189,6 +223,46 @@ public class UserDaoImpl implements UserManagementDao {
 		}
 		return true;
 	}
+
+	public ArrayList<RoleUserLink> getAllRoleA() {
+     String sql = "SELECT role.id,user.id ,role_name,user_name,account FROM `user` JOIN role ON `user`.role_id = role.id  ";
+		
+		ArrayList<RoleUserLink> roleList = new ArrayList<RoleUserLink>();
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			while(rs.next()){
+				Integer id = rs.getInt(1);
+				
+				Integer uId = rs.getInt(2);
+				
+				String roleName = rs.getString(3);
+				
+				String userName = rs.getString(4);
+			
+				String account = rs.getString(5);
+				
+				RoleUserLink role1 = new RoleUserLink(id, uId,roleName, userName, account);
+				roleList.add(role1);
+			}
+			return roleList;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return roleList;
+			
+		} finally {
+			DBUtil.close(connection);
+		}
+	}
+
+	@Override
+	public RoleAll getRoleId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 	
 

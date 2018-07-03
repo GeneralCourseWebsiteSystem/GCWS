@@ -33,5 +33,33 @@ public interface ArticleCourseDao {
 	 */
 	public ArticleCourse getById(String id);
 	
+	/**
+	 * 根据id删除文章信息
+	 * @param id
+	 * @return
+	 */
 	public Boolean DeleteById(String id);
+	
+	/**
+	 * 获取未审核的文章
+	 * @param index
+	 * @param limit
+	 * @param str
+	 * @return
+	 */
+	public ArrayList<ArticleCourse> getUnreviewedArticle(Integer index, Integer limit, String str);
+	
+	/**
+	 * 获取所有未审核的文章条数
+	 * @return
+	 */
+	public Integer getUnreviewedSize(String str);
+	
+	/**
+	 * 根据id和state改变文章的状态
+	 * @param id
+	 * @param checkState
+	 * @return
+	 */
+	public Boolean changeCheckState(String id, Byte checkState);
 }

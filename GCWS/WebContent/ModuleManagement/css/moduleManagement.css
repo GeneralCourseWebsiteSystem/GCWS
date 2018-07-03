@@ -93,6 +93,9 @@ body {
 	height: 45px;
 	color: #555555;
 }
+.moduleDetailTable tr:nth-child(odd){
+	background-color: white;
+}
 .topTd{
 	text-align: center;
 	font-size: 20px;
