@@ -1,7 +1,13 @@
 @charset "UTF-8";
+
 *{
 	margin: 0;
 	paddind: 0;
+}
+
+a{
+	text-decoration: none;
+    color: white;
 }
 
 .header{
@@ -117,7 +123,7 @@
 .course_nav ul li{
 	list-style: none;
     display: inline-block;
-    width: 13%;
+    width: 15%;
     text-align: center;
     cursor: pointer;
 }
