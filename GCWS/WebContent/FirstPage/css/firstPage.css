@@ -1,119 +1,116 @@
 @charset "UTF-8";
 .main{
 	width: 100%;
-	height: 770px;
-	margin-top: 2px;
-	background:#f8f8ff;
+	height: 794px;
+	background: whitesmoke;
 }
-.main1{
-	width: 100%;
-	height: 270px;
+
+.courseInfo{
+	width: 57%;
+	height: 230px;
+	margin-top: 20px;
+	margin-left: 1%;
+	float: left;
+	padding: 5px;
+}
+.courseCharge{
+	width: 37%;
+	height: 230px;
+	margin-top: 20px;
+	margin-right: 1%;
+	float: right;
+	padding: 5px;
+}
+.misStatement{
+	width: 57%;
+	margin-top: 20px;
+	height: 230px;
+	margin-left: 1%;
+	float: left;
+	padding: 5px;
+	border-radius: 15px;
+	border: 1px solid #999;
+	background: linear-gradient(#FFFACD, white); /* 标准的语法 */
+}
+.teachWay{
+	width: 37%;
+	margin-top: 20px;
+	height: 230px;
+	margin-right: 1%;
+	float: right;
+	padding: 5px;
+	border-radius: 15px;
+	border: 1px solid #999;
+	background: linear-gradient(#FFFACD, white); /* 标准的语法 */
+}
+.teachers{
+	width: 96%;
+	margin-left: 1%;
+	margin-top: 20px;
+	height: 230px;
+	float: left;
+	padding: 5px;
 }
 .title{
-	width: 60%;
-	height: 250px;
-	float: left;
-}
-.mainTop{
+	color: black;
 	width: 100%;
-	height: 60px;
+	height: 25px;
+	margin-top: -15px;
 }
-.maintitle{
-	width: 168px;
-	height: 45px;
-	padding-top:5px;
-	padding-left:20px;
-	word-break: break-word;
-	background-color:#a5b0cc;
+.tw{
+	margin-left: 15px;
+	font-size: 17px;
+	color: #555;
 }
-.titleline{
+.tw span{
+	font-size: 10px;
+	color: #999;
+}
+.line{
+	margin-left: 5px;
 	float: left;
+	width: 5px;
+	height: 25px;
+	background-color: red;
+}
+.text{
+	color: #555555;
+	font-size: 14px;
+	line-height: 1.5;
+}
+.text p{
+	text-indent: 2em;
+}
+.leftSpan{
+	text-align: left;
+	font-size: 14px;
+	color: #999;
+}
+.rightSpan{
+	margin-right: 2%;
+	text-align: right;
+	float: right;
+	font-size: 14px;
+	color: #999;
+}
+.tw{
+	font-size: 14px;
+	color: #999;
+}
+.tw p{
+	text-indent: 2em;
+}
+.member{
 	width: 100%;
-	height: 3px;
-	background-color:#a5b0cc;
-	position: relative;
-}
-h3{
-	color:white;
-	font-size: 20px;
-	letter-spacing: 5px
-}
-
-.titlecontent{
-	width: 80%;
 	height: 180px;
-	margin-left:10%;
-	background-color:green;
+	border: 1px solid #999;
+	border-radius: 15px;
 }
-.title1{
-	width: 34%;
-	height: 250px;
-	float: left;
-	margin-left:40px;
-}
-.mainTop1{
-	width: 100%;
-	height: 60px;
-}
-.maintitle1{
-	width: 168px;
-	height: 45px;
-	padding-top:5px;
-	padding-left:20px;
-	word-break: break-word;
-	background-color:#a5b0cc;
-}
-.titleline1{
-	float: left;
-	width: 100%;
-	height: 3px;
-	background-color:#a5b0cc;
-	position: relative;
-}
-h3{
-	color:white;
-	font-size: 20px;
-	letter-spacing: 5px
-}
-
-.titlecontent1{
-	width: 80%;
-	height: 180px;
-	margin-left:10%;
-	background-color:green;
-}
-.title4{
-	width: 100%;
-	height: 250px;
-}
-.mainTop4{
-	width: 100%;
-	height: 60px;
-}
-.maintitle4{
-	width: 168px;
-	height: 45px;
-	padding-top:5px;
-	padding-left:20px;
-	word-break: break-word;
-	background-color:#a5b0cc;
-}
-.titleline4{
-	float: left;
-	width: 100%;
-	height: 3px;
-	background-color:#a5b0cc;
-	position: relative;
-}
-h3{
-	color:white;
-	font-size: 20px;
-	letter-spacing: 5px
-}
-
-.titlecontent4{
-	width: 95%;
-	height: 180px;
-	margin-left:2%;
-	background-color:green;
+.img{
+	margin-left: 1%;
+	margin-top: 40px;
+	width: 100px;
+	border-radius: 50%;
+	border: 1px solid #999999;
+	height: 100px;
 }

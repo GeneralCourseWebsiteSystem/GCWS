@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cqut.courseIntroduce.entity.CourseActive;
 import com.cqut.courseIntroduce.entity.CourseIntroduceContent;
 import com.cqut.courseIntroduce.impl.CourseIntroduceDaoImpl;
 import com.cqut.teachTeamManagement.entity.Teacher;
@@ -54,6 +55,7 @@ public class FirstPage extends HttpServlet {
 		TeachTeamDaoImpl teachTeamDaoImpl = new TeachTeamDaoImpl();
 		List<CourseIntroduceContent> courseIntroduceContents = courseIntroduceDaoImpl.getIntroduceContentInfo(courseId);
 		ArrayList<Teacher> teachers = teachTeamDaoImpl.findTeacherByCourse(courseId);
+		List<CourseActive> courseActives = courseIntroduceDaoImpl.getIntroduceActive(courseId);
 		//课程负责人
 		request.setAttribute("charge", teachers.get(0).getTeacher_introduce());
 		//课程组成员
@@ -61,7 +63,7 @@ public class FirstPage extends HttpServlet {
 		//课程简介
 		request.setAttribute("courseIntroduce", courseIntroduceContents.get(0).getCourseInfo());
 		//课程动态
-		request.setAttribute("misStatement", courseIntroduceContents.get(0).getMisStatement());
+		request.setAttribute("courseActives", courseActives);
 		//教学方法
 		request.setAttribute("teachWay", courseIntroduceContents.get(0).getTeachWay());
 		
