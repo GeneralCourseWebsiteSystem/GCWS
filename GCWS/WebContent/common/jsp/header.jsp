@@ -22,7 +22,7 @@
 				<img alt="." src="<%=request.getContextPath() %>/common/image/logo.png"> <label>重庆理工大学</label>
 			</div>
 			<%-- 这里写的时候自己改，把下面注释掉 --%>
-			<div class="header_title"> <%=course.getCourse_name() %>精品课程</div>
+			<div class="header_title"><%--  <%=course.getCourse_name() %> --%>精品课程</div>
 		</div>
 		<div class="header_right">
 			<div class="header_img">
@@ -41,10 +41,10 @@
 			<ul>
 				<!-- 跳转页面的传的参数自己加 -->
 				<li><a href="javascript:void(0);">首页</a></li>
-				<li><a href="javascript:void(0);">课程介绍</a></li>
+				<li><a href="<%=request.getContextPath()%>/CourseIntroduce/jsp/CourseIntroduce.jsp" target="innerFrame">课程介绍</a></li>
 				<li><a href="javascript:void(0);">教学团队</a></li>
 				<li><a href="javascript:void(0);">课程资源</a></li>
-				<li><a href="javascript:void(0);">留言</a></li>
+				<li><a href="<%=request.getContextPath()%>/MessageManagement" target="innerFrame">留言</a></li>
 				<li><a href="javascript:void(0);">课程研究</a></li>
 			</ul>
 		</div>
