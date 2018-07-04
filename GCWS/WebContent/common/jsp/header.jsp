@@ -41,7 +41,7 @@
 		<div class="course_nav">
 			<ul>
 				<!-- 跳转页面的传的参数自己加 -->
-				<li><a href="javascript:void(0);">首页</a></li>
+				<li><a href="<%=request.getContextPath() %>/FirstPage" target="innerFrame"">首页</a></li>
 				<li><a href="<%=request.getContextPath() %>/CourseIntroduce/jsp/CourseIntroduce.jsp" target="innerFrame">课程介绍</a></li>
 				<li><a href="<%=request.getContextPath() %>/TeacherList" target="innerFrame">教学团队</a></li>
 				<li><a href="<%=request.getContextPath() %>/CourseSourceDownload/jsp/upload.jsp" target="innerFrame">课程资源</a></li>
@@ -52,7 +52,7 @@
 		</div>
 	</div>
 	<div class="frame">
-		<iframe src="<%=request.getContextPath() %>/FirstPage/jsp/firstPage.jsp" class="innerFrame" name="innerFrame" frameborder="0" scrolling="auto"></iframe>
+		<iframe src="<%=request.getContextPath() %>/FirstPage" class="innerFrame" name="innerFrame" frameborder="0" scrolling="auto"></iframe>
 	</div>
  	<%@ include file="footer.jsp" %>
 </body>
