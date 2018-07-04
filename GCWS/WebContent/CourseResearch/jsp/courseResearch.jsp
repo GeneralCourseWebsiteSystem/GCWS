@@ -18,26 +18,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/CourseResearch/css/courseResearch.css">
-
 </head>
 <body>
 
 <div class="main">
    <div class="mainTop">
-	   <div class="maintitle"><h3>课程研究</h3>
-	   </div>
-	   <div class="titleline"></div>
-	</div>
 	<%  for(int i=0;i<clist.size();i++) {%>
 	   <div class="content">
-	   <h1> 
-	      <a href="<%=request.getContextPath() %>/ArticleShow?show=<%=clist.get(i).getId() %>&title=<%=clist.get(i).getArticlename() %>&courseid=<%=courseid %>"><%=clist.get(i).getArticlename() %>\<%=clist.get(i).getName() %></a>
-	   </h1> 
-	   <h2 >
-	      <%=clist.get(i).getFinishtime() %>
-	   </h2>
+	   		<table class="articleTable">
+	   			<tr>
+	   				<td class="leftTd"> <a href="<%=request.getContextPath() %>/ArticleShow?show=<%=clist.get(i).getId() %>&title=<%=clist.get(i).getArticlename() %>&courseid=<%=courseid %>">
+	      				<%=clist.get(i).getArticlename() %>\<%=clist.get(i).getName() %></a></td>
+	   				<td class="rightTd">  <%=clist.get(i).getFinishtime() %></td>
+	   			</tr>
+	   		</table>
 	   </div>
-	   <%} %>
+	<%} %>
+	</div>
 </div>
 </body>
 </html>
