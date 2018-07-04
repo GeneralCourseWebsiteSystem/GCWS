@@ -35,7 +35,7 @@
 							<li><a href="<%=basePath %>RoleAllocationBackManage" target="innerFrame">角色管理</a></li>
 							<li><a href="javascript:void(0);">默认功能设置</a></li>
 							<li><a href="javascript:void(0);">首页信息设置</a></li>
-							<li><a href="javascript:void(0);">码表管理</a></li>
+							<li><a href="<%=basePath %>CodeTableManagementServlet" target="innerFrame">码表管理</a></li>
 						</ul>
 					</li>
 				</ul>

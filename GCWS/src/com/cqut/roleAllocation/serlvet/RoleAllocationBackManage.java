@@ -1,14 +1,15 @@
 package com.cqut.roleAllocation.serlvet;
 
 import java.io.IOException;
-import java.util.List;
-
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cqut.common.util.StringUtil;
+import com.cqut.common.util.SysUtil;
 import com.cqut.userManagement.entity.RoleAll;
 import com.cqut.userManagement.impl.UserDaoImpl;
 
@@ -32,52 +33,24 @@ public class RoleAllocationBackManage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//获取角色表中的所有角色
-		List<RoleAll> roleAlls = new UserDaoImpl().getRoleAll();
+		//List<RoleAll> roleAlls = new UserDaoImpl().getRoleAllManage();
 		
-		
-		//实现分页
-		int pageMegNum = 1;		
-		if(request.getParameter("pageMegNum")!=null) {
-			pageMegNum = Integer.parseInt(request.getParameter("pageMegNum"));
-		}else {
-			pageMegNum = 8;//设置每页的显示条数
+		Integer pageNum = 10;
+		Integer curPage = 1;
+		String str = request.getParameter("str");
+		String scurPage = request.getParameter("curPage");
+		UserDaoImpl userDaoImpl = new UserDaoImpl();
+		Integer totalNum = userDaoImpl.getAllRoleNum(str);
+		if (scurPage == null) {
+			curPage = 1;// 从第一页开始访问
+		} else {
+			curPage = Integer.parseInt(scurPage);
 		}
-		
-		
-		int pageIndex = 1;
-		int totalPage = 1;
-		if(roleAlls.size()%pageMegNum==0) {
-			totalPage = roleAlls.size()/pageMegNum;
-		}else {
-			totalPage = roleAlls.size()/pageMegNum+1;
-		}				
-		if(request.getParameter("pageIndex") == null){
-			request.setAttribute("pageIndex", 1);
-		}else{
-			if(request.getParameter("pageTurn")!=null) {
-				if(request.getParameter("pageTurn").equals("up")) {
-					 pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
-					if(Integer.parseInt(request.getParameter("pageIndex"))!=1) {
-						pageIndex = pageIndex-1;
-						request.setAttribute("pageIndex", pageIndex);
-					}else {
-						request.setAttribute("pageIndex", pageIndex);
-					}
-				}else {
-					pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
-					if(Integer.parseInt(request.getParameter("pageIndex"))!=totalPage) {
-						pageIndex = pageIndex+1;				
-						request.setAttribute("pageIndex", pageIndex);
-					}else {
-						request.setAttribute("pageIndex", pageIndex);
-					}
-				}				
-			}else {
-				request.setAttribute("pageIndex",1);
-			}
-		}	
-		request.setAttribute("pageMegNum", pageMegNum);
-		request.setAttribute("totalPage", totalPage);
+		Integer index = (curPage - 1) * pageNum;
+		ArrayList<RoleAll> roleAlls = userDaoImpl.getRoleAllManage(index, pageNum, StringUtil.emptyOrNull(str));
+		String html = SysUtil.createPage(totalNum, curPage, pageNum, request.getContextPath() + "/RoleAllocationBackManage");
+		request.setAttribute("html", html);
+		request.setAttribute("str", str);
 		request.setAttribute("roleAlls",roleAlls);
 		
 		

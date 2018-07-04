@@ -9,5 +9,6 @@
 <body>
 课程动态
 <hr style="height:3px;border:none;border-top:3px double red;" />
+<div>课程动态内容</div>
 </body>
 </html>

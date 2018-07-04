@@ -1,5 +1,7 @@
 package com.cqut.courseForStage.entity;
 
+import java.util.Date;
+
 import org.omg.CORBA.BAD_POLICY_TYPE;
 
 /**
@@ -11,7 +13,7 @@ import org.omg.CORBA.BAD_POLICY_TYPE;
 public class CourseForStage {
 	private Integer id;
 	private String course_name;
-	private String create_time;
+	private Date create_time;
 	private byte is_delete;
 	private String remark;
 	public Integer getId() {
@@ -26,10 +28,10 @@ public class CourseForStage {
 	public void setCourse_name(String course_name) {
 		this.course_name = course_name;
 	}
-	public String getCreate_time() {
+	public Date getCreate_time() {
 		return create_time;
 	}
-	public void setCreate_time(String create_time) {
+	public void setCreate_time(Date create_time) {
 		this.create_time = create_time;
 	}
 	public byte getIs_delete() {
@@ -47,7 +49,7 @@ public class CourseForStage {
 	public CourseForStage() {
 		super();
 	}
-	public CourseForStage(Integer id, String course_name, String create_time, byte is_delete, String remark) {
+	public CourseForStage(Integer id, String course_name, Date create_time, byte is_delete, String remark) {
 		super();
 		this.id = id;
 		this.course_name = course_name;

@@ -3,16 +3,17 @@
 
 
 <%@page import="com.cqut.userManagement.entity.RoleAll"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 	List<RoleAll> list = (List<RoleAll>) request.getAttribute("roleAlls");
-	int pageIndex = 1;
-	Integer totalPage = Integer.parseInt(request.getAttribute("totalPage") + "");
-	Integer pageMegNum = Integer.parseInt(request.getAttribute("pageMegNum") + "");
-	if (request.getAttribute("pageIndex") == null) {
-		pageIndex = 1;
-	} else {
-		pageIndex = Integer.parseInt(request.getAttribute("pageIndex") + "");
+	String str = (String) request.getAttribute("str");
+	if (str == null) {
+		str = "";
 	}
+	String html = (String) request.getAttribute("html");
 %>
 
 
@@ -23,25 +24,41 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; utf-8">
-<link rel="stylesheet" type="text/css" href="./css/show.css" />
+
+<link href="<%=basePath%>common/css/page.css" rel="stylesheet"
+	type="text/css" />
+<link href="<%=basePath%>roleAllocation/css/roleAllocation.css"
+	rel="stylesheet" type="text/css" />	
 <title>角色管理</title>
 </head>
 <body>
-	<div class="Title">
-		<h1>角色管理</h1>
+<div class="articleHead">
+		<div class="curLocation articleManage">
+			<p>
+				<a href="RoleAllocationBack">角色管理</a>
+			</p>
+		</div>
 	</div>
+	<form class="searchForm" action="RoleAllocationBackManage" method="get">
+		<p>
+			角色搜索:<input class="searchInput" placeholder="请输入角色名" type="text"
+				name="str" value="<%=str%>" /> <input class="searchButton"
+				type="submit" value="查询" />
+		</p>
+	</form>
 	<div class="table">
 	
-		<table align='center' border='1' cellspacing='0' width="1100">
-			<tr class="one">
+		<table class="qaaTable">
+			<tr class="thTr">
 
-				<td>角色名称</td>
-				<td>修改时间</td>
-				<td>备注</td>
+				<th>角色名称</th>
+				<th>修改时间</th>
+				<th>备注</th>
+				<th>操作</th>
 
 			</tr>
 			<%
-				for (int i = (pageIndex - 1) * pageMegNum; i < pageIndex * pageMegNum && i < list.size(); i++) {
+				for (int i = 0; i < list.size(); i++) {
 			%>
 			<tr height="50" class="two">
 
@@ -65,16 +82,14 @@
 
 
 		</table>
-		<a href="<%=request.getContextPath()%>/roleAllocation/jsp/roleAllocationAdd.jsp">新增角色</a>
+		<div class="newAdd">
+		<a href="<%=request.getContextPath()%>/roleAllocation/jsp/roleAllocationAdd.jsp" >新增角色</a>
+		</div>
 	</div>
-	<div class="page">
-		<a class="footpage"
-			href="<%=request.getContextPath()%>/RoleAllocationBackManage?pageIndex=<%=pageIndex%>&pageTurn=up">&emsp;上一页</a>
-		<span>&emsp;第<%=pageIndex%>页&emsp;
-		</span> <a
-			href="<%=request.getContextPath()%>/RoleAllocationBackManage?pageIndex=<%=pageIndex%>&pageTurn=down">下一页</a>
-		<span>&emsp;共<%=totalPage%>页
-		</span>
-	</div>
+	<div style="width: 97%; margin-left: 1.5%;">
+			<c:if test="${not empty html}">
+				<div class="page">${html}</div>
+			</c:if>
+		</div>
 </body>
 </html>

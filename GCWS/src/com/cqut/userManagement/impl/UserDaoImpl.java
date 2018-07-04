@@ -3,6 +3,7 @@ package com.cqut.userManagement.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
@@ -256,12 +257,110 @@ String sql = "SELECT r.id, u.id, r.role_name, u.user_name, u.account "
 		}
 	}
 
+	/**
+	 * 
+	 * @author 刘华
+	 * 通过角色id获得角色的是所有信息
+	 */
 	@Override
 	public RoleAll getRoleId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection  = DBUtil.open();
+		String sql = "select * from `role` where id = "+id;
+		System.out.println(sql);
+		RoleAll role = new RoleAll();
+		try {
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			ResultSet rSet = pstmt.executeQuery();
+			while(rSet.next()) {
+				role.setId(rSet.getInt(1));
+				role.setRoleName(rSet.getString(2));
+				role.setCreateTime((java.util.Date)rSet.getDate(3));
+				role.setIsDelete(rSet.getByte(4));
+				role.setRemark(rSet.getString(5));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(connection);
+		}
+		return role;
 	}
+	
+	//角色管理查询分页查询所有的角色
+	public ArrayList<RoleAll> getRoleAllManage(Integer index, Integer limit, String str) {
+		
+		String sql = "SELECT r.id,r.role_name,r.create_time,r.is_delete,r.remark " + 
+				"from role r " + 
+				"where is_delete = 0				 " + 
+				"AND r.role_name " + 
+				"LIKE '%"+StringUtil.emptyOrNull(str)+"%'" +
+				"LIMIT 0, 10;";
+			
+			ArrayList<RoleAll> roleList = new ArrayList<RoleAll>();
+			Connection connection = DBUtil.open();
+			try{
+				
+				PreparedStatement pstm = connection.prepareStatement(sql);
+				ResultSet rs = pstm.executeQuery();
+				while(rs.next()){
+					int id = rs.getInt(1);
+					
+					String roleName = rs.getString(2);
+					
+					Date   createTime = rs.getDate(3);
+					
+					Byte isDelete = rs.getByte(4);
+				
+					String remark = rs.getString(5);
+					RoleAll role1 = new RoleAll(id, roleName, createTime, isDelete,remark);
+					roleList.add(role1);
+				}
+				return roleList;
+			} catch(Exception e) {
+				e.printStackTrace();
+				return roleList;
+				
+			} finally {
+				DBUtil.close(connection);
+			}
+		}
 
+    //分页模糊搜索数量
+public Integer getRoleAllManage(String str) {
+		
+		String sql = "SELECT * from role where is_delete = 0"+
+		"AND role.role_name LIKE '%"+StringUtil.emptyOrNull(str)+"%' ";
+			
+			ArrayList<RoleAll> roleList = new ArrayList<RoleAll>();
+			Connection connection = DBUtil.open();
+			try{
+				
+				PreparedStatement pstm = connection.prepareStatement(sql);
+				ResultSet rs = pstm.executeQuery();
+				while(rs.next()){
+					int id = rs.getInt(1);
+					
+					String roleName = rs.getString(2);
+					
+					Date   createTime = rs.getDate(3);
+					
+					Byte isDelete = rs.getByte(4);
+				
+					String remark = rs.getString(5);
+					RoleAll role1 = new RoleAll(id, roleName, createTime, isDelete,remark);
+					roleList.add(role1);
+				}
+				return roleList.size();
+			} catch(Exception e) {
+				e.printStackTrace();
+				return roleList.size();
+				
+			} finally {
+				DBUtil.close(connection);
+			}
+		}
 
 	
 	

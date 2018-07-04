@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+body {
+	font-family: "Microsoft YaHei";
+}
+
+.userHeader{
+	height: 40px;
+	padding-top: 1px;
+	background-color: #91C0E3;
+}
+
+.userManage{
+	width: 10%;
+}
+
+.curLocation{
+	margin-top: 10px;
+	margin-left: 1%;
+	height: 30px;
+	border-radius: 10px 10px 0px 0px;
+	background-color: white;
+	float: left;
+}
+
+.curLocation p{
+	margin-left: 10%;
+	margin-top: 5px;
+}
+
+.curLocation a{
+	color: #01538C;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.curLocation a:hover{
+	color: #1D9D73;
+}
+
+.searchForm{
+	margin-top: 5px;
+	margin-left: 2%;
+}
+
+.searchForm p{
+	color: #555;
+	font-size: 15px;
+}
+
+.searchInput{
+	height: 20px;
+	margin-left: 1%;
+	border: 1px solid #999999;
+}
+
+.searchButton{
+	width: 5%;
+	height: 24px;
+	background-color: #3CB371;
+	color: white;
+	border-radius: 5px;
+	border: 1px solid #999;
+	font-weight: bold;
+}
+
+.searchButton:hover{
+	background-color: whitesmoke;
+	color: #3CB371;
+}
+
+.addbtn{
+	margin-left: 2%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.addbtn p{
+	width: 55px;
+    height: 24px;
+    text-align: center;
+    border: 1px solid lightgrey;
+    background-color: #3CB371;
+    border-radius: 8px;
+}
+
+.addbtn p:hover{
+	background-color: whitesmoke;
+}
+
+.addbtn a{
+	color: white;
+}
+
+.addbtn a:hover{
+	color: #3CB371;
+}
+
+.userTable{
+	margin-top: 5px;
+	margin-left: 2%;
+	width: 96%;
+	background-color: whitesmoke;
+	text-align: center;
+	border-collapse:collapse;
+}
+
+.userTable tr{
+	height: 30px;
+	color: #555;
+}
+
+.thTr{
+	border: 1px solid #999;
+	height: 35px;
+}

@@ -41,11 +41,11 @@
 				<td class="leftTd">模块等级:</td><td><%=module.getLevel() %></td>
 			</tr>
 			<tr>
-				<td class="leftTd">是否为菜单:</td><td><%=module.getIsMenu() %></td>
+				<td class="leftTd">是否为菜单:</td><td><%=(module.getIsMenu() == 0 ? "否" : "是") %></td>
 				<td class="leftTd">创建时间:</td><td><%=module.getCreateTime() %></td>
 			</tr>
 			<tr>
-				<td class="leftTd">备注:</td><td colspan="2"><%=module.getRemark() %></td>
+				<td class="leftTd">备注:</td><td colspan="2"><%=(module.getRemark() == null ? "" : module.getRemark()) %></td>
 			</tr>
 		</table>
 	</form>
