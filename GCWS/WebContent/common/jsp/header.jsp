@@ -16,6 +16,7 @@
 <body>
 	<%-- 使用公用页面方法：<%@ include file="路径.jsp" %>--%>
 	<div class="header">
+	<div class="header_box">
 		<div class="header_top">
 			<div class="header_left">
 			<div class="header_logo">
@@ -41,17 +42,18 @@
 			<ul>
 				<!-- 跳转页面的传的参数自己加 -->
 				<li><a href="javascript:void(0);">首页</a></li>
-				<li><a href="javascript:void(0);">课程介绍</a></li>
-				<li><a href="<%=request.getContextPath() %>/TeachTeamServlet?id=<%=course.getId()%>" target="innerFrame">教学团队</a></li>
-				<li><a href="javascript:void(0);">课程资源</a></li>
-				<li><a href="javascript:void(0);">留言</a></li>
+				<li><a href="<%=request.getContextPath() %>/CourseIntroduce/jsp/CourseIntroduce.jsp" target="innerFrame">课程介绍</a></li>
+				<li><a href="<%=request.getContextPath() %>/TeacherList" target="innerFrame">教学团队</a></li>
+				<li><a href="<%=request.getContextPath() %>/ListFileServlet" target="innerFrame">课程资源</a></li>
+				<li><a href="<%=request.getContextPath() %>/MessageManagement" target="innerFrame">留言</a></li>
 				<li><a href="<%=request.getContextPath() %>/CourseResearchManagementServlet?id=<%=course.getId()%>" target="innerFrame">课程研究</a></li>
 			</ul>
+		</div>
 		</div>
 	</div>
 	<div class="frame">
 		<iframe src="<%=request.getContextPath() %>/common/jsp/welcome.jsp" class="innerFrame" name="innerFrame" frameborder="0" scrolling="auto"></iframe>
 	</div>
-	<%@ include file="footer.jsp" %>
+ 	<%@ include file="footer.jsp" %>
 </body>
 </html>
