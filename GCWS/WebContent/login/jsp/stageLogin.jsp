@@ -27,12 +27,7 @@
 					<input type="password" name="password" value="密码" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'password';}"/>
 					<div class="clear"> </div>
 				</div>    
-				<div class="login-enroll">
-				   <p>
-				       <input type="checkbox" name="rememberpassword" />记住密码
-				       <a href="UserManagement">注册</a>   
-				   </p>
-				</div>                                             
+				                                    
 			    <div class="log-be">
 					    <input type="submit" class="log-bwn" value="登录" >
 			    </div>

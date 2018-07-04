@@ -14,7 +14,7 @@ public class TeachTeamDaoImpl implements TeachTeamDao{
 
 	@Override
 	public ArrayList<Teacher> getAll(int id) {
-		String sql = "SELECT t.teacher_introduce,u.id,u.user_name  from teacher_attached t,user u where t.user_id=u.id and t.course_id="+id+" and t.is_delete=0";
+		String sql = "SELECT t.teacher_introduce,u.id,u.user_name  from teacher_attached t,user u,course_user cu where t.user_id=u.id and u.id=cu.user_id and cu.course_id='"+id+"' and t.is_delete=0 and cu.is_delete=0";
 		ArrayList<Teacher> userList = new ArrayList<Teacher>();
 		Connection connection = DBUtil.open();
 		try{
