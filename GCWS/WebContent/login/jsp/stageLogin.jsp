@@ -10,21 +10,7 @@
 <title>通用课程网站系统</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/common/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/login/css/stageLogin.css">
-<%
-	if(warning == 0) {
-%>
-	<script type="text/javascript"> alert("账号不存在！");</script>
-<%
-	} else if(warning == 1){
-%>
-	<script type="text/javascript"> alert("账号被锁，请联系管理员！！");</script>
-<%	
-	} else if(warning == 2){
-%>
-	<script type="text/javascript"> alert("密码错误！");</script>
-<%
-	}
-%>
+
 </head>
 <body >
 <div class="login-form">

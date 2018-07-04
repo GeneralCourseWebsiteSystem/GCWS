@@ -66,13 +66,11 @@ public class UserLoginManagementServlet extends HttpServlet {
 		User user = userDao.getId(username);
 		
 		if(user.getAccount() == null) {
-			request.setAttribute("warning", 0);
-			request.getRequestDispatcher("ReturnLogin").forward(request, response);
+			out.print("<script>alert('账号不存在！');window.location='ReturnLogin';</script>");
 			return;
 		} else {
 			if(user.getIsLock() == 1) {
-				request.setAttribute("warning", 1);
-				request.getRequestDispatcher("ReturnLogin").forward(request, response);
+				out.print("<script>alert('账号被锁，请联系管理员！');window.location='ReturnLogin';</script>");
 				return;
 			} else {
 				if (pwd.equals(user.getPassword())) {
@@ -80,8 +78,7 @@ public class UserLoginManagementServlet extends HttpServlet {
 					session.setAttribute("username", user.getUserName());
 					response.sendRedirect(request.getContextPath() + "/HomePage");
 				} else {
-					request.setAttribute("warning", 2);
-					request.getRequestDispatcher("ReturnLogin").forward(request, response);
+					out.print("<script>alert('密码错误！');window.location='ReturnLogin';</script>");
 					return;
 				}
 			}
