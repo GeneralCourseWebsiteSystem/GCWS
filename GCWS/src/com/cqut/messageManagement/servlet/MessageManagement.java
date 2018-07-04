@@ -21,55 +21,58 @@ import com.cqut.messageManagement.impl.MessageDaoImpl;
 @WebServlet("/MessageManagement")
 public class MessageManagement extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MessageManagement() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MessageManagement() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		if(request.getParameter("publish")!=null) {
-			
-		String input_content= request.getParameter("input_content");
-		
-	    String message_content = input_content;
-	    //session获得课程id
-	    Integer course_id = 2;
-	    //get  ID
-	    HttpSession session = request.getSession();
-	    String userName = (String) session.getAttribute("username");
-	
-	    Integer author =new MessageDaoImpl().getIdByName(userName);
-	   
-	    
-	    Date create_time = new java.sql.Date(new Date().getTime()); 
-	   
-	    Byte is_delete = 0;
-	    String remark= "新增";
-	    
+		String courseId = request.getParameter("id");
+		request.setAttribute("courseId", courseId);
+		if (request.getParameter("publish") != null) {
+
+			String input_content = request.getParameter("input_content");
+
+			String message_content = input_content;
+			// session获得课程id
+			Integer course_id = Integer.valueOf(request.getParameter("id"));
+			// get ID
+			HttpSession session = request.getSession();
+			String userName = (String) session.getAttribute("username");
+
+			Integer author = new MessageDaoImpl().getIdByName(userName);
+
+			Date create_time = new java.sql.Date(new Date().getTime());
+
+			Byte is_delete = 0;
+			String remark = "新增";
+
 			Message msg = new Message(null, message_content, course_id, author, create_time, is_delete, remark);
-			
+
 			@SuppressWarnings("unused")
 			Boolean IF = new MessageDaoImpl().add_message(msg);
 		}
 
-		//获取所有的message
-		ArrayList<MessageUser> MessageList = new MessageDaoImpl().getAllList();
+		// 获取所有的message
+		ArrayList<MessageUser> MessageList = new MessageDaoImpl().getCourseMessage(courseId);
 		request.setAttribute("MessageList", MessageList);
 		request.getRequestDispatcher("QuestionAndAnswers/jsp/QuestionsAndAnswers.jsp").forward(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 
 	}

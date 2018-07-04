@@ -4,24 +4,18 @@ import java.util.ArrayList;
 
 import com.cqut.teachTeamManagement.entity.Teacher;
 
-
-
 /**
  * 
- * @author 
- * @date 2018.6.28
+ * @author 刘华
  *
  */
+
 public interface TeachTeamDao {
 	
 	/**
-	 * 获取所有用户
-	 */
-	public ArrayList<Teacher> getAll(int id);
-	
-	/**
-	 * 获取所有用户及其角色
+	 * 通过课程查找教师
+	 * @param CourseId
 	 * @return
 	 */
-	
+	public ArrayList<Teacher> findTeacherByCourse(int courseId);
 }
