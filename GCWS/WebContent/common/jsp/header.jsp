@@ -16,6 +16,7 @@
 <body>
 	<%-- 使用公用页面方法：<%@ include file="路径.jsp" %>--%>
 	<div class="header">
+	<div class="header_box">
 		<div class="header_top">
 			<div class="header_left">
 			<div class="header_logo">
@@ -48,10 +49,11 @@
 				<li><a href="<%=request.getContextPath() %>/CourseResearchManagementServlet?id=<%=course.getId()%>" target="innerFrame">课程研究</a></li>
 			</ul>
 		</div>
+		</div>
 	</div>
 	<div class="frame">
 		<iframe src="<%=request.getContextPath() %>/common/jsp/welcome.jsp" class="innerFrame" name="innerFrame" frameborder="0" scrolling="auto"></iframe>
 	</div>
-	<%@ include file="footer.jsp" %>
+ 	<%@ include file="footer.jsp" %>
 </body>
 </html>
