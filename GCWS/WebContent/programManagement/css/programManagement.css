@@ -9,6 +9,7 @@
 body {
 	font-family: "Microsoft YaHei";
 }
+
 .articleHead{
 	height: 40px;
 	padding-top: 1px;
@@ -16,6 +17,22 @@ body {
 }
 .articleManage{
 	width: 10%;
+}
+.addAProgram{
+	margin-left: 2%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	width: 5%;
+	height: 23px;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid #999;
+	background-color: #91C0E3;
+}
+.addAProgram a{
+	text-decoration: none;
+	color: white;
 }
 .articleDetail{
 	width: 16%;
@@ -40,6 +57,60 @@ body {
 .curLocation a:hover{
 	color: #1D9D73;
 }
+.searchForm{
+	margin-top: 5px;
+	margin-left: 2%;
+}
+.searchForm p{
+	color: #555;
+	font-size: 15px;
+}
+.searchInput{
+	height: 20px;
+	margin-left: 1%;
+	border: 1px solid #999999;
+}
+.searchButton{
+	width: 5%;
+	height: 24px;
+	background-color: #3CB371;
+	color: white;
+	border-radius: 5px;
+	border: 1px solid #999;
+	font-weight: bold;
+}
+.searchButton:hover{
+	background-color: whitesmoke;
+	color: #3CB371;
+}
+
+.articleTable{
+	margin-top: 5px;
+	margin-left: 2%;
+	width: 96%;
+	background-color: whitesmoke;
+	text-align: center;
+	border-collapse:collapse;
+}
+.articleTable tr{
+	height: 30px;
+	color: #555;
+}
+.articleTable tr:nth-child(odd){
+	background-color: white;
+}
+.thTr{
+	border: 1px solid #999;
+	height: 35px;
+}
+.hrefA{
+	color: #666666;
+	text-decoration: none;
+}
+.hrefA:hover{
+	color: #3CB371;
+}
+
 
 .programForm{
 	width: 98%;
@@ -47,8 +118,7 @@ body {
 	margin-left: 1%;
 }
 .programTable{
-	width: 70%;
-	margin-left: 15%;
+	width: 100%;
 }
 .programTable tr{
 	height: 40px;

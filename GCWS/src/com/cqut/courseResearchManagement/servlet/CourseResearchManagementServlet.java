@@ -53,12 +53,14 @@ public class CourseResearchManagementServlet extends HttpServlet {
 		 request.setCharacterEncoding("utf-8");
 		 HttpSession session = request.getSession();
 		 String courseid =request.getParameter("id");
-		// System.out.print(courseid);
+		 System.out.print(courseid);
 		 CourseResearchManagementDaoImpl courseDao=new CourseResearchManagementDaoImpl();
 		 ArrayList<CourseResearch> clist=courseDao.getAll(courseid);
-		 System.out.print(clist.get(0).getName());
+	//	 System.out.print(clist.get(0).getName()+"\n");
 		 session.setAttribute("clist", clist); 
-		 response.sendRedirect("CourseResearch/jsp/courseResearch.jsp");
+		 session.setAttribute("courseid",courseid); 
+		// response.sendRedirect("CourseResearch/jsp/courseResearch.jsp");
+		 request.getRequestDispatcher("CourseResearch/jsp/courseResearch.jsp").forward(request, response);
 	}
 
 	/**

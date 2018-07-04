@@ -22,7 +22,7 @@
 							<li><a href="<%=basePath %>MessageManagementBack" target="innerFrame">留言管理</a></li>
 							<li><a href="<%=basePath %>ArticleCourseServlet" target="innerFrame">文章管理</a></li>
 							<li><a href="<%=basePath %>ArticleReviewServlet" target="innerFrame">审核文章</a></li>
-							<li><a href="javascript:void(0);">栏目管理</a></li>
+							<li><a href="<%=basePath %>ProgramManagementServlet" target="innerFrame">栏目管理</a></li>
 						</ul>
 					</li>
 					<li>

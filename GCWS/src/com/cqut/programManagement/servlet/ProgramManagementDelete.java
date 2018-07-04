@@ -1,4 +1,4 @@
-package com.cqut.courseResearchManagement.servlet;
+package com.cqut.programManagement.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletConfig;
@@ -7,19 +7,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.cqut.programManagement.impl.ProgramImpl;
 
 /**
- * Servlet implementation class ArticleShow
+ * Servlet implementation class ProgramManagementDelete
  */
-@WebServlet("/ArticleShow")
-public class ArticleShow extends HttpServlet {
+@WebServlet("/ProgramManagementDelete")
+public class ProgramManagementDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ArticleShow() {
+    public ProgramManagementDelete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,18 +43,10 @@ public class ArticleShow extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=gb2312");
-		 request.setCharacterEncoding("utf-8");
-		 HttpSession session = request.getSession();
-		 String content =request.getParameter("show");
-		 String title =request.getParameter("title");
-		 String courseid =request.getParameter("courseid");
-		 
-		 session.setAttribute("content", content); 
-		 session.setAttribute("title", title);
-		 session.setAttribute("courseid", courseid);
-		 response.sendRedirect("CourseResearch/jsp/articleShow.jsp");
+		String programId = request.getParameter("programId");
+		ProgramImpl programImpl = new ProgramImpl();
+		programImpl.deleteById(programId);
+		request.getRequestDispatcher("ProgramManagementServlet").forward(request, response);
 	}
 
 	/**
