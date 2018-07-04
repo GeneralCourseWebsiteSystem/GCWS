@@ -4,7 +4,7 @@
 <%@ page import="java.util.*"%>
 <% 
 	CourseForStage course = (CourseForStage)request.getAttribute("course");
-	String userId = (String)request.getAttribute("userId");
+	Integer userId = (Integer)request.getAttribute("userId");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

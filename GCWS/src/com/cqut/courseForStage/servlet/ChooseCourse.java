@@ -1,7 +1,6 @@
 package com.cqut.courseForStage.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import com.cqut.courseForStage.entity.CourseForStage;
 import com.cqut.courseForStage.impl.HomePageDaoImpl;
-import com.cqut.userManagement.entity.User;
 
 /**
  * Servlet implementation class ChooseCourse
@@ -55,7 +53,7 @@ public class ChooseCourse extends HttpServlet {
 			CourseForStage courseForStage = homePageDaoImpl.findById(id);
 			request.setAttribute("userId", session.getAttribute("userid"));
 			request.setAttribute("course", courseForStage);
-			request.getRequestDispatcher("../common/jsp/header.jsp").forward(request, response);
+			request.getRequestDispatcher("/common/jsp/header.jsp").forward(request, response);
 		}		
 	}
 
