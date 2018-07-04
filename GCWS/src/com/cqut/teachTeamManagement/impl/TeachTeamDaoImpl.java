@@ -3,37 +3,49 @@ package com.cqut.teachTeamManagement.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.cqut.common.util.DBUtil;
 import com.cqut.teachTeamManagement.dao.TeachTeamDao;
 import com.cqut.teachTeamManagement.entity.Teacher;
 
+/**
+ * 
+ * @author 刘华
+ *
+ */
 
-public class TeachTeamDaoImpl implements TeachTeamDao{
+public class TeachTeamDaoImpl implements TeachTeamDao {
 
 	@Override
-	public ArrayList<Teacher> getAll(int id) {
-		String sql = "SELECT t.teacher_introduce,u.id,u.user_name  from teacher_attached t,user u,course_user cu where t.user_id=u.id and u.id=cu.user_id and cu.course_id='"+id+"' and t.is_delete=0 and cu.is_delete=0";
-		ArrayList<Teacher> userList = new ArrayList<Teacher>();
+	public ArrayList<Teacher> findTeacherByCourse(int courseId) {
 		Connection connection = DBUtil.open();
-		try{
-			PreparedStatement pstm = connection.prepareStatement(sql);
-			ResultSet rs = pstm.executeQuery();
-			while(rs.next()){
-				String teacherintroduce= rs.getString(1);
-				Integer userid = rs.getInt(2);
-				String username = rs.getString(3);
-				Teacher user = new Teacher(userid,teacherintroduce,username);
-				userList.add(user);
+		String sql = "select * from `teacher_attached` where course_id = '"+courseId+"' and is_delete = 0";
+		System.out.println(sql);
+		ArrayList<Teacher> list = new ArrayList<>();
+		try {
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			ResultSet rSet = pstmt.executeQuery();
+			while(rSet.next()) {
+				Teacher teacher = new Teacher();
+				teacher.setId(rSet.getInt(1));
+				teacher.setUser_id(rSet.getInt(2));
+				teacher.setCourse_id(rSet.getInt(3));
+				teacher.setTeacher_introduce(rSet.getString(4));
+				teacher.setTeacher_achieve(rSet.getString(5));
+				teacher.setCreate_time(rSet.getDate(6));
+				teacher.setIs_delete(rSet.getByte(7));
+				teacher.setRemark(rSet.getString(8));
+				list.add(teacher);
 			}
-			return userList;
-		} catch(Exception e) {
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return userList;
-		} finally {
+		}finally {
 			DBUtil.close(connection);
 		}
+		return list;
 	}
 
 }
