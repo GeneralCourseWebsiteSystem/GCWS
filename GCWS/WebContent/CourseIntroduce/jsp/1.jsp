@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.*"%>
+<%@page import="com.cqut.courseIntroduce.entity.CourseIntroduceContent"%>
+<% 
+List<CourseIntroduceContent> list = (List<CourseIntroduceContent>) request.getAttribute("Introduce");
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,10 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-课程介绍
+课程简介
 <hr style="height:3px;border:none;border-top:3px double red;" />
-<div>
-课程介绍的内容
+<div style="word-break:break-all">
+<%=list.get(0).getCourseInfo() %>
 </div>
 
 </body>

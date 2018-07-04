@@ -99,7 +99,7 @@
 			<tr>
 				<td class="leftTd">备注:</td>
 				<td>
-					<textarea class="inputText ta" rows="200" cols="150" name="remark"><%=module.getRemark() %></textarea>
+					<textarea class="inputText ta" rows="200" cols="150" name="remark"><%=(module.getRemark() == null ? "" : module.getRemark()) %></textarea>
 				</td>
 			</tr>
 		</table>

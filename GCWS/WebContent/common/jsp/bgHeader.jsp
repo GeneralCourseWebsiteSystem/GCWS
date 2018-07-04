@@ -3,7 +3,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    String userName = (String)request.getSession().getAttribute("userName");
+    String userName = String.valueOf(request.getSession().getAttribute("username"));
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,7 +19,7 @@
 		<p>通用课程网站后台管理</p>
 	</div>
 	<div class="loginInfo">
-		<p class="navWords">| <a href="#"> 修改密码 </a> | <a href="#"> 退出  </a> | </p>
+		<p class="navWords">| <a href="#"> 修改密码 </a> | <a href="<%=basePath%>BackManagementQuit"> 退出  </a> | </p>
 	</div>
 </div>
 <div class="userInfo">

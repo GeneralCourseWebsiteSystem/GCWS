@@ -1,29 +1,26 @@
-package com.cqut.teachTeamManagement.servlet;
+package com.cqut.homeInformationSetting.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.cqut.teachTeamManagement.entity.Teacher;
-import com.cqut.teachTeamManagement.impl.TeachTeamDaoImpl;
+import com.cqut.homeInformationSetting.entity.HomeProgram;
+import com.cqut.homeInformationSetting.impl.HomeProgramImpl;
 
 /**
- * Servlet implementation class TeachTeamServlet
+ * Servlet implementation class HomeProgramUpdate
  */
-@WebServlet("/TeachTeamServlet")
-public class TeachTeamServlet extends HttpServlet {
+@WebServlet("/HomeProgramUpdate")
+public class HomeProgramUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TeachTeamServlet() {
+    public HomeProgramUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +29,11 @@ public class TeachTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=gb2312");
-		request.setCharacterEncoding("utf-8");
-		HttpSession session = request.getSession();
-		String courseid = request.getParameter("id");
-		int id=Integer.parseInt(courseid);
-		
-		TeachTeamDaoImpl teachTeamDao=new TeachTeamDaoImpl();
-		ArrayList<Teacher> tlist=teachTeamDao.getAll(id);
-		System.out.print(tlist.get(0).getTeacherIntroduce());
-		
-		session.setAttribute("tlist", tlist); 
-		response.sendRedirect("TeachTeam/jsp/teachTeam.jsp");
+		String homeProgramId = request.getParameter("id");
+		HomeProgramImpl homeProgramImpl = new HomeProgramImpl();
+		HomeProgram homeProgram = homeProgramImpl.getById(homeProgramId);
+		request.setAttribute("homeProgram", homeProgram);
+		request.getRequestDispatcher("/homeInformationSetting/jsp/homeInfoManagementUpdate.jsp").forward(request, response);
 	}
 
 	/**

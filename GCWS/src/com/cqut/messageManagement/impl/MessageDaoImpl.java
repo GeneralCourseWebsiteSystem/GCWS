@@ -111,11 +111,11 @@ public class MessageDaoImpl implements MessageManagementDao {
 			
 			while(rs.next()){
 				Integer  msgId = rs.getInt(1);
-				Integer    authorId =rs.getInt(2);
+				Integer  authorId =rs.getInt(2);
 				String userName = rs.getString(3);
 				String messageContent = rs.getString(4);
 				String courseName = rs.getString(5);			
-				Date createTime = rs.getTimestamp(6);
+				Date createTime = rs.getDate(6);
 				Byte isDelete = rs.getByte(7);
 				MessageUser messageUser1 = new MessageUser(msgId,authorId,userName, messageContent, courseName, createTime, isDelete);
 				MessageUserList.add(messageUser1);
@@ -194,6 +194,63 @@ public class MessageDaoImpl implements MessageManagementDao {
 			DBUtil.close(connection);
 		}
 	}
+	//根据用户名获取authorId
+	public Integer getIdByName(String UserName) {
+		Integer User_id =1;
+		String sql = "select u.id from user u where u.user_name ='"+UserName+"'";
+		
+		
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			
+			
+			while(rs.next()){
+				  User_id = rs.getInt(1);
+				
+				
+				
+			}
+			
+			return User_id;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return User_id;
+		} finally {
+			DBUtil.close(connection);
+		}
+	}
 
-
+	@Override
+	public ArrayList<MessageUser> getCourseMessage(String courseId) {
+		String sql = "SELECT m.id, m.author_id, u.user_name, m.message_content, c.course_name,"
+				+ " m.create_time, m.is_delete FROM message m, `user` u, course c "
+				+ "WHERE m.author_id = u.id AND c.id = m.course_id AND m.is_delete = 0 AND m.course_id="+ courseId +";";
+		
+		ArrayList<MessageUser> MessageUserList = new ArrayList<MessageUser>();
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			
+			while(rs.next()){
+				Integer  msgId = rs.getInt(1);
+				Integer  authorId =rs.getInt(2);
+				String userName = rs.getString(3);
+				String messageContent = rs.getString(4);
+				String courseName = rs.getString(5);			
+				Date createTime = rs.getDate(6);
+				Byte isDelete = rs.getByte(7);
+				MessageUser messageUser1 = new MessageUser(msgId,authorId,userName, messageContent, courseName, createTime, isDelete);
+				MessageUserList.add(messageUser1);
+			}
+			return MessageUserList;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return MessageUserList;
+		} finally {
+			DBUtil.close(connection);
+		}
+	}
 }

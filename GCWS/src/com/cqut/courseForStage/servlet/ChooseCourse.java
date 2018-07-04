@@ -51,6 +51,7 @@ public class ChooseCourse extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));
 			HomePageDaoImpl homePageDaoImpl = new HomePageDaoImpl();
 			CourseForStage courseForStage = homePageDaoImpl.findById(id);
+			session.setAttribute("courseId", courseForStage.getId());
 			request.setAttribute("userId", session.getAttribute("userid"));
 			request.setAttribute("course", courseForStage);
 			request.getRequestDispatcher("/common/jsp/header.jsp").forward(request, response);

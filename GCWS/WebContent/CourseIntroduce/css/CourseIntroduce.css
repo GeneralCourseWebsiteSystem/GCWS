@@ -7,10 +7,10 @@ a {
             font-size:5px;
         }
         ul {
-            width: 30%;
+            width: 10%;
             min-width: 10px;
             max-width: 100px;
-            height: 400px;
+            height: 737px;
             display: block;
             padding-top: 30px;
             background: #333;
@@ -22,7 +22,7 @@ a {
             width: 80px;
             height: 30px;
             border: 1px solid #ccc;
-            margin-top: 10px;
+            margin-top: 60px;
         }
         .li {
             background:#fff;
@@ -30,8 +30,8 @@ a {
         }
         .container {
             float: left;
-            width: 50%;
-            height: 400px;
+            width: 85%;
+            height: 737px;
             padding-top: 30px;
             background:	#DDDDDD;
         }
@@ -41,3 +41,4 @@ a {
             height: inherit;
             border-style: none;
         }
+        

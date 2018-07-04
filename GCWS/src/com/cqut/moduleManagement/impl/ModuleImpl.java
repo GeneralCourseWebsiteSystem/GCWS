@@ -46,7 +46,8 @@ public class ModuleImpl implements ModuleDao {
 
 	@Override
 	public Module getById(String mid) {
-		String sql = "SELECT * FROM module WHERE is_delete = 0 AND id = " + mid +";";
+		String sql = "SELECT * FROM module WHERE is_delete = 0 AND id = '" + mid +"';";
+		System.out.println(sql);
 		ArrayList<Module> moduleList = new ArrayList<Module>();
 		Connection connection = DBUtil.open();
 		try{
@@ -239,6 +240,40 @@ public class ModuleImpl implements ModuleDao {
 	@Override
 	public ArrayList<Module> getNullParentCode() {
 		String sql = "SELECT * FROM module WHERE is_delete = 0 AND ISNULL(parent_code) GROUP BY module_code;";
+		ArrayList<Module> moduleList = new ArrayList<Module>();
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			while(rs.next()){
+				Integer id = rs.getInt(1);
+				String moduleCode = rs.getString(2);
+				String moduleName = rs.getString(3);
+				String modulePath = StringUtil.emptyGetItalic(rs.getString(4));
+				String parentCode = StringUtil.emptyGetItalic(rs.getString(5));
+				Byte isMenu = rs.getByte(6);
+				String level = rs.getString(7);
+				Date createTime = rs.getTimestamp(8);
+				Byte isDelete = rs.getByte(9);
+				String remark = rs.getString(10);
+				Module ac = new Module(id, moduleCode,moduleName, modulePath, parentCode, isMenu, level, createTime, isDelete, remark);
+				moduleList.add(ac);
+			}
+			return moduleList;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return moduleList;
+		} finally {
+			DBUtil.close(connection);
+		}
+	}
+
+	@Override
+	public ArrayList<Module> getByRoleId(String roleId) {
+		String sql = "SELECT m.id, m.module_code, m.module_name, m.module_path, m.parent_code, "
+				+ "m.is_menu, m.`level`, m.create_time, m.is_delete, m.remark "
+				+ "FROM module m, module_role mr WHERE mr.module_id = m.id AND mr.role_id = " + roleId + " "
+				+ "GROUP BY m.module_code;";
 		ArrayList<Module> moduleList = new ArrayList<Module>();
 		Connection connection = DBUtil.open();
 		try{
