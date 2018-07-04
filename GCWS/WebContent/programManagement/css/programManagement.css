@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Microsoft YaHei";
+}
+
+.articleHead{
+	height: 40px;
+	padding-top: 1px;
+	background-color: #91C0E3;
+}
+.articleManage{
+	width: 10%;
+}
+.addAProgram{
+	margin-left: 2%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	width: 5%;
+	height: 23px;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid #999;
+	background-color: #91C0E3;
+}
+.addAProgram a{
+	text-decoration: none;
+	color: white;
+}
+.articleDetail{
+	width: 16%;
+}
+.curLocation{
+	margin-top: 10px;
+	margin-left: 1%;
+	height: 30px;
+	border-radius: 10px 10px 0px 0px;
+	background-color: white;
+	float: left;
+}
+.curLocation p{
+	margin-left: 10%;
+	margin-top: 5px;
+}
+.curLocation a{
+	color: #01538C;
+	font-weight: bold;
+	text-decoration: none;
+}
+.curLocation a:hover{
+	color: #1D9D73;
+}
+.searchForm{
+	margin-top: 5px;
+	margin-left: 2%;
+}
+.searchForm p{
+	color: #555;
+	font-size: 15px;
+}
+.searchInput{
+	height: 20px;
+	margin-left: 1%;
+	border: 1px solid #999999;
+}
+.searchButton{
+	width: 5%;
+	height: 24px;
+	background-color: #3CB371;
+	color: white;
+	border-radius: 5px;
+	border: 1px solid #999;
+	font-weight: bold;
+}
+.searchButton:hover{
+	background-color: whitesmoke;
+	color: #3CB371;
+}
+
+.articleTable{
+	margin-top: 5px;
+	margin-left: 2%;
+	width: 96%;
+	background-color: whitesmoke;
+	text-align: center;
+	border-collapse:collapse;
+}
+.articleTable tr{
+	height: 30px;
+	color: #555;
+}
+.articleTable tr:nth-child(odd){
+	background-color: white;
+}
+.thTr{
+	border: 1px solid #999;
+	height: 35px;
+}
+.hrefA{
+	color: #666666;
+	text-decoration: none;
+}
+.hrefA:hover{
+	color: #3CB371;
+}
+
+
+.programForm{
+	width: 98%;
+	margin-top: 15px;
+	margin-left: 1%;
+}
+.programTable{
+	width: 100%;
+}
+.programTable tr{
+	height: 40px;
+}
+.leftTd{
+	width: 30%;
+	text-align: right;
+	color: #555555;
+	padding-right: 1%;
+}
+.rightTd{
+	width: 70%;
+}
+.inputText{
+	border: 1px solid #999;
+	width: 60%;
+	height: 25px;
+}
+.programCode{
+	width: 80%;
+	border: 1px solid #999;
+	height: 200px;
+}
+.formBT{
+	width: 9%;
+	border-radius: 5px;
+	font-weight: bold;
+	height: 30px;
+	cursor: pointer;
+	border: 1px solid #999;
+}
+.returnBT{
+	margin-left: 5%;
+	background-color: white;
+	color: #999999;
+	float: left;
+}
+.returnBT:hover{
+	color: white;
+	background-color: whitesmoke;
+}
+.submitBT{
+	background-color: #91C0E3;
+	color: #999999;
+	float: left;
+	margin-left: 2%;
+}
+.submitBT:hover{
+	background-color: whitesmoke;
+	color: #91C0E3;
+}

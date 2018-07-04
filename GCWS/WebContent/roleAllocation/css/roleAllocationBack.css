@@ -78,6 +78,9 @@ body {
 	height: 30px;
 	color: #555;
 }
+.qaaTable tr:nth-child(odd){
+	background-color: white;
+}
 .thTr{
 	border: 1px solid #999;
 	height: 35px;
@@ -90,13 +93,8 @@ body {
 	color: #3CB371;
 }
 .update{
-<<<<<<< HEAD
-	margin-top:0px;
-	float:right;
-=======
-	margin-top: 0px;
+	margin-top: -203px;
 	float: right;
->>>>>>> branch 'master' of https://github.com/GeneralCourseWebsiteSystem/GCWS.git
 	margin-right: 2%;
 	width: 5%;
 	height: 24.5px;

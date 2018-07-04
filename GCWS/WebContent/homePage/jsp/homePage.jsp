@@ -18,6 +18,7 @@
 </head>
 <body>
 	<div class="homePageHeader">
+		<div class="header_box">
 		<div class="login">
 			<div class="login_btn">
 				<a href="<%=request.getContextPath()%>/login/jsp/stageLogin.jsp"><%= userName %></a>
@@ -30,6 +31,7 @@
 		<div class="home_img">
 			<img alt="."
 				src="<%=request.getContextPath()%>/common/image/show_img.jpg">
+		</div>
 		</div>
 	</div>
 	<div class="course_list">

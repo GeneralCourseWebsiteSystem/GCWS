@@ -78,6 +78,11 @@ body {
 	height: 30px;
 	color: #555;
 }
+
+.qaaTable tr:nth-child(odd){
+	background-color: white;
+}
+
 .thTr{
 	border: 1px solid #999;
 	height: 35px;
@@ -90,22 +95,25 @@ body {
 	color: #3CB371;
 }
 .newAdd{
-
-	margin-top:10px;
-	float:right;
-	margin-right: 2%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0%;
 	width: 5%;
-	height: 24.5px;
+	text-align: center;
+	height: 23px;
 	background-color: #91c0E3;
-	color: white;
 	border-radius: 5px;
 	border: 1px solid #999;
 	font-weight: bold;
 }
 .newAdd:hover{
 	background-color: whitesmoke;
-	color: #3CB371;
 }
-a{
+.newAdd a{
+	color: white;
+	font-size: 14px;
 	text-decoration:none;
+}
+.newAdd a:hover{
+	color: #3CB371;
 }

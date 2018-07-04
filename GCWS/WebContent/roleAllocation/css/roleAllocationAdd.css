@@ -1,55 +1,102 @@
 @charset "UTF-8";
-.struct {
-  height:300px;
-  width:300px;
-  border:black solid 1px;
-  text-align:center;
-  margin-left:40%;
-  margin-top:10%;
-  
+
+* {
+	padding: 0;
+	border: 0;
+	margin: 0;
 }
 
-.newAdd{
-
-
-	
-	width: 50px;
-	height: 24.5px;
-	background-color: #91c0E3;
-	color: white;
-	border-radius: 5px;
-	border: 1px solid #999;
+body {
+	font-family: "Microsoft YaHei";
+}
+.articleHead{
+	height: 40px;
+	padding-top: 1px;
+	background-color: #91C0E3;
+}
+.articleManage{
+	width: 10%;
+}
+.articleDetail{
+	width: 16%;
+}
+.curLocation{
+	margin-top: 10px;
+	margin-left: 1%;
+	height: 30px;
+	border-radius: 10px 10px 0px 0px;
+	background-color: white;
+	float: left;
+}
+.curLocation p{
+	margin-left: 10%;
+	margin-top: 5px;
+}
+.curLocation a{
+	color: #01538C;
 	font-weight: bold;
+	text-decoration: none;
 }
-.newAdd:hover{
+.curLocation a:hover{
+	color: #1D9D73;
+}
+
+.programForm{
+	width: 98%;
+	margin-top: 15px;
+	margin-left: 1%;
+}
+.programTable{
+	width: 70%;
+	margin-left: 15%;
+}
+.programTable tr{
+	height: 40px;
+}
+.leftTd{
+	width: 30%;
+	text-align: right;
+	color: #555555;
+	padding-right: 1%;
+}
+.rightTd{
+	width: 70%;
+}
+.inputText{
+	border: 1px solid #999;
+	width: 60%;
+	height: 25px;
+}
+.programCode{
+	width: 80%;
+	border: 1px solid #999;
+	height: 200px;
+}
+.formBT{
+	width: 9%;
+	border-radius: 5px;
+	font-weight: bold;
+	height: 30px;
+	cursor: pointer;
+	border: 1px solid #999;
+}
+.returnBT{
+	margin-left: 5%;
+	background-color: white;
+	color: #999999;
+	float: left;
+}
+.returnBT:hover{
+	color: white;
 	background-color: whitesmoke;
-	color: #3CB371;
 }
-.btn{
-	margin-top:4%;
-	
+.submitBT{
+	background-color: #91C0E3;
+	color: #999999;
+	float: left;
+	margin-left: 2%;
 }
-a{
-	text-decoration:none;
-}
-.content{
-	margin-top:45px;
-}
-.note{
-	margin-top:45px;
-}
-p{
-	background-color:	#EEFFBB;
-	font-size:30px;
-	padding-top:0px;
-	margin-top:0px;
-}
-.content input{
-	width:150px;
-	height:30px;
-}
-.note input{
-	width:150px;
-	height:30px;
-	
+.submitBT:hover{
+	background-color: whitesmoke;
+	color: #91C0E3;
 }

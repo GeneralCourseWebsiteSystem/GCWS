@@ -12,8 +12,7 @@
 	css在自己写的页面导入--%> 
 	<div class="footer">
 		<div class="footer_content">
-			重庆理工大学版权所有<br/>
-			联系地址：重庆市巴南区红光大道69号(邮编：400054)&nbsp;&nbsp;&nbsp;联系电话：(023)66667334
+			©CopyRight 2018 .Net Inc All Rights Reserved. GCWS 版权所有
 		</div>
 	</div>
 </body>

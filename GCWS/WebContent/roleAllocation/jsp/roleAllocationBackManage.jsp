@@ -32,10 +32,10 @@
 <title>角色管理</title>
 </head>
 <body>
-<div class="articleHead">
+	<div class="articleHead">
 		<div class="curLocation articleManage">
 			<p>
-				<a href="RoleAllocationBack">角色管理</a>
+				<a href="RoleAllocationBackManage">角色管理</a>
 			</p>
 		</div>
 	</div>
@@ -45,17 +45,18 @@
 				name="str" value="<%=str%>" /> <input class="searchButton"
 				type="submit" value="查询" />
 		</p>
+		<div class="newAdd">
+			<a href="<%=request.getContextPath()%>/roleAllocation/jsp/roleAllocationAdd.jsp" >新增</a>
+		</div>
 	</form>
 	<div class="table">
 	
 		<table class="qaaTable">
 			<tr class="thTr">
-
 				<th>角色名称</th>
 				<th>修改时间</th>
 				<th>备注</th>
 				<th>操作</th>
-
 			</tr>
 			<%
 				for (int i = 0; i < list.size(); i++) {
@@ -68,11 +69,9 @@
 				<td><%=list.get(i).getRemark()%></td>
 
 
-				<td><a
-					href="<%=request.getContextPath()%>/RoleAllocationUpdate?name=<%=list.get(i).getId()%>">修改</a>
-					<a
-					href="<%=request.getContextPath()%>/RoleAllocationDelete?name=<%=list.get(i).getId()%>">删除</a>
-
+				<td>
+				<a class="hrefA" href="<%=request.getContextPath()%>/RoleAllocationUpdate?name=<%=list.get(i).getId()%>">修改</a>
+				<a class="hrefA" href="<%=request.getContextPath()%>/RoleAllocationDelete?name=<%=list.get(i).getId()%>">删除</a>
 				</td>
 
 			</tr>
@@ -82,9 +81,7 @@
 
 
 		</table>
-		<div class="newAdd">
-		<a href="<%=request.getContextPath()%>/roleAllocation/jsp/roleAllocationAdd.jsp" >新增角色</a>
-		</div>
+		
 	</div>
 	<div style="width: 97%; margin-left: 1.5%;">
 			<c:if test="${not empty html}">
