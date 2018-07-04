@@ -71,14 +71,13 @@
 }
 
 .course_list{
-	width: 956px;
     margin: 20px 15%;
     box-shadow: 0px 0px 10px grey;
 }
 
 .course_box{
 	display: inline-block;
-    width: 315px;
+    width: 33%;
     text-align: center;
     margin: 20px 0;
 }
@@ -97,6 +96,5 @@
 }
 
 .paging{
-	width: 956px !important;
-	margin: 0 auto;
+	margin: 0 15%
 }
