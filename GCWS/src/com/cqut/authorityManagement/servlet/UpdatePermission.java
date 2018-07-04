@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.cqut.authorityManagement.entity.ModuleRole;
 import com.cqut.authorityManagement.impl.PermissionDaoImpl;
 import com.cqut.common.util.StringUtil;
-import com.cqut.moduleManagement.entity.Module;
-import com.cqut.moduleManagement.impl.ModuleImpl;
 
 /**
  * Servlet implementation class UpdatePermission
@@ -21,14 +19,14 @@ import com.cqut.moduleManagement.impl.ModuleImpl;
 @WebServlet("/UpdatePermission")
 public class UpdatePermission extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UpdatePermission() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UpdatePermission() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,46 +40,39 @@ public class UpdatePermission extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		
+
 		int roleId = Integer.parseInt(request.getParameter("roleId"));
 		String[] item = request.getParameterValues("ids");
-		
+
 		Date create_time = new Date();
 		Byte is_delete = 0;
-		
+
 		PermissionDaoImpl permissionDaoImpl = new PermissionDaoImpl();
-		ModuleImpl moduleImpl = new ModuleImpl();
-		
+
 		if(permissionDaoImpl.findByRoleId(roleId) != null) {
 			permissionDaoImpl.deletePermission(roleId);
 			for(int i = 0; i < item.length; i++) {
-				Module module = moduleImpl.getById(item[i]);
-				if(!module.getParentCode().equals("/")) {
-					int moduleId = Integer.parseInt(item[i]);
-					ModuleRole moduleRole = new ModuleRole();
-					moduleRole.setRole_id(roleId);
-					moduleRole.setModule_id(moduleId);
-					moduleRole.setCreate_time(StringUtil.changeToSqlDate(create_time));
-					moduleRole.setIs_delete(is_delete);
-					permissionDaoImpl.addPermission(moduleRole);
-				}
+				int moduleId = Integer.parseInt(item[i]);
+				ModuleRole moduleRole = new ModuleRole();
+				moduleRole.setRole_id(roleId);
+				moduleRole.setModule_id(moduleId);
+				moduleRole.setCreate_time(StringUtil.changeToSqlDate(create_time));
+				moduleRole.setIs_delete(is_delete);
+				permissionDaoImpl.addPermission(moduleRole);
 			}
 			response.sendRedirect(request.getContextPath()+"/AuthorityManagement");
 		}else {
 			for(int i = 0; i < item.length; i++) {
-				Module module = moduleImpl.getById(item[i]);
-				if(!module.getParentCode().equals("/")) {
-					int moduleId = Integer.parseInt(item[i]);
-					ModuleRole moduleRole = new ModuleRole();
-					moduleRole.setRole_id(roleId);
-					moduleRole.setModule_id(moduleId);
-					moduleRole.setCreate_time(StringUtil.changeToSqlDate(create_time));
-					moduleRole.setIs_delete(is_delete);
-					permissionDaoImpl.addPermission(moduleRole);
-				}
+				int moduleId = Integer.parseInt(item[i]);
+				ModuleRole moduleRole = new ModuleRole();
+				moduleRole.setRole_id(roleId);
+				moduleRole.setModule_id(moduleId);
+				moduleRole.setCreate_time(StringUtil.changeToSqlDate(create_time));
+				moduleRole.setIs_delete(is_delete);
+				permissionDaoImpl.addPermission(moduleRole);
 			}
 			response.sendRedirect(request.getContextPath()+"/AuthorityManagement");
 		}
