@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cqut.courseIntroduce.entity.CourseIntroduceContent;
 import com.cqut.courseIntroduce.impl.CourseIntroduceDaoImpl;
@@ -32,8 +33,10 @@ public class CourseIntroduce extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//获取信息
-		int courseId1 =1;
+		//int courseId1 =1;
 		
+		HttpSession session = request.getSession();
+		int courseId1 = (Integer) session.getAttribute("courseId");
 		List<CourseIntroduceContent> Introduce = new CourseIntroduceDaoImpl().getIntroduceContentInfo(courseId1);
 		request.setAttribute("Introduce", Introduce);
 		request.getRequestDispatcher("CourseIntroduce/jsp/1.jsp").forward(request, response);

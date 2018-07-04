@@ -15,19 +15,19 @@ List<CourseOutlineContent> list = (List<CourseOutlineContent>) request.getAttrib
 课程大纲
 <hr style="height:3px;border:none;border-top:3px double red;" />
 <div style="word-break:break-all">
-<%=list.get(0).getCourseStage() %>
+课程阶段：<%=list.get(0).getCourseStage() %>
 </div>
 <div style="word-break:break-all">
-<%=list.get(0).getStageNo() %>
+阶段顺序<%=list.get(0).getStageNo() %>
 </div>
 <div style="word-break:break-all">
-<%=list.get(0).getStageInfo() %>
+阶段内容<%=list.get(0).getStageInfo() %>
 </div>
 <div style="word-break:break-all">
-<%=list.get(0).getCreateTime() %>
+创建时间:<%=list.get(0).getCreateTime() %>
 </div>
 <div style="word-break:break-all">
-<%=list.get(0).getRemark() %>
+大纲备注<%=list.get(0).getRemark() %>
 </div>
 </body>
 </html>
