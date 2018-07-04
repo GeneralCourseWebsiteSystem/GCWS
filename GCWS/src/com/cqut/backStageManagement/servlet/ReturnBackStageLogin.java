@@ -42,11 +42,8 @@ public class ReturnBackStageLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String dos = request.getParameter("do"); 
-		if(dos.equals("login")){
-			response.sendRedirect("login/jsp/BackStageLogin.jsp");
-		}
-	}
+		request.getRequestDispatcher("login/jsp/BackStageLogin.jsp").forward(request, response);
+}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

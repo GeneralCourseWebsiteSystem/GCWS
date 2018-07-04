@@ -105,7 +105,7 @@ public class HomePageDaoImpl implements HomePageDao {
 	@Override
 	public CourseForStage findById(int id) {
 		Connection connection = DBUtil.open();
-		String sql = "select * from `course` where id = "+id;
+		String sql = "select * from `course` where id = "+id+" and is_delete = 0";
 		System.out.println(sql);
 		CourseForStage courseForStage = new CourseForStage();
 		try {

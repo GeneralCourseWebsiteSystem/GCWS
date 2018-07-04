@@ -47,8 +47,12 @@ public class ArticleShow extends HttpServlet {
 		 request.setCharacterEncoding("utf-8");
 		 HttpSession session = request.getSession();
 		 String content =request.getParameter("show");
+		 String title =request.getParameter("title");
+		 String courseid =request.getParameter("courseid");
 		 
 		 session.setAttribute("content", content); 
+		 session.setAttribute("title", title);
+		 session.setAttribute("courseid", courseid);
 		 response.sendRedirect("CourseResearch/jsp/articleShow.jsp");
 	}
 

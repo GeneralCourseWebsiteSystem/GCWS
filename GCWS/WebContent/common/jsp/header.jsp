@@ -4,7 +4,7 @@
 <%@ page import="java.util.*"%>
 <% 
 	CourseForStage course = (CourseForStage)request.getAttribute("course");
-	String userId = (String)request.getAttribute("userId");
+	Integer userId = (Integer)request.getAttribute("userId");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -42,10 +42,10 @@
 				<!-- 跳转页面的传的参数自己加 -->
 				<li><a href="javascript:void(0);">首页</a></li>
 				<li><a href="javascript:void(0);">课程介绍</a></li>
-				<li><a href="javascript:void(0);">教学团队</a></li>
+				<li><a href="<%=request.getContextPath() %>/TeachTeamServlet?id=<%=course.getId()%>" target="innerFrame">教学团队</a></li>
 				<li><a href="javascript:void(0);">课程资源</a></li>
 				<li><a href="javascript:void(0);">留言</a></li>
-				<li><a href="javascript:void(0);">课程研究</a></li>
+				<li><a href="<%=request.getContextPath() %>/CourseResearchManagementServlet?id=<%=course.getId()%>" target="innerFrame">课程研究</a></li>
 			</ul>
 		</div>
 	</div>

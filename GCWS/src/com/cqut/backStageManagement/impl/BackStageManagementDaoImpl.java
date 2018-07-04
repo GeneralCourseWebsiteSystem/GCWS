@@ -34,7 +34,7 @@ public class BackStageManagementDaoImpl implements BackStageManagementDao {
 	 */
 	@Override
 	public ArrayList<BackUser> getAll() {
-		String sql = "SELECT * from user WHERE is_delete = 0 AND is_lock = 0";
+		String sql = "SELECT * from user WHERE is_delete = 0";
 		ArrayList<BackUser> userList = new ArrayList<BackUser>();
 		Connection connection = DBUtil.open();
 		try{
@@ -67,7 +67,7 @@ public class BackStageManagementDaoImpl implements BackStageManagementDao {
 
 	@Override
 	public BackUser getId(String myaccount){
-		String sql = "select * from user where account='"+myaccount+"' and is_delete = 0 AND is_lock = 0";
+		String sql = "select * from user where account='"+myaccount+"' and is_delete = 0";
 		BackUser user = new BackUser();
 		Connection connection = DBUtil.open();
 		try{
@@ -99,10 +99,7 @@ public class BackStageManagementDaoImpl implements BackStageManagementDao {
 	
 	@Override
 	public RoleUserLink getUserRole(int userid){
-		String sql = "SELECT role.id, `user`.id, role.role_name, `user`"
-				+ ".user_name, `user`.account FROM `user`, role WHERE "
-				+ "`user`.role_id = role.id AND `user`.is_delete = 0 AND "
-				+ "`user`.id = '"+ userid +"';";
+		String sql = "SELECT role.id, `user`.id, role.role_name, `user`.user_name, `user`.account FROM `user`, role WHERE `user`.role_id = role.id AND `user`.is_delete = 0 AND `user`.id = '"+ userid +"'";
 		RoleUserLink role = new RoleUserLink();
 		Connection connection = DBUtil.open();
 		try{
