@@ -33,7 +33,13 @@ public interface MessageManagementDao {
 	 */
 	public ArrayList<MessageUser> getAllList();
 	
-	
+	/**
+	 * 根据课程id找到留言
+	 * @param courseId
+	 * @author lxh
+	 * @return
+	 */
+	public ArrayList<MessageUser> getCourseMessage(String courseId);
 	
 	/**
 	 * 获取留言用户信息
