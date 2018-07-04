@@ -10,7 +10,6 @@ import com.cqut.common.util.DBUtil;
 import com.cqut.common.util.StringUtil;
 import com.cqut.courseForStage.dao.HomePageDao;
 import com.cqut.courseForStage.entity.CourseForStage;
-import com.cqut.userManagement.entity.User;
 
 /**
  * 
@@ -48,6 +47,7 @@ public class HomePageDaoImpl implements HomePageDao {
 		return list;
 	}
 	
+	@Override
 	public ArrayList<CourseForStage> findByLimit(Integer index, Integer limit, String str){
 		Connection connection = DBUtil.open();
 		String sql = "select * from `course` where is_delete = 0 and course_name like '%"+StringUtil.emptyOrNull(str)
@@ -75,6 +75,7 @@ public class HomePageDaoImpl implements HomePageDao {
 		return list;
 	}
 	
+	@Override
 	public Integer getSize(String str) {
 		Connection connection = DBUtil.open();
 		String sql = "select * from `course` where course_name like '%"+StringUtil.emptyOrNull(str)+"%'";
@@ -101,6 +102,7 @@ public class HomePageDaoImpl implements HomePageDao {
 		return list.size();
 	}
 	
+	@Override
 	public CourseForStage findById(int id) {
 		Connection connection = DBUtil.open();
 		String sql = "select * from `course` where id = "+id;

@@ -122,6 +122,7 @@ public class UserManageDaoImpl implements UserManageDao {
 		return user;
 	}
 	
+	@Override
 	public ArrayList<User> findByCondition(String key, Object value){
 		Connection connection = DBUtil.open();
 		String sql = "select * from `user` where "+key+" = "+value;
@@ -155,6 +156,7 @@ public class UserManageDaoImpl implements UserManageDao {
 		return list;
 	}
 	
+	@Override
 	public ArrayList<User> findAll(){
 		Connection connection = DBUtil.open();
 		String sql = "select * from `user`";
@@ -188,6 +190,7 @@ public class UserManageDaoImpl implements UserManageDao {
 		return list;
 	}
 	
+	@Override
 	public ArrayList<User> findByLimit(Integer index, Integer limit, String str){
 		Connection connection = DBUtil.open();
 		String sql = "select * from `user` where is_delete = 0 and user_name like '%"+StringUtil.emptyOrNull(str)
@@ -222,6 +225,7 @@ public class UserManageDaoImpl implements UserManageDao {
 		return list;
 	}
 	
+	@Override
 	public Integer getSize(String str) {
 		Connection connection = DBUtil.open();
 		String sql = "select * from `user` where user_name like '%"+StringUtil.emptyOrNull(str)+"%'";
