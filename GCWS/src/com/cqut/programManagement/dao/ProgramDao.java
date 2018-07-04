@@ -16,6 +16,12 @@ public interface ProgramDao {
 	public ArrayList<Program> getAllProgram(Integer index, Integer limit, String str);
 	
 	/**
+	 * 获取没有限制的条数
+	 * @return
+	 */
+	public ArrayList<Program> getAllProgramWithNoLimit();
+	
+	/**
 	 * 获取栏目条数
 	 * @param str
 	 * @return

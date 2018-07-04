@@ -159,4 +159,32 @@ public class ProgramImpl implements ProgramDao {
 		}
 	}
 
+	@Override
+	public ArrayList<Program> getAllProgramWithNoLimit() {
+		String sql = "SELECT * FROM program WHERE is_delete = 0;";
+		ArrayList<Program> programList = new ArrayList<Program>();
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			while(rs.next()){
+				Integer id = rs.getInt(1);
+				String programName = rs.getString(2);
+				String programPath = rs.getString(3);
+				String programCode = rs.getString(4);
+				Date createTime = rs.getTimestamp(5);
+				Byte isDelete = rs.getByte(6);
+				String remark = rs.getString(7);
+				Program ac = new Program(id, programName,programPath,programCode, createTime, isDelete, remark);
+				programList.add(ac);
+			}
+			return programList;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return programList;
+		} finally {
+			DBUtil.close(connection);
+		}
+	}
+
 }

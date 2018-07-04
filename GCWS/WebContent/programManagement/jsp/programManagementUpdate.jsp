@@ -17,7 +17,7 @@
 <body>
 	<div class="articleHead">
 		<div class="curLocation articleDetail">
-			<p><a href="ProgramManagementServlet">栏目管理</a> >> <a>详情</a></p>
+			<p><a href="ProgramManagementServlet">栏目管理</a> >> <a>修改</a></p>
 		</div>
 	</div>
 	<form class="programForm" action="ProgramManageUpdate" onsubmit="return validate(this);">
@@ -49,9 +49,7 @@
 			<tr>
 				<td class="leftTd">备注:</td>
 				<td class="rightTd">
-					<textarea name="remark" class="programCode" style="height: 100px;">
-						<%=(program.getRemark() == null ? "" : program.getRemark()) %>
-					</textarea>
+					<textarea name="remark" class="programCode" style="height: 100px;"><%=(program.getRemark() == null ? "" : program.getRemark()) %></textarea>
 				</td>
 			</tr>
 			<tr>

@@ -26,15 +26,15 @@
 			<p><a href="ProgramManagementServlet">栏目管理</a></p>
 		</div>
 	</div>
-	<div class="addAProgram">
-		<a href="<%=basePath %>/programManagement/jsp/programManagementAdd.jsp">新增</a>
-	</div>
 	<form class="searchForm" action="" method="get">
 		<p>
 			栏目名:<input class="searchInput" placeholder="请输入栏目名" type="text" name="name" value="<%=name%>"/> 
 			<input class="searchButton" type="submit" value="查询"/>
 		</p>
 	</form>
+	<div class="addAProgram">
+		<a href="<%=basePath %>/programManagement/jsp/programManagementAdd.jsp">新增</a>
+	</div>
 	<table class="articleTable">
 		<tr class="thTr">
 			<th style="width:20%;">栏目名</th>
