@@ -46,7 +46,8 @@ public class ModuleImpl implements ModuleDao {
 
 	@Override
 	public Module getById(String mid) {
-		String sql = "SELECT * FROM module WHERE is_delete = 0 AND id = " + mid +";";
+		String sql = "SELECT * FROM module WHERE is_delete = 0 AND id = '" + mid +"';";
+		System.out.println(sql);
 		ArrayList<Module> moduleList = new ArrayList<Module>();
 		Connection connection = DBUtil.open();
 		try{

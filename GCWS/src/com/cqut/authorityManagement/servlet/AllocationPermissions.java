@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cqut.moduleManagement.entity.Module;
 import com.cqut.moduleManagement.impl.ModuleImpl;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 
 /**
  * Servlet implementation class AllocationPermissions
@@ -44,6 +43,8 @@ public class AllocationPermissions extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		String roleId = request.getParameter("roleId");
+		request.setAttribute("roleId", roleId);
 		ModuleImpl moduleImpl = new ModuleImpl();
 		ArrayList<Module> modules = moduleImpl.getAllList();
 		request.setAttribute("modules", modules);
