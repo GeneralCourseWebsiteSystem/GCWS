@@ -2,7 +2,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% ArrayList<Module> modules = (ArrayList<Module>)request.getAttribute("modules"); %>
+    <% 
+    ArrayList<Module> modules = (ArrayList<Module>)request.getAttribute("modules");
+    String roleId = (String)request.getAttribute("roleId");
+    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -79,18 +82,18 @@
 			</p>
 		</div>
 	</div>
-	<div id="main">
+	<form id="main" action="<%=request.getContextPath() %>/UpdatePermission" method="post">
 	<ul id='browser' class='filetree treeview'>
 		<%for(Module module: modules){ %>
 			<% if(module.getParentCode().equals("/")){ %>
 			<li class="collapsable" style="display: block;">
 				<div class="hitarea collapsable-hitarea"></div>
-				<span class='folder'><input type="checkbox" name="ids" id="<%=module.getLevel() %>" pId="0" value="<%=module.getModuleName() %>" onchange="child(this)"/><%=module.getModuleName() %></span>
+				<span class='folder'><input type="checkbox" name="ids" id="<%=module.getLevel() %>" pId="0" value="<%=module.getId() %>" onchange="child(this)"/><%=module.getModuleName() %></span>
 		
 				<ul>
 				<% for(Module c_module: modules){ %>
 					<% if(c_module.getParentCode().equals(module.getModuleCode())){ %>
-					<li><span class='file'><input type="checkbox" name="ids" id='<%=c_module.getLevel() %>' pId="<%=module.getLevel() %>" value="<%=c_module.getModuleName() %>" onchange="child(this)"/><%=c_module.getModuleName() %></span></li>
+					<li><span class='file'><input type="checkbox" name="ids" id='<%=c_module.getLevel() %>' pId="<%=module.getLevel() %>" value="<%=c_module.getId() %>" onchange="child(this)"/><%=c_module.getModuleName() %></span></li>
 					<% } %>
 				<% } %>
 				</ul>
@@ -98,7 +101,11 @@
 			<% } %>
 		<% } %>					
 	</ul>
-</div>
+	<div class="updatePermission">
+		<input type="hidden" name="roleId" value="<%=roleId %>">
+		<input type="submit" value="分配">
+	</div>
+</form>
 	
 </body>
 </html>

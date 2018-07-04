@@ -98,3 +98,36 @@ a{
 	border: 1px solid #999;
 	height: 35px;
 }
+
+#main{
+	padding: 20px 35%;
+    margin: 10px;
+    border-top: 1px solid lightblue;
+}
+
+#browser{
+	border: 1px solid lightgray;
+    padding: 15px;
+}
+
+.updatePermission{
+	height: 40px;
+    text-align: right;
+    padding: 5px 10px;
+}
+
+.updatePermission input{
+	width: 75px;
+    line-height: 40px;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: dodgerblue;
+    color: white;
+    letter-spacing: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.updatePermission input:hover{
+	background-color: grey;
+}
