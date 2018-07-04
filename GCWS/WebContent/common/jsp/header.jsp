@@ -45,7 +45,7 @@
 				<li><a href="<%=request.getContextPath() %>/CourseIntroduce/jsp/CourseIntroduce.jsp" target="innerFrame">课程介绍</a></li>
 				<li><a href="<%=request.getContextPath() %>/TeacherList" target="innerFrame">教学团队</a></li>
 				<li><a href="<%=request.getContextPath() %>/ListFileServlet" target="innerFrame">课程资源</a></li>
-				<li><a href="<%=request.getContextPath() %>/MessageManagement" target="innerFrame">留言</a></li>
+				<li><a href="<%=request.getContextPath() %>/MessageManagement?id=<%=course.getId()%>" target="innerFrame">留言</a></li>
 				<li><a href="<%=request.getContextPath() %>/CourseResearchManagementServlet?id=<%=course.getId()%>" target="innerFrame">课程研究</a></li>
 			</ul>
 		</div>
