@@ -20,13 +20,10 @@
 <body>
 <div class="main">
    <div class="mainTop">
-	   <div class="maintitle"><h3>课程研究</h3>
-	   </div>
-	   <div class="titleline"></div>
-	</div>
-   <div class="return"><a href="<%=request.getContextPath() %>/CourseResearchManagementServlet?id=<%=courseid %>"><h1>返回</h1></a></div>
-   <div class="arname"><h2><%=title %></h2></div>
-   <div class="content">&nbsp;&nbsp;<%=content %></div>
+   <div class="return"><a href="<%=request.getContextPath() %>/CourseResearchManagementServlet?id=<%=courseid %>">返回</a></div>
+   <div class="arname"><%=title %></div>
+   <div class="content"><p><%=content %></p></div>
+   </div>
 </div>
 </body>
 </html>
