@@ -8,16 +8,12 @@ import java.util.Date;
 import java.util.List;
 
 import com.cqut.common.util.DBUtil;
-import com.cqut.common.util.StringUtil;
 import com.cqut.courseIntroduce.dao.CourseIntroduceDao;
 import com.cqut.courseIntroduce.entity.ArticleContent;
 import com.cqut.courseIntroduce.entity.CourseActive;
 import com.cqut.courseIntroduce.entity.CourseArrangeContent;
 import com.cqut.courseIntroduce.entity.CourseIntroduceContent;
 import com.cqut.courseIntroduce.entity.CourseOutlineContent;
-import com.cqut.courseIntroduce.servlet.CourseIntroduce;
-import com.cqut.courseIntroduce.servlet.CourseIntroduceActive;
-import com.cqut.messageManagement.entity.MessageUser;
 
 public class CourseIntroduceDaoImpl implements CourseIntroduceDao {
 

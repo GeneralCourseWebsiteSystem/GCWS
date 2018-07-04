@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cqut.courseResearchManagement.impl.CourseResearchManagementDaoImpl;
+
 /**
  * Servlet implementation class ArticleShow
  */
@@ -46,7 +48,8 @@ public class ArticleShow extends HttpServlet {
 		response.setContentType("text/html;charset=gb2312");
 		 request.setCharacterEncoding("utf-8");
 		 HttpSession session = request.getSession();
-		 String content =request.getParameter("show");
+		 Integer article_id=Integer.parseInt(request.getParameter("show"));
+		 String content = new CourseResearchManagementDaoImpl().getContentById(article_id);
 		 String title =request.getParameter("title");
 		 String courseid =request.getParameter("courseid");
 		 

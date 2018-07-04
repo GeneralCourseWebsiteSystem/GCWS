@@ -4,103 +4,43 @@
 	border:0px;
 	padding: 0px;
 }
-.main{
+
+.teacher_list{
 	width: 100%;
-	height: 770px;
-	margin-top: 2px;
-	background:#f8f8ff;
+	padding-top: 1px;
+	background-color: whitesmoke;
 }
-.mainTop{
-	width: 100%;
-	height: 100px;
-}
-.maintitle{
-	width: 168px;
-	height: 45px;
-	padding-top:5px;
-	padding-left:20px;
-	word-break: break-word;
-	background-color:#a5b0cc;
-}
-.titleline{
-	float: left;
-	width: 100%;
-	height: 3px;
-	background-color:#a5b0cc;
-	position: relative;
-}
-h3{
-	color:white;
-	font-size: 30px;
-	letter-spacing: 12px
-}
-.teacher{
-	width: 70%;
-	height: 125px;
-	margin-left:12%;
-	
-}
-.teachername{
-	width: 20%;
-	height: 110px;
-	margin-left:12px;
-	float:left;
-}
-img{
-	width: 128px;
-	height: 85px;
-}
-h1{
-	font-size: 21px;
-	color:#a5b0cc;
-	text-align:center;
-}
-h2{
-	color:hsla(0, 0%, 1%, 0.59);
-	font-size: 12px;
-	width: 470px;
-	height: 110px;
-}
-.image{
-	background: url('../../common/image/5.jpg')no-repeat 128px 95px;
-	width: 128px;
-	height: 95px;
-	float:left;
-}
-.teacherline{
-	width: 3px;
-	height: 89%;
-	margin-left:20px;
-	float:left;
-	background:#a5b0cc;
-}
-.teacherintroduce{
-	width: 470px;
-	height: 110px;
-	float:right;
-	background:#a5b0cc;
+.teacher_infor{
+	padding: 10px;
+	border: 1px solid #999;
 	border-radius: 10px;
-    border: 1px solid white;
-    word-break: break-word
+	margin-top: 25px;
+	width: 80%;
+	margin: 0 auto;
+	background-color: #FFF0F5;
+	color: #555555;
+	margin-bottom: 25px;
 }
-.title{
+.img{
+	width: 100px;
+	border-radius: 50%;
+	border: 1px solid #999999;
+	height: 100px;
+}
+.teacherTable{
+	width: 100%;
+}
+.leftTd{
+	width: 1%;
+	text-align: center;
+}
+.rightTd{
 	width: 70%;
-	height: 100px;
-	padding-left:15%;
-	padding-right:15%;
-	margin-top: 1px;
-	
+	padding-left: 2%;
 }
-.titleLeft{
-	width: 40px;
-	height: 80px;
-	float: left;
+.teacher_introduce{
+	height: 40px;
 }
-.titleLeftTop{
-	background: url('../../common/image/3.png')no-repeat 30px 30px;
-}
-.titleRight{
-	width: 40px;
-	height: 100px;
-	float: right;
+.teacher_achievement{
+	height: 40px;
 }

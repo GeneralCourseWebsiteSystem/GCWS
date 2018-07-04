@@ -1,0 +1,11 @@
+@charset "UTF-8";
+.time{
+	float:right;
+	margin-top:-23px;
+	
+}
+a{
+	text-decoration:none;
+}
+a:hover{ color:#F00; 
+}

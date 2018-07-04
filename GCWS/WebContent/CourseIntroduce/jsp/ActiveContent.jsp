@@ -17,7 +17,7 @@ List<ArticleContent> content = (List<ArticleContent>) request.getAttribute("Arti
 <div style="word-break:break-all">
 <%=content.get(0).getArticleContent() %>
 <br/>
-<%=list.get(0).getCreateTime() %>
+
 </div>
 </body>
 </html>

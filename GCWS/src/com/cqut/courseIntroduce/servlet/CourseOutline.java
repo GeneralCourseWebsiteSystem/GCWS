@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cqut.courseIntroduce.entity.CourseOutlineContent;
 import com.cqut.courseIntroduce.impl.CourseIntroduceDaoImpl;
@@ -33,8 +34,10 @@ public class CourseOutline extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//获取信息
-				int courseId1 =1;
+			//	int courseId1 =1;
 				
+		HttpSession session = request.getSession();
+		int courseId1 = (Integer) session.getAttribute("courseId");
 				List<CourseOutlineContent> Outline = new CourseIntroduceDaoImpl().getOutlineContent(courseId1);
 				request.setAttribute("Outline", Outline);
 				 request.getRequestDispatcher("CourseIntroduce/jsp/4.jsp").forward(request, response);

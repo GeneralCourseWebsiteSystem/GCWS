@@ -7,6 +7,15 @@ public class CourseResearch {
     private String articlecontent;
     private Date finishtime;
     private String name;
+    private Integer id;
+	public CourseResearch(String articlename, String articlecontent, Date finishtime, String name, Integer id) {
+		super();
+		this.articlename = articlename;
+		this.articlecontent = articlecontent;
+		this.finishtime = finishtime;
+		this.name = name;
+		this.id = id;
+	}
 	public String getArticlename() {
 		return articlename;
 	}
@@ -31,17 +40,12 @@ public class CourseResearch {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public CourseResearch(String articlename, String articlecontent, Date finishtime, String name) {
-		super();
-		this.articlename = articlename;
-		this.articlecontent = articlecontent;
-		this.finishtime = finishtime;
-		this.name = name;
+	public Integer getId() {
+		return id;
 	}
-	public CourseResearch() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setId(Integer id) {
+		this.id = id;
 	}
-    
+	
 	
 }

@@ -31,7 +31,7 @@
 	<%  for(int i=0;i<clist.size();i++) {%>
 	   <div class="content">
 	   <h1> 
-	      <a href="<%=request.getContextPath() %>/ArticleShow?show=<%=clist.get(i).getArticlecontent() %>&title=<%=clist.get(i).getArticlename() %>&courseid=<%=courseid %>"><%=clist.get(i).getArticlename() %>\<%=clist.get(i).getName() %></a>
+	      <a href="<%=request.getContextPath() %>/ArticleShow?show=<%=clist.get(i).getId() %>&title=<%=clist.get(i).getArticlename() %>&courseid=<%=courseid %>"><%=clist.get(i).getArticlename() %>\<%=clist.get(i).getName() %></a>
 	   </h1> 
 	   <h2 >
 	      <%=clist.get(i).getFinishtime() %>
