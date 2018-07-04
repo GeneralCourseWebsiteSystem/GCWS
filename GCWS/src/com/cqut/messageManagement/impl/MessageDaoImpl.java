@@ -194,6 +194,34 @@ public class MessageDaoImpl implements MessageManagementDao {
 			DBUtil.close(connection);
 		}
 	}
+	//根据用户名获取authorId
+	public Integer getIdByName(String UserName) {
+		Integer User_id =1;
+		String sql = "select u.id from user u where u.user_name ='"+UserName+"'";
+		
+		
+		Connection connection = DBUtil.open();
+		try{
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			
+			
+			while(rs.next()){
+				  User_id = rs.getInt(1);
+				
+				
+				
+			}
+			
+			return User_id;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return User_id;
+		} finally {
+			DBUtil.close(connection);
+		}
+	}
+	
 
 
 }

@@ -29,7 +29,7 @@
             }
             page.className = "li";
             // 在同一目录下 创建1.html 2.html 3.html 取消注释下面的iframe 可使用此方法进行切换
-             document.getElementById('content').src = page.rel+".jsp";
+             document.getElementById('content').src = page.rel;
            // document.getElementById('container').innerHTML = "#######" + page.rel;
  
         }
@@ -38,17 +38,19 @@
 </head>
 <body>
 <ul id="menu">
-    <li><a onclick="change(this)" href="javascript:;" rel="1" class="li">课程介绍</a></li>
-    <li><a onclick="change(this)" href="javascript:;" rel="2">课程简介</a></li>
-    <li><a onclick="change(this)" href="javascript:;" rel="3">教学方法</a></li>
-    <li><a onclick="change(this)" href="javascript:;" rel="4">课程安排</a></li>
-    <li><a onclick="change(this)" href="javascript:;" rel="5">课程大纲</a></li>
-    <li><a onclick="change(this)" href="javascript:;" rel="6">理念与目标</a></li>
-    <li><a onclick="change(this)" href="javascript:;" rel="7">课程动态</a></li>
+
+    <li><a onclick="change(this)" href="javascript:;" rel="<%=request.getContextPath()%>/CourseIntroduce">课程简介</a></li>
+    <li><a onclick="change(this)" href="javascript:;" rel="<%=request.getContextPath()%>/CourseIntroduceTeachWay">教学方法</a></li>
+    <li><a onclick="change(this)" href="javascript:;" rel="<%=request.getContextPath()%>/CourseArrange">课程安排</a></li>
+    <li><a onclick="change(this)" href="javascript:;" rel="<%=request.getContextPath()%>/CourseOutline">课程大纲</a></li>
+    <li><a onclick="change(this)" href="javascript:;" rel="<%=request.getContextPath()%>/CourseIntroduceMisStatement">理念与目标</a></li>
+    <li><a onclick="change(this)" href="javascript:;" rel="<%=request.getContextPath()%>/CourseIntroduceActive">课程动态</a></li>
+    
+    
 </ul>
 <div id="container" class="container">
 
-     <iframe id="content" class="iframe" src="1.jsp"></iframe> 
+     <iframe id="content" class="iframe" src="<%=request.getContextPath()%>/CourseIntroduce"></iframe> 
 </div>
 <script type="text/javascript">
     var ul = document.getElementById("menu");
