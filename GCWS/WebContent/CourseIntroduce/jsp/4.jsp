@@ -17,17 +17,18 @@ List<CourseOutlineContent> list = (List<CourseOutlineContent>) request.getAttrib
 <div style="word-break:break-all">
 课程阶段：<%=list.get(0).getCourseStage() %>
 </div>
-<div style="word-break:break-all">
-阶段顺序<%=list.get(0).getStageNo() %>
-</div>
+
 <div style="word-break:break-all">
 阶段内容<%=list.get(0).getStageInfo() %>
 </div>
+
 <div style="word-break:break-all">
 创建时间:<%=list.get(0).getCreateTime() %>
 </div>
+
 <div style="word-break:break-all">
 大纲备注<%=list.get(0).getRemark() %>
 </div>
+
 </body>
 </html>
