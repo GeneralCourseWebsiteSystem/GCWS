@@ -1,7 +1,6 @@
 package com.cqut.userManage.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,8 +23,8 @@ public class UserManageDaoImpl implements UserManageDao {
 	@Override
 	public void addUser(User user) {
 		Connection connection = DBUtil.open();
-		String sql = "insert into `user` (role_id,account,user_name,password,phone_number,is_lock,is_associates,create_time,is_delete) "
-				+ " values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into `user` (role_id,account,user_name,password,phone_number,is_lock,is_associates,create_time,is_delete,remark) "
+				+ " values(?,?,?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 
 		try {
@@ -41,7 +40,7 @@ public class UserManageDaoImpl implements UserManageDao {
 			pstmt.setByte(7, user.getIsAssociates());
 			pstmt.setDate(8, StringUtil.changeToSqlDate(user.getCreateTime()));
 			pstmt.setByte(9, user.getIsDelete());
-//			pstmt.setString(12, user.getRemark());
+			pstmt.setString(10, user.getRemark());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

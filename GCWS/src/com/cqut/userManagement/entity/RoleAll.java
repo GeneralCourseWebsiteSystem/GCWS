@@ -13,6 +13,10 @@ public class RoleAll {
 	
 	private  String remark;
 	
+	public RoleAll() {
+		super();
+	}
+
 	public RoleAll(Integer id, String roleName, Date createTime, Byte isDelete, String remark) {
 		super();
 		this.id = id;

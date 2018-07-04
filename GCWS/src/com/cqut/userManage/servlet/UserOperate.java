@@ -1,9 +1,7 @@
 package com.cqut.userManage.servlet;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -11,8 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.naming.java.javaURLContextFactory;
 
 import com.cqut.userManage.impl.UserManageDaoImpl;
 import com.cqut.userManagement.entity.RoleAll;
@@ -103,6 +99,8 @@ public class UserOperate extends HttpServlet {
 		if(operate.equals("addUser")) {
 			User user = new User();
 			int roleId = Integer.parseInt(request.getParameter("role"));
+			UserDaoImpl userDaoImpl = new UserDaoImpl();
+			RoleAll roleAll = userDaoImpl.getRoleId(roleId);
 			String userAccount = request.getParameter("userAccount");
 			String userPassword = request.getParameter("userPassword");
 			String userName = request.getParameter("userName");
@@ -119,6 +117,7 @@ public class UserOperate extends HttpServlet {
 			user.setIsAssociates(is_associates);
 			user.setIsDelete(is_delete);
 			user.setCreateTime(new Date());
+			user.setRemark(roleAll.getRoleName());
 			userManageDaoImpl.addUser(user);
 			response.sendRedirect("UserManage");
 		}
