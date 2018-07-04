@@ -80,18 +80,20 @@ body {
 }
 
 .addbtn{
+	font-weight: bold;
+	font-size: 14px;
 	margin-left: 2%;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
 .addbtn p{
-	width: 55px;
-    height: 24px;
+	width: 5%;
+    height: 23px;
     text-align: center;
-    border: 1px solid lightgrey;
-    background-color: #3CB371;
-    border-radius: 8px;
+    border: 1px solid #999;
+    background-color: #91C0E3;
+    border-radius: 5px;
 }
 
 .addbtn p:hover{
@@ -119,8 +121,19 @@ body {
 	height: 30px;
 	color: #555;
 }
-
+.userTable tr:nth-child(odd){
+	background-color: white;
+}
 .thTr{
 	border: 1px solid #999;
 	height: 35px;
+}
+
+.hrefA{
+	color: #666666;
+	text-decoration: none;
+}
+
+.hrefA:hover{
+	color: #3CB371;
 }

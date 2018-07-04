@@ -62,15 +62,15 @@
 			<td><%=users.get(i).getPhoneNumber() %></td>
 			<td><%=users.get(i).getCreateTime() %></td>
 			<td><%=users.get(i).getIsLock() %></td>
-			<td><a
-				href="UserOperate?id=<%= users.get(i).getId() %>&operate=show">查看</a>
-				<a href="UserOperate?id=<%= users.get(i).getId() %>&operate=edit">编辑</a>
-				<% if(users.get(i).getIsLock() == 0){ %> <a
-				href="UserOperate?id=<%= users.get(i).getId() %>&operate=lock">锁定</a>
-				<% } %> <% if(users.get(i).getIsLock() == 1){ %> <a
-				href="UserOperate?id=<%= users.get(i).getId() %>&operate=unlock">解锁</a>
-				<% } %> <a href="javascript:void(0)"
-				onclick="delet(<%= users.get(i).getId() %>)">删除</a></td>
+			<td>
+			<a class="hrefA" href="UserOperate?id=<%= users.get(i).getId() %>&operate=show">查看</a>
+			<a class="hrefA" href="UserOperate?id=<%= users.get(i).getId() %>&operate=edit">编辑</a>
+			<% if(users.get(i).getIsLock() == 0){ %> 
+			<a class="hrefA" href="UserOperate?id=<%= users.get(i).getId() %>&operate=lock">锁定</a>
+			<% } %> <% if(users.get(i).getIsLock() == 1){ %> 
+			<a class="hrefA" href="UserOperate?id=<%= users.get(i).getId() %>&operate=unlock">解锁</a>
+			<% } %> 
+			<a class="hrefA" href="javascript:void(0)" onclick="delet(<%= users.get(i).getId() %>)">删除</a></td>
 		</tr>
 		<%} %>
 	</table>

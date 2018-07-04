@@ -14,14 +14,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="<%=request.getContextPath()%>/RoleAllocationAdd" method="post">
-	    <div class="struct">
-	                       <p>新增角色</p>
-		<div class="content">新角色：<input type="text" placeholder="新增角色" name="newRole"></div>
-		<div class="note">新备注：<input type="text" placeholder="备注" name="newRemark"></div>
-		<div class="btn"><input type="submit" name="submit"  value="增加"class="newAdd"></div>
-		<div class="btn"><a href ="<%=request.getContextPath()%>/RoleAllocationBackManage" class="newAdd">取__消</a></div>
+	<div class="articleHead">
+		<div class="curLocation articleDetail">
+			<p>
+				<a href="RoleAllocationBackManage">角色管理 </a> >> <a>新增</a>
+			</p>
 		</div>
+	</div>
+	<form class="programForm" action="<%=request.getContextPath()%>/RoleAllocationAdd" method="post">
+		<table class="programTable">
+			<tr>
+				<td class="leftTd">角色名:</td>
+				<td><input class="inputText type="text" placeholder="角色名" name="newRole"></td>
+			</tr>
+			<tr>
+				<td class="leftTd">备注:</td>
+				<td><input class="inputText type="text" placeholder="备注" name="newRemark"></td>
+			</tr>
+			<tr>
+				<td class="leftTd"></td>
+				<td>
+					<input class="submitBT formBT" type="submit" name="submit"  value="保存"class="newAdd">
+					<input class="returnBT formBT" type="button" onclick="window.location.href='<%=request.getContextPath()%>/RoleAllocationBackManage'"  value="取消"class="newAdd">
+				</td>
+			</tr>
+	   	</table>
 	</form>
 </body>
 </html>
