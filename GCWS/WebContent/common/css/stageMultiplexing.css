@@ -12,49 +12,54 @@ a{
 }
 
 .header{
-	height: 300px;
-    width: 956px;
-    padding: 0 15%;
+	height: 200px;
+    width: 100%;    
     background: #a5b0cc;
+}
+
+.header_box{
+	padding: 0 15%;
+	height: 100%;
 }
 
 .header_top{
 	width: 100%;
-    height: 175px;
-    padding-top: 30px;
+    height: 100px;
+    padding-top: 11px;
 }
 
 .header_left{
 	float: left;
-    width: 565px;
+    width: 60%;
+    height: 100%;
 }
 
 .header_logo{
     overflow: hidden;
-    height: 70px;
+    height: 50%;
     margin-bottom: 15px;
 }
 
 .header_logo img{
-	width: 12%;
+	height: 100%;
 }
 
 .header_logo label{
-	font-size: 45px;
+	font-size: 40px;
     line-height: 30px;
     color: white;
     position: relative;
-    bottom: 20px;
+    bottom: 20%;;
     left: 10px;
     letter-spacing: 5px;
     font-family: 华文行楷;
 }
 
 .header_title{
-    width: 420px;
-    line-height: 75px;
-    padding-left: 40px;
-    font-size: 30px;
+    width: 80%;
+    height: 35%;
+    padding-left: 15%;
+    font-size: 25px;
     color: white;
     border-left: 1px solid white;
     border-top: 1px solid white;
@@ -64,11 +69,14 @@ a{
 
 .header_right{
 	float: right;
-    width: 375px;
+    width: 40%;
+    height: 100%;
 }
 
 .header_img{
-	height: 160px;
+	height: 100%;
+    width: 75%;
+    margin: 0 auto;
     border-top-left-radius: 200px;
     border-bottom-right-radius: 200px;
     overflow: hidden;
@@ -81,9 +89,9 @@ a{
 }
 
 .course_search{
-	line-height: 60px;
+	line-height: 50px;
     text-align: right;
-    width: 880px;
+    width: 100%;
 }
 
 .course_search span{
@@ -129,14 +137,20 @@ a{
     cursor: pointer;
 }
 
-.frame{
-	height: 775px;
+.course_nav a:hover{
+	color: lightred;
 }
 
-iframe{
-	width: 956px;
-	height: 100%;
-	margin-left: 202px;
+.frame{
+	width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px 0px;
+}
+
+.innerFrame{
+	min-height: 810px;
+    width: 100%;
 }
 
 .footer{
