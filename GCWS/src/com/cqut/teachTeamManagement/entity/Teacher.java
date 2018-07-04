@@ -10,8 +10,9 @@ import java.sql.Date;
  */
 
 public class Teacher {
+
 	private int id;
-	
+
 	private int user_id;
 	
 	private int course_id;
@@ -106,4 +107,5 @@ public class Teacher {
 		this.is_delete = is_delete;
 		this.remark = remark;
 	}
+	
 }

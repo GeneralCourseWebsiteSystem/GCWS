@@ -72,5 +72,10 @@ public interface ModuleDao {
 	 */
 	public ArrayList<Module> getNullParentCode();
 
-	
+	/**
+	 * 根据角色id获取所有的模块信息
+	 * @param roleId
+	 * @return
+	 */
+	public ArrayList<Module> getByRoleId(String roleId);
 }
