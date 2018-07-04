@@ -266,5 +266,4 @@ public class ModuleImpl implements ModuleDao {
 			DBUtil.close(connection);
 		}
 	}
-
 }

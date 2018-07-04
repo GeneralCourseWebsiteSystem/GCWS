@@ -3,6 +3,7 @@ package com.cqut.userManagement.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
@@ -256,10 +257,35 @@ String sql = "SELECT r.id, u.id, r.role_name, u.user_name, u.account "
 		}
 	}
 
+	/**
+	 * 
+	 * @author 刘华
+	 * 通过角色id获得角色的是所有信息
+	 */
 	@Override
 	public RoleAll getRoleId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection  = DBUtil.open();
+		String sql = "select * from `role` where id = "+id;
+		System.out.println(sql);
+		RoleAll role = new RoleAll();
+		try {
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			ResultSet rSet = pstmt.executeQuery();
+			while(rSet.next()) {
+				role.setId(rSet.getInt(1));
+				role.setRoleName(rSet.getString(2));
+				role.setCreateTime((java.util.Date)rSet.getDate(3));
+				role.setIsDelete(rSet.getByte(4));
+				role.setRemark(rSet.getString(5));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(connection);
+		}
+		return role;
 	}
 	
 	//角色管理查询分页查询所有的角色

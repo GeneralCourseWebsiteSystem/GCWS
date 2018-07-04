@@ -23,17 +23,21 @@
 <body>
 
 <div class="main">
-	<div class="title">
-	    <div class="titleLeft">
-	         <div class="titleLeftTop">
-	         
-	         </div>
-	         
-	    </div>
-	      
-	    <div class="titleRight">
-	    </div>
+    <div class="mainTop">
+	   <div class="maintitle"><h3>教学团队</h3>
+	   </div>
+	   <div class="titleline"></div>
 	</div>
+	<% for(int i=0;i<tlist.size();i++ ){%>
+	<div class="teacher">
+	    <div class="teachername">
+	         <img src="../../common/image/5.jpg" />
+	        <h1><%=tlist.get(i).getUseranme() %></h1>
+	    </div>
+	    <div class="teacherline"></div>
+	    <div class="teacherintroduce"><h2>&nbsp;&nbsp;&nbsp;&nbsp;<%=tlist.get(i).getTeacherIntroduce() %></h2></div>
+	</div>
+    <%} %>
 </div>
 
 </body>

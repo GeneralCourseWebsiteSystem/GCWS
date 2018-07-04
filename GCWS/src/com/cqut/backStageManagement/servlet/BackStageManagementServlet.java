@@ -65,33 +65,28 @@ public class BackStageManagementServlet extends HttpServlet {
 
 		ArrayList<BackUser> userList = userDao.getAll();
 		BackUser user = userDao.getId(username);
+		
 
-		if (user.getAccount() == "") {
-			out.print("window.location='ReturnLogin?do=login';</script>");
+		if(user.getAccount() == null) {
+			out.print("<script>alert('账号不存在！');window.location='ReturnBackStageLogin';</script>");
 			return;
-
 		} else {
 			RoleUserLink role = userDao.getUserRole(user.getId());
-
-			for (int i = 0; i < userList.size(); i++) {
-				if (userList.get(i).getAccount().equals(username)) {
-					if (pwd.equals(user.getPassword())) {
-						session.setAttribute("userid", user.getId()); 
-						session.setAttribute("username",user.getUserName());
-						session.setAttribute("roleId",role.getId());
-						response.sendRedirect("common/jsp/leftNav.jsp");
-					} else {
-						out.print("<script>alert('密码错误');window.location='ReturnBackStageLogin?do=login';</script>");
-						return;
-					}
+			if(user.getIsLock() == 1) {
+				out.print("<script>alert('账号被锁，请联系管理员！');window.location='ReturnBackStageLogin';</script>");
+				return;
+			} else {
+				if (pwd.equals(user.getPassword())) {
+					session.setAttribute("userid", user.getId()); 
+					session.setAttribute("username",user.getUserName());
+					session.setAttribute("roleId",role.getId());
+					response.sendRedirect("common/jsp/leftNav.jsp");
 				} else {
-					result = false;
+					out.print("<script>alert('密码错误！');window.location='ReturnBackStageLogin';</script>");
+					return;
 				}
 			}
-			if (result == false) {
-				out.print("<script>alert('没有此账号');window.location='ReturnBackStageLogin?do=login';</script>");
-				return;
-			}
+		
 
 		}
 
