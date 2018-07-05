@@ -14,8 +14,8 @@ List<CourseArrangeContent> list = (List<CourseArrangeContent>) request.getAttrib
 <body>
 课程安排
 <hr style="height:3px;border:none;border-top:3px double red;" />
-<div style="width: 60%;margin: 0 auto;">
-<img class="image" alt="." src="<%=request.getContextPath()%>/<%=list.get(0).getArrangePath() %>">
+<div style="width: 80%;margin: 0 auto;">
+<img style="width: 100%;" alt="." src="<%=request.getContextPath()%>/<%=list.get(0).getArrangePath() %>">
 </div>
 </body>
 </html>

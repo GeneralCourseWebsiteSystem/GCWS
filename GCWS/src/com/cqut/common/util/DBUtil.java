@@ -13,7 +13,7 @@ public class DBUtil {
 	private static String driver = "com.mysql.jdbc.Driver";
 
 	//数据库位置
-	private static String url = "jdbc:mysql://localhost:3306/gcws?Unicode\\=true&characterEncoding\\=UTF-8";
+	private static String url = "jdbc:mysql://localhost:3306/gcws_test?Unicode\\=true&characterEncoding\\=UTF-8";
 
 	//用户名
 	private static String username = "root";
