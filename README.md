@@ -63,3 +63,7 @@ GCWS通用课程网站系统
 #
 ## Dao层定义
 用注释写明每个方法的用处<br>
+#
+## 索引
+[后台登录](http://localhost:8080/GCWS/BackManagementQuit).
+[前台](http://localhost:8080/GCWS/HomePage).
