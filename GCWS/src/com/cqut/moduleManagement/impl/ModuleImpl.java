@@ -272,8 +272,9 @@ public class ModuleImpl implements ModuleDao {
 	public ArrayList<Module> getByRoleId(String roleId) {
 		String sql = "SELECT m.id, m.module_code, m.module_name, m.module_path, m.parent_code, "
 				+ "m.is_menu, m.`level`, m.create_time, m.is_delete, m.remark "
-				+ "FROM module m, module_role mr WHERE mr.module_id = m.id AND mr.role_id = " + roleId + " "
+				+ "FROM module m, module_role mr WHERE mr.is_delete = 0 AND mr.module_id = m.id AND mr.role_id = " + roleId + " "
 				+ "GROUP BY m.module_code;";
+		System.out.println(sql);
 		ArrayList<Module> moduleList = new ArrayList<Module>();
 		Connection connection = DBUtil.open();
 		try{
