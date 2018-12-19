@@ -15,7 +15,7 @@ public class ModuleImpl implements ModuleDao {
 
 	@Override
 	public ArrayList<Module> getAllList() {
-		String sql = "SELECT * FROM module WHERE is_delete = 0 GROUP BY module_code;";
+		String sql = "SELECT * FROM module WHERE is_delete = 0 ORDER BY module_code;";
 		ArrayList<Module> moduleList = new ArrayList<Module>();
 		Connection connection = DBUtil.open();
 		try{
